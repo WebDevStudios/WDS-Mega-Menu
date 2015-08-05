@@ -1,0 +1,17 @@
+{
+  "generator-plugin-wp": {
+    "name": "WDS Mega Menus",
+    "homepage": "http://webdevstudios.com",
+    "description": "Make Magnificently Magical Mega Menus and More",
+    "version": "0.1.0",
+    "author": "WebDevStudios",
+    "authoremail": "contact@webdevstudios.com",
+    "authorurl": "http://webdevstudios.com",
+    "license": "GPLv2",
+    "slug": "wds-mega-menus",
+    "classname": "WDS_Mega_Menus",
+    "classprefix": "WDSMM_",
+    "prefix": "wds_mega_menus",
+    "year": 2015
+  }
+}
