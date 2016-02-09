@@ -5,7 +5,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	* What the class handles.
 	*
 	* @see Walker::$tree_type
-	* @since 3.0.0
+	* @since 3.0.0 (WordPress)
 	* @var string
 	*/
 	public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
@@ -14,7 +14,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	 * Database fields to use.
 	 *
 	 * @see Walker::$db_fields
-	 * @since 3.0.0
+	 * @since 3.0.0 (WordPress)
 	 * @todo Decouple this.
 	 * @var array
 	 */
@@ -25,7 +25,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	 *
 	 * @see Walker::start_lvl()
 	 *
-	 * @since 3.0.0
+	 * @since 3.0.0 (WordPress)
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param int    $depth  Depth of menu item. Used for padding.
@@ -45,7 +45,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	 *
 	 * @see Walker::end_lvl()
 	 *
-	 * @since 3.0.0
+	 * @since 3.0.0 (WordPress)
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param int    $depth  Depth of menu item. Used for padding.
@@ -61,7 +61,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	 *
 	 * @see Walker::start_el()
 	 *
-	 * @since 3.0.0
+	 * @since 3.0.0 (WordPress)
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param object $item   Menu item data object.
@@ -78,8 +78,8 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 		/**
 		 * Filter the CSS class(es) applied to a menu item's list item element.
 		 *
-		 * @since 3.0.0
-		 * @since 4.1.0 The `$depth` parameter was added.
+		 * @since 3.0.0 (WordPress)
+		 * @since 4.1.0 The `$depth` parameter was added. (WordPress)
 		 *
 		 * @param array  $classes The CSS classes that are applied to the menu item's `<li>` element.
 		 * @param object $item    The current menu item.
@@ -92,8 +92,8 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 		/**
 		 * Filter the ID applied to a menu item's list item element.
 		 *
-		 * @since 3.0.1
-		 * @since 4.1.0 The `$depth` parameter was added.
+		 * @since 3.0.1 (WordPress)
+		 * @since 4.1.0 The `$depth` parameter was added. (WordPress)
 		 *
 		 * @param string $menu_id The ID that is applied to the menu item's `<li>` element.
 		 * @param object $item    The current menu item.
@@ -114,8 +114,8 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 		/**
 		 * Filter the HTML attributes applied to a menu item's anchor element.
 		 *
-		 * @since 3.6.0
-		 * @since 4.1.0 The `$depth` parameter was added.
+		 * @since 3.6.0 (WordPress)
+		 * @since 4.1.0 The `$depth` parameter was added. (WordPress)
 		 *
 		 * @param array $atts {
 		 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
@@ -204,7 +204,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 		 * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
 		 * no filter for modifying the opening and closing `<li>` for a menu item.
 		 *
-		 * @since 3.0.0
+		 * @since 3.0.0 (WordPress)
 		 *
 		 * @param string $item_output The menu item's starting HTML output.
 		 * @param object $item        Menu item data object.
@@ -219,7 +219,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	 *
 	 * @see Walker::end_el()
 	 *
-	 * @since 3.0.0
+	 * @since 3.0.0 (WordPress)
 	 *
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param object $item   Page data object. Not used.
