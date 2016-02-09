@@ -34,9 +34,9 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
 		if ( 1 == $depth ) {
-			$output .= "\n$indent<ul class=\"sub-menu\">\n";
+			$output .= "\n$indent<ul class=\"sub-menu depth-$depth\">\n";
 		} else {
-			$output .= "\n$indent<ul class=\"sub-menu\">\n";
+			$output .= "\n$indent<ul class=\"sub-menu depth-$depth\">\n";
 		}
 	}
 
@@ -70,10 +70,18 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	 * @param int    $id     Current item ID.
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
+
+		// Hide on mobile.
+		$hide_on_mobile = get_post_meta( $item->ID, 'hide_menu_on_mobile', true );
+		if ( $hide_on_mobile ) {
+			$classes[] = 'menu-item-hide-on-mobile';
+		}
 
 		/**
 		 * Filter the CSS class(es) applied to a menu item's list item element.
@@ -140,12 +148,11 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 		}
 
 		$icon = get_post_meta( $item->ID, '_menu_item_icon', true );
-
 		$item_output = isset( $args->before ) ? $args->before : '';
 
 		// Add the menu link.
 		$item_output .= '<a' . $attributes . '>';
-			$item_output .= ( ! $icon ) ? '' : $this->get_svg( $icon );
+			$item_output .= ( ! $icon ) ? $this->get_svg( apply_filters( 'wds_mega_menu_default_icon', false ) ) : $this->get_svg( $icon );
 			// This filter is documented in wp-includes/post-template.php
 			$item_output .= isset( $args->link_before ) ? $args->link_before : '';
             $item_output .= apply_filters( 'the_title', $item->title, $item->ID );
@@ -153,7 +160,7 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 		$item_output .= '</a>';
 
 		// The item content.
-		$item_content = apply_filters( 'wds-mega-menu-content', apply_filters( 'the_content', $item->post_content, $item->ID ) );
+		$item_content = apply_filters( 'wds-mega-menu-content', wpautop( $item->post_content ) );
 
 		// Use an inline image, or CSS on a Div?
 		$item_use_real_image = apply_filters( 'wds-mega-menu-inline-image', true );
@@ -231,11 +238,15 @@ class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 	}
 
 	function get_svg( $icon_name ) {
-		$svg = '<svg class="icon icon-' . esc_html( $icon_name ) . '">';
-		$svg .= '	<use xlink:href="#icon-' . esc_html( $icon_name ) . '"></use>';
-		$svg .= '</svg>';
+		if ( $icon_name && ! empty( $icon_name ) ) {
+			$svg = '<svg class="icon icon-' . esc_html( $icon_name ) . '">';
+			$svg .= '	<use xlink:href="#icon-' . esc_html( $icon_name ) . '"></use>';
+			$svg .= '</svg>';
 
-		return $svg;
+			return $svg;
+		}
+
+		return false;
 	}
 
 }
