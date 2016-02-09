@@ -1,4 +1,4 @@
-# WDS Mega Menus #  
+# WDS Mega Menus  
 **Contributors:**      [dustyf](https://github.com/dustyf), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal), [aubreypwd](https://github.com/aubreypwd)  
 **Donate link:**       http://webdevstudios.com  
 **Tags:**  
