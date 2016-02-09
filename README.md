@@ -1,5 +1,5 @@
 # WDS Mega Menus #  
-**Contributors:**      [dustyf](https://github.com/dustyf), [colorfultones](https://github.com/colorfultones), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal)  
+**Contributors:**      [dustyf](https://github.com/dustyf), [colorful-tones](https://github.com/colorful-tones), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal)  
 **Donate link:**       http://webdevstudios.com  
 **Tags:**  
 **Requires at least:** 3.6.0  
