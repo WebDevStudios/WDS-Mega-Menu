@@ -86,13 +86,9 @@ class WDSMM_Admin {
 			return;
 		}
 
-		// Define svg sprite file
-		$svg_defs = get_template_directory() . '/images/svg-defs.svg';
-
-		// If it exsists, include it
-		if ( file_exists( $svg_defs ) ) {
-			require_once( $svg_defs );
-		}
+		// Define svg sprite file. Use the one in the theme if it exists.
+		$svg_defs = ( file_exists( get_template_directory() . '/images/svg-defs.svg' ) ) ? get_template_directory() . '/images/svg-defs.svg' : dirname( plugin_dir_path( __FILE__ ) ) . '/assets/images/svg-defs.svg';
+		require_once( $svg_defs );
 	}
 
 	/**
