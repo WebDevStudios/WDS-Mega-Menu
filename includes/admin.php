@@ -82,7 +82,7 @@ class WDSMM_Admin {
 	 */
 	public function include_svg_definitions() {
 		$screen = get_current_screen();
-		if ( 'nav-menus'  !== $screen->id ) {
+		if ( 'nav-menus' !== $screen->id ) {
 			return;
 		}
 
