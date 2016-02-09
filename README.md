@@ -1,11 +1,11 @@
-# WDS Mega Menus #
-**Contributors:**      WebDevStudios
-**Donate link:**       http://webdevstudios.com
-**Tags:**
-**Requires at least:** 3.6.0
-**Tested up to:**      4.4.2
-**Stable tag:**        0.2.0
-**License:**           GPLv2
+# WDS Mega Menus #  
+**Contributors:**      [dustyf](https://github.com/dustyf), [colorfultones](https://github.com/colorfultones), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal)  
+**Donate link:**       http://webdevstudios.com  
+**Tags:**  
+**Requires at least:** 3.6.0  
+**Tested up to:**      4.4.2  
+**Stable tag:**        0.2.0  
+**License:**           GPLv2  
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description ##
