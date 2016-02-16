@@ -1,31 +1,10 @@
-# WDS Mega Menus #
-**Contributors:**      WebDevStudios
-**Donate link:**       http://webdevstudios.com
-**Tags:**
-**Requires at least:** 3.6.0
-**Tested up to:**      3.6.0
-**Stable tag:**        0.1.0
+# WDS Mega Menus
+
+Make magnificently magical Mega Menus.
+
 **License:**           GPLv2
+
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
 
-## Description ##
-
-Make Magnificently Magical Mega Menus and More
-
-## Installation ##
-
-### Manual Installation ###
-
-1. Upload the entire `/wds-mega-menus` directory to the `/wp-content/plugins/` directory.
-2. Activate WDS Mega Menus through the 'Plugins' menu in WordPress.
-
-## Frequently Asked Questions ##
-
-
-## Screenshots ##
-
-
-## Changelog ##
-
-### 0.1.0 ###
-* First release
+This project is currently under development. If you want to help out,
+check out the [Issues](https://github.com/WebDevStudios/WDS-Mega-Menu/issues) tab.
