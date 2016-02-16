@@ -1,18 +1,19 @@
 <?php
-/**
-* Plugin Name: WDS Mega Menus
-* Plugin URI:  http://webdevstudios.com
-* Description: Make Magnificently Magical Mega Menus and More
-* Version:     1.1-dev
-* Author:      WebDevStudios
-* Author URI:  http://webdevstudios.com
-* Donate link: http://webdevstudios.com
-* License:     GPLv2
-* Text Domain: wds-mega-menus
- * Domain Path: /languages
- */
 
-/**
+/*
+Plugin Name: WDS Mega Menus
+Plugin URI:  http://webdevstudios.com
+Description: Make magnificently magical Mega Menus and more.
+Version:     1.1-dev
+Author:      WebDevStudios
+Author URI:  http://webdevstudios.com
+Donate link: http://webdevstudios.com
+License:     GPLv2
+Text Domain: wds-mega-menus
+Domain Path: /languages
+*/
+
+/*
  * Copyright (c) 2015 WebDevStudios (email : contact@webdevstudios.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,10 +29,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- */
-
-/**
- * Built using generator-plugin-wp
  */
 
 require 'includes/walker.php';
