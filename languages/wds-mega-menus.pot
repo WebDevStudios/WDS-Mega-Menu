@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WDS Mega Menus 1.0\n"
+"Project-Id-Version: WDS Mega Menus 1.1-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wds-mega-menus\n"
-"POT-Creation-Date: 2016-02-16 14:28:56+00:00\n"
+"POT-Creation-Date: 2016-02-16 14:59:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,7 +70,7 @@ msgid "http://webdevstudios.com"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Make Magnificently Magical Mega Menus and More"
+msgid "Make magnificently magical Mega Menus and more."
 msgstr ""
 
 #. Author of the plugin/theme

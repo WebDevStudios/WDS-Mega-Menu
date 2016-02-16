@@ -11,7 +11,7 @@ License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Make Magnificently Magical Mega Menus and More
+Make magnificently magical Mega Menus and more.
 
 == Installation ==
 
