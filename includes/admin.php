@@ -1,7 +1,7 @@
 <?php
 /**
  * WDS Mega Menus Admin
- * @version 0.1.0
+ * @version 1.0.0
  * @package WDS Mega Menus
  */
 
@@ -10,14 +10,14 @@ class WDSMM_Admin {
 	 * Parent plugin class
 	 *
 	 * @var class
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
 	protected $plugin = null;
 
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @return  null
 	 */
 	public function __construct( $plugin ) {
@@ -28,7 +28,7 @@ class WDSMM_Admin {
 	/**
 	 * Initiate our hooks
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @return  null
 	 */
 	public function hooks() {
@@ -53,7 +53,7 @@ class WDSMM_Admin {
 		}
 
 		wp_enqueue_media();
-		wp_enqueue_script( 'wds-mega-menus', $this->plugin->url . 'assets/js/wds-mega-menus.js', array( 'jquery' ), '0.1.0' );
+		wp_enqueue_script( 'wds-mega-menus', $this->plugin->url . 'assets/js/wds-mega-menus.js', array( 'jquery' ), '1.0.0' );
 
 		wp_enqueue_style( 'wdsmm-admin', $this->plugin->url . 'assets/css/admin.css', '', '20150727' );
 		wp_enqueue_script( 'bootstrap-dropdown', $this->plugin->url . 'assets/js/dropdowns-enhancement.js', array( 'jquery' ), '20150724', true );

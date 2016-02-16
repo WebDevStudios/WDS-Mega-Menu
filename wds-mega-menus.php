@@ -3,7 +3,7 @@
 * Plugin Name: WDS Mega Menus
 * Plugin URI:  http://webdevstudios.com
 * Description: Make Magnificently Magical Mega Menus and More
-* Version:     0.1.0
+* Version:     1.0
 * Author:      WebDevStudios
 * Author URI:  http://webdevstudios.com
 * Donate link: http://webdevstudios.com
@@ -34,7 +34,6 @@
  * Built using generator-plugin-wp
  */
 
-
 require 'includes/walker.php';
 require 'includes/nav-menu-edit-walker.php';
 
@@ -42,7 +41,7 @@ require 'includes/nav-menu-edit-walker.php';
 /**
  * Main initiation class
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @var  string $version  Plugin version
  * @var  string $basename Plugin basename
  * @var  string $url      Plugin URL
@@ -54,15 +53,15 @@ class WDS_Mega_Menus {
 	 * Current version
 	 *
 	 * @var  string
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
-	const VERSION = '0.1.0';
+	const VERSION = '1.0.0';
 
 	/**
 	 * URL of plugin directory
 	 *
 	 * @var string
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
 	protected $url      = '';
 
@@ -70,7 +69,7 @@ class WDS_Mega_Menus {
 	 * Path of plugin directory
 	 *
 	 * @var string
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
 	protected $path     = '';
 
@@ -78,7 +77,7 @@ class WDS_Mega_Menus {
 	 * Plugin basename
 	 *
 	 * @var string
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
 	protected $basename = '';
 
@@ -86,14 +85,14 @@ class WDS_Mega_Menus {
 	 * Singleton instance of plugin
 	 *
 	 * @var WDS_Mega_Menus
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
 	protected static $single_instance = null;
 
 	/**
 	 * Creates or returns an instance of this class.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @return WDS_Mega_Menus A single instance of this class.
 	 */
 	public static function get_instance() {
@@ -107,7 +106,7 @@ class WDS_Mega_Menus {
 	/**
 	 * Sets up our plugin
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @return  null
 	 */
 	protected function __construct() {
@@ -123,7 +122,7 @@ class WDS_Mega_Menus {
 	/**
 	 * Attach other plugin classes to the base plugin class.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @return  null
 	 */
 	function plugin_classes() {
@@ -133,7 +132,7 @@ class WDS_Mega_Menus {
 	/**
 	 * Add hooks and filters
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @return null
 	 */
 	public function hooks() {
@@ -146,7 +145,7 @@ class WDS_Mega_Menus {
 	/**
 	 * Activate the plugin
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @return null
 	 */
 	function _activate() {
@@ -158,7 +157,7 @@ class WDS_Mega_Menus {
 	 * Deactivate the plugin
 	 * Uninstall routines should be in uninstall.php
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @return null
 	 */
 	function _deactivate() {}
@@ -166,7 +165,7 @@ class WDS_Mega_Menus {
 	/**
 	 * Init hooks
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @return null
 	 */
 	public function init() {
@@ -176,7 +175,7 @@ class WDS_Mega_Menus {
 	/**
 	 * Magic getter for our object.
 	 *
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 * @param string $field
 	 * @throws Exception Throws an exception if the field is invalid.
 	 * @return mixed
@@ -199,7 +198,7 @@ class WDS_Mega_Menus {
  * Grab the WDS_Mega_Menus object and return it.
  * Wrapper for WDS_Mega_Menus::get_instance()
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @return WDS_Mega_Menus  Singleton instance of plugin class.
  */
 function wds_mega_menus() {
