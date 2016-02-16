@@ -3,7 +3,7 @@
 * Plugin Name: WDS Mega Menus
 * Plugin URI:  http://webdevstudios.com
 * Description: Make Magnificently Magical Mega Menus and More
-* Version:     1.0
+* Version:     1.1-dev
 * Author:      WebDevStudios
 * Author URI:  http://webdevstudios.com
 * Donate link: http://webdevstudios.com
