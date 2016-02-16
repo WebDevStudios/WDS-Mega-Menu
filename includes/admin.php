@@ -127,19 +127,31 @@ class WDSMM_Admin {
 	 */
 	public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 
+		// Hide on mobile.
+		if ( isset( $_POST['hide-menu-on-mobile'][$menu_item_db_id] ) ) {
+			update_post_meta( $menu_item_db_id, 'hide_menu_on_mobile', empty( $_POST['hide-menu-on-mobile'][ $menu_item_db_id ] ) ? false : 'on' );
+		} else {
+			delete_post_meta( $menu_item_db_id, 'hide_menu_on_mobile' );
+		}
+
+		// Image.
 		if ( isset( $_POST['menu-item-image'] ) && is_array( $_POST['menu-item-image'] ) ) {
-			if ( ! $_POST['menu-item-image'][$menu_item_db_id] ) {
+			if ( ! isset( $_POST['menu-item-image'][$menu_item_db_id] ) || ! $_POST['menu-item-image'][$menu_item_db_id] ) {
 				delete_post_thumbnail( $menu_item_db_id );
 			}
 
-			set_post_thumbnail( $menu_item_db_id, absint( $_POST['menu-item-image'][$menu_item_db_id] ) );
+			if ( isset( $_POST['menu-item-image'][$menu_item_db_id] ) ) {
+				set_post_thumbnail( $menu_item_db_id, absint( $_POST['menu-item-image'][$menu_item_db_id] ) );
+			}
 		}
 
 		if ( isset( $_POST['menu-item-icon'] ) && is_array( $_POST['menu-item-icon'] ) ) {
-			update_post_meta( $menu_item_db_id, '_menu_item_icon', sanitize_text_field( $_POST['menu-item-icon'][$menu_item_db_id] ) );
+			if ( isset( $_POST['menu-item-icon'][$menu_item_db_id] ) ) {
+				update_post_meta( $menu_item_db_id, '_menu_item_icon', sanitize_text_field( $_POST['menu-item-icon'][$menu_item_db_id] ) );
+			}
 		}
 
-		if ( isset( $_POST['menu-item-widget-area'] ) && is_array( $_POST['menu-item-widget-area'] ) ) {
+		if ( isset( $_POST['menu-item-widget-area'] ) && isset( $_POST['menu-item-widget-area'][$menu_item_db_id] ) && is_array( $_POST['menu-item-widget-area'] ) ) {
 			update_post_meta( $menu_item_db_id, '_menu_item_widget_area', sanitize_text_field( $_POST['menu-item-widget-area'][$menu_item_db_id] ) );
 		}
 
