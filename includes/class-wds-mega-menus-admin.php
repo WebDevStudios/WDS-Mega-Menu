@@ -19,7 +19,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			add_action( 'wp_update_nav_menu_item', array( $this, 'update_nav_fields'), 10, 3 );
 			add_filter( 'wp_edit_nav_menu_walker', array( $this, 'nav_menu_edit_walker' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
-			add_action( 'admin_print_styles', array( $this, 'print_styles' ) );
 			add_action( 'admin_print_scripts', array( $this, 'include_svg_definitions' ) );
 		}
 
@@ -39,23 +38,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			wp_enqueue_script( 'bootstrap-dropdown', plugins_url( '../assets/js/dropdowns-enhancement.js', __FILE__ ), array( 'jquery' ), time(), true );
 		}
 
-		/**
-		 * Add a small bit of styling
-		 */
-		public function print_styles() {
-			$screen = get_current_screen();
-			if ( 'nav-menus'  !== $screen->id ) {
-				return;
-			}
-			?>
-			<style>
-				.menu-item-image-container img {
-					width:  100%;
-					height: auto;
-				}
-			</style>
-			<?php
-		}
 
 		/**
 		 * Add SVG definitions to <head>.
