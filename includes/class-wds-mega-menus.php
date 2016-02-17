@@ -7,6 +7,7 @@
 if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	require 'class-wds-mega-menu-walker.php';
 	require 'class-wds-mega-menus-walker-nav-menu-edit.php';
+	require 'class-wds-mega-menus-admin.php';
 
 	/**
 	 * WDS Mega Menus.
@@ -81,7 +82,6 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 			$this->url      = plugin_dir_url( __FILE__ );
 			$this->path     = plugin_dir_path( __FILE__ );
 
-			require $this->path . 'class-wds-mega-menus-admin.php';
 			$this->plugin_classes();
 			$this->hooks();
 		}
