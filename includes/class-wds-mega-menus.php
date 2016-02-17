@@ -47,7 +47,7 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * @since  1.0.0
 		 */
 		protected function __construct() {
-			$this->admin = new WDS_Mega_Menus_Admin( $this ); // Most of the stuff is here!
+			$this->admin = new WDS_Mega_Menus_Admin(); // Most of the stuff is here!
 
 			// Plugin text domain.
 			load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );

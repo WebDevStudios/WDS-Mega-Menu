@@ -11,7 +11,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	 * @uses Walker_Nav_Menu_Edit
 	 */
 	class WDS_Mega_Menus_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit {
-
 		/**
 		 * Override the start of elements in the walker.
 		 *

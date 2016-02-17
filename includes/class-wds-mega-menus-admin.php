@@ -9,56 +9,34 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 	 */
 	class WDS_Mega_Menus_Admin {
 		/**
-		 * Parent plugin class
-		 *
-		 * @var class
-		 * @since  1.0.0
-		 */
-		protected $plugin = null;
-
-		/**
 		 * Constructor
 		 *
 		 * @since 1.0.0
 		 * @return  null
 		 */
-		public function __construct( $plugin ) {
-			$this->plugin = $plugin;
-			$this->hooks();
-		}
-
-		/**
-		 * Initiate our hooks
-		 *
-		 * @since 1.0.0
-		 * @return  null
-		 */
-		public function hooks() {
-
+		public function __construct() {
 			add_filter( 'wp_setup_nav_menu_item', array( $this, 'register_nav_field' ) );
 			add_action( 'wp_update_nav_menu_item', array( $this, 'update_nav_fields'), 10, 3 );
 			add_filter( 'wp_edit_nav_menu_walker', array( $this, 'nav_menu_edit_walker' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
 			add_action( 'admin_print_styles', array( $this, 'print_styles' ) );
 			add_action( 'admin_print_scripts', array( $this, 'include_svg_definitions' ) );
-
 		}
 
 		/**
-		 * Enqueue JavaScript
+		 * Enqueue scripts.
 		 */
 		public function enqueue() {
 			$screen = get_current_screen();
 
 			if ( 'nav-menus'  !== $screen->id ) {
-				return;
+				return; // Only show on nav-menu's screen.
 			}
 
 			wp_enqueue_media();
-			wp_enqueue_script( 'wds-mega-menus', $this->plugin->url . 'assets/js/wds-mega-menus.js', array( 'jquery' ), '1.0.0' );
-
-			wp_enqueue_style( 'wdsmm-admin', $this->plugin->url . 'assets/css/admin.css', '', '20150727' );
-			wp_enqueue_script( 'bootstrap-dropdown', $this->plugin->url . 'assets/js/dropdowns-enhancement.js', array( 'jquery' ), '20150724', true );
+			wp_enqueue_style( 'wdsmm-admin', plugins_url( '../assets/css/admin.css', __FILE__ ), array(), time() );
+			wp_enqueue_script( 'wds-mega-menus', plugins_url( '../assets/js/wds-mega-menus.js', __FILE__ ), array( 'jquery' ), time() );
+			wp_enqueue_script( 'bootstrap-dropdown', plugins_url( '../assets/js/dropdowns-enhancement.js', __FILE__ ), array( 'jquery' ), time(), true );
 		}
 
 		/**
