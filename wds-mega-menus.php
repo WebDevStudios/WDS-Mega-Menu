@@ -14,6 +14,14 @@ Domain Path: /languages
 */
 
 /*
+ *  _ _ _  ___  ___   __ __                  __ __
+ * | | | || . \/ __> |  \  \ ___  ___  ___  |  \  \ ___ ._ _  _ _  ___
+ * | | | || | |\__ \ |     |/ ._>/ . |<_> | |     |/ ._>| ' || | |<_-<
+ * |__/_/ |___/<___/ |_|_|_|\___.\_. |<___| |_|_|_|\___.|_|_|`___|/__/
+ *                               <___'
+ *
+ * WDS Mega Menus is a plugin that helps you customize things in the WP Nav.
+ *
  * Copyright (c) 2015 WebDevStudios (email : contact@webdevstudios.com)
  *
  * This program is free software; you can redistribute it and/or modify

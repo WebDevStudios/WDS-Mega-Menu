@@ -12,45 +12,15 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	/**
 	 * WDS Mega Menus.
 	 *
+	 * This base class handles mostly the instance itself and the plugin
+	 * as a whole.
+	 *
 	 * @since  1.0.0
 	 * @package  WDS_Mega_Menus
 	 */
 	class WDS_Mega_Menus {
-
 		/**
-		 * Current version
-		 *
-		 * @var  string
-		 * @since  1.0.0
-		 */
-		const VERSION = '1.0.0';
-
-		/**
-		 * URL of plugin directory
-		 *
-		 * @var string
-		 * @since  1.0.0
-		 */
-		protected $url      = '';
-
-		/**
-		 * Path of plugin directory
-		 *
-		 * @var string
-		 * @since  1.0.0
-		 */
-		protected $path     = '';
-
-		/**
-		 * Plugin basename
-		 *
-		 * @var string
-		 * @since  1.0.0
-		 */
-		protected $basename = '';
-
-		/**
-		 * Singleton instance of plugin
+		 * Singleton instance of plugin.
 		 *
 		 * @var WDS_Mega_Menus
 		 * @since  1.0.0
@@ -75,68 +45,12 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * Sets up our plugin
 		 *
 		 * @since  1.0.0
-		 * @return  null
 		 */
 		protected function __construct() {
-			$this->basename = plugin_basename( __FILE__ );
-			$this->url      = plugin_dir_url( __FILE__ );
-			$this->path     = plugin_dir_path( __FILE__ );
+			$this->admin = new WDS_Mega_Menus_Admin( $this ); // Most of the stuff is here!
 
-			$this->plugin_classes();
-			$this->hooks();
-		}
-
-		/**
-		 * Attach other plugin classes to the base plugin class.
-		 *
-		 * @since 1.0.0
-		 * @return  null
-		 */
-		function plugin_classes() {
-			$this->admin = new WDS_Mega_Menus_Admin( $this );
-		}
-
-		/**
-		 * Add hooks and filters
-		 *
-		 * @since 1.0.0
-		 * @return null
-		 */
-		public function hooks() {
-			register_activation_hook( __FILE__, array( $this, '_activate' ) );
-			register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
-
-			add_action( 'init', array( $this, 'init' ) );
-		}
-
-		/**
-		 * Activate the plugin
-		 *
-		 * @since  1.0.0
-		 * @return null
-		 */
-		function _activate() {
-			// Make sure any rewrite functionality has been loaded
-			flush_rewrite_rules();
-		}
-
-		/**
-		 * Deactivate the plugin
-		 * Uninstall routines should be in uninstall.php
-		 *
-		 * @since  1.0.0
-		 * @return null
-		 */
-		function _deactivate() {}
-
-		/**
-		 * Init hooks
-		 *
-		 * @since  1.0.0
-		 * @return null
-		 */
-		public function init() {
-			load_plugin_textdomain( 'wds-mega-menus', false, dirname( $this->basename ) . '/languages/' );
+			// Plugin text domain.
+			load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );
 		}
 
 		/**
