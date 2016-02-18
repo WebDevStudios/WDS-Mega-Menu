@@ -75,7 +75,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 
 			// Hide on mobile.
-			if ( isset( $_POST['hide-menu-on-mobile'][$menu_item_db_id] ) ) {
+			if ( isset( $_POST['hide-menu-on-mobile'][ $menu_item_db_id ] ) ) {
 				update_post_meta( $menu_item_db_id, 'hide_menu_on_mobile', empty( $_POST['hide-menu-on-mobile'][ $menu_item_db_id ] ) ? false : 'on' );
 			} else {
 				delete_post_meta( $menu_item_db_id, 'hide_menu_on_mobile' );
