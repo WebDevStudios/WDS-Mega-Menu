@@ -22,7 +22,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'wp_setup_nav_menu_item', array( $this, 'register_nav_field' ) );
-			add_action( 'wp_update_nav_menu_item', array( $this, 'update_nav_fields'), 10, 3 );
+			add_action( 'wp_update_nav_menu_item', array( $this, 'update_nav_fields' ), 10, 3 );
 			add_filter( 'wp_edit_nav_menu_walker', array( $this, 'nav_menu_edit_walker' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		}
