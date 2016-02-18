@@ -1,16 +1,18 @@
 <?php
 /**
-* Plugin Name: WDS Mega Menus
-* Plugin URI:  http://webdevstudios.com
-* Description: Make Magnificently Magical Mega Menus and More
-* Version:     0.2.0
-* Author:      WebDevStudios
-* Author URI:  http://webdevstudios.com
-* Donate link: http://webdevstudios.com
-* License:     GPLv2
-* Text Domain: wds-mega-menus
-* Domain Path: /languages
-*/
+ * Plugin Name: WDS Mega Menus
+ * Plugin URI:  http://webdevstudios.com
+ * Description: Make Magnificently Magical Mega Menus and More
+ * Version:     0.2.0
+ * Author:      WebDevStudios
+ * Author URI:  http://webdevstudios.com
+ * Donate link: http://webdevstudios.com
+ * License:     GPLv2
+ * Text Domain: wds-mega-menus
+ * Domain Path: /languages
+ *
+ * @package WDS_Mega_Menus
+ */
 
 /*
  *  _ _ _  ___  ___   __ __                  __ __
