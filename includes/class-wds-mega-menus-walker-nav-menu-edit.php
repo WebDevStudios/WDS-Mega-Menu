@@ -109,7 +109,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 									<?php
 									$options = $this->get_svg_list();
 									foreach ( $options as $slug => $name ) {
-										echo '<li><input type="radio" name="menu-item-icon[' . esc_attr( absint( $id ) ) . ']" id="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '"' . checked( $slug, $current_value, false ) . '><label for="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '">' . $name . '</label></li>';
+										echo '<li><input type="radio" name="menu-item-icon[' . esc_attr( absint( $id ) ) . ']" id="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '"' . checked( $slug, $current_value, false ) . '><label for="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '">' . esc_html( $name ) . '</label></li>';
 									}
 									?>
 								</ul>
