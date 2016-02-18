@@ -17,7 +17,7 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	 * This base class handles mostly the instance itself and the plugin
 	 * as a whole.
 	 *
-	 * @since  1.0.0
+	 * @since  0.1.0
 	 * @package  WDS_Mega_Menus
 	 */
 	class WDS_Mega_Menus {
@@ -25,14 +25,14 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * Singleton instance of plugin.
 		 *
 		 * @var WDS_Mega_Menus
-		 * @since  1.0.0
+		 * @since  0.1.0
 		 */
 		protected static $single_instance = null;
 
 		/**
 		 * Creates or returns an instance of this class.
 		 *
-		 * @since  1.0.0
+		 * @since  0.1.0
 		 * @return WDS_Mega_Menus A single instance of this class.
 		 */
 		public static function get_instance() {
@@ -46,7 +46,7 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		/**
 		 * Sets up our plugin
 		 *
-		 * @since  1.0.0
+		 * @since  0.1.0
 		 */
 		protected function __construct() {
 			$this->admin = new WDS_Mega_Menus_Admin(); // Most of the stuff is here!
@@ -58,7 +58,7 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		/**
 		 * Magic getter for our object.
 		 *
-		 * @since  1.0.0
+		 * @since  0.1.0
 		 * @param string $field
 		 * @throws Exception Throws an exception if the field is invalid.
 		 * @return mixed
@@ -82,7 +82,7 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	 *
 	 * Wrapper for WDS_Mega_Menus::get_instance()
 	 *
-	 * @since  1.0.0
+	 * @since  0.1.0
 	 *
 	 * @return WDS_Mega_Menus  Singleton instance of plugin class.
 	 */
