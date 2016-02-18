@@ -10,7 +10,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 	/**
 	 * Walker Customizations.
 	 *
-	 * @since  1.0.0
+	 * @since  0.1.0
 	 * @package  WDS_Mega_Menus
 	 * @uses  Walker_Nav_Menu
 	 */
@@ -19,7 +19,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 * What the class handles.
 		 *
 		 * @see Walker::$tree_type
-		 * @since 1.0.0
+		 * @since 0.1.0
 		 * @var string
 		 */
 		public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
@@ -28,7 +28,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 * Database fields to use.
 		 *
 		 * @see Walker::$db_fields
-		 * @since 1.0.0
+		 * @since 0.1.0
 		 * @todo Decouple this.
 		 * @var array
 		 */
@@ -39,7 +39,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::start_lvl()
 		 *
-		 * @since 1.0.0
+		 * @since 0.1.0
 		 *
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param int    $depth  Depth of menu item. Used for padding.
@@ -59,7 +59,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::end_lvl()
 		 *
-		 * @since 1.0.0
+		 * @since 0.1.0
 		 *
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param int    $depth  Depth of menu item. Used for padding.
@@ -75,7 +75,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::start_el()
 		 *
-		 * @since 1.0.0
+		 * @since 0.1.0
 		 *
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param object $item   Menu item data object.
@@ -100,7 +100,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			/**
 			 * Filter the CSS class(es) applied to a menu item's list item element.
 			 *
-			 * @since 1.0.0
+			 * @since 0.1.0
 			 *
 			 * @param array  $classes The CSS classes that are applied to the menu item's `<li>` element.
 			 * @param object $item    The current menu item.
@@ -219,7 +219,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			 * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
 			 * no filter for modifying the opening and closing `<li>` for a menu item.
 			 *
-			 * @since 1.0.0
+			 * @since 0.1.0
 			 *
 			 * @param string $item_output The menu item's starting HTML output.
 			 * @param object $item        Menu item data object.
@@ -234,7 +234,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::end_el()
 		 *
-		 * @since 1.0.0
+		 * @since 0.1.0
 		 *
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param object $item   Page data object. Not used.

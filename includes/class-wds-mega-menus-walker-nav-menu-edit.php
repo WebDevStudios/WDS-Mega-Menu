@@ -12,7 +12,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	 * Nav walker customizations.
 	 *
 	 * @package  WDS_Mega_Menus
-	 * @since  1.0.0
+	 * @since  0.1.0
 	 * @uses Walker_Nav_Menu_Edit
 	 */
 	class WDS_Mega_Menus_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit {
