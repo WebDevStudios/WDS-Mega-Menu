@@ -179,6 +179,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			return ob_get_clean();
 		}
 
+		/**
+		 * Get the SVGs.
+		 * @todo   Need to provide a fallback to use SVGs in the plugin.
+		 * @return array An array of all the SVG names/slugs.
+		 */
 		public function get_svg_list() {
 			$svgs = array();
 			foreach ( glob( get_stylesheet_directory() . '/images/svg/*.svg' ) as $svg ) {
@@ -189,6 +194,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			return $svgs;
 		}
 
+		/**
+		 * Return the SVG icon markup.
+		 * @param  string $icon_name The SVG icon name/slug (based on the original filename).
+		 * @return string            The SVG markup.
+		 */
 		function get_svg( $icon_name ) {
 
 			$svg = '<svg class="icon icon-' . esc_html( $icon_name ) . '">';
@@ -197,11 +207,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 			return $svg;
 		}
-
-
 	} // class WDS_Mega_Menus_Walker_Nav_Menu_Edit.
 
-// We don't have the requirements to do this.
+	// We don't have the requirements to do this.
 } else {
 	$wds_mega_menus = false; // Destroy our instance!
 } // class WDS_Mega_Menus_Walker_Nav_Menu_Edit exists.
