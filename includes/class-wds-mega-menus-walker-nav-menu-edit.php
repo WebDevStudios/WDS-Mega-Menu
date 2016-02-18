@@ -166,11 +166,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 								<?php $current_area = get_post_meta( $id, '_menu_item_widget_area', true ); ?>
 								<option value=""<?php selected( $current_area, '' ); ?>><?php esc_html_e( '- Select Widget Area -', 'wds-mega-menus' ); ?></option>
 								<?php
-									global $wp_registered_sidebars;
-									foreach( $wp_registered_sidebars as $sidebar ) {
-										echo '<option value="' . esc_attr( $sidebar['id'] ) . '"' . selected( $sidebar['id'], $current_area, false ) . '>' . esc_html( $sidebar['name'] ) . '</option>';
-									}
-								?>
+								global $wp_registered_sidebars;
+								foreach ( $wp_registered_sidebars as $sidebar ) {
+									echo '<option value="' . esc_attr( $sidebar['id'] ) . '"' . selected( $sidebar['id'], $current_area, false ) . '>' . esc_html( $sidebar['name'] ) . '</option>';
+								} ?>
 							</select>
 						</p>
 					</div>
