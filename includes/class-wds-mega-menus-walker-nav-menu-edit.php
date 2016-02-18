@@ -93,12 +93,12 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 					<div class="field-menu-item-icon description description-wide">
 						<div class="btn-group">
-							<p class="description"><?php _e( 'Menu Item Icon', 'wds-mega-menus' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Menu Item Icon', 'wds-mega-menus' ); ?></p>
 							<p>
 								<button data-toggle="dropdown" id="<?php echo esc_attr( absint( $id ) ); ?>_icon" class="btn btn-default dropdown-toggle">
 									<?php
 									$current_value = get_post_meta( $id, '_menu_item_icon', true );
-									echo ( ! $current_value ) ? __( '- Choose an icon -', 'wds-mega-menus' ) : $this->get_svg( $current_value ) . ' ' .  ucfirst( str_replace( '-', ' ', $current_value ) );
+									echo ( ! $current_value ) ? esc_html__( '- Choose an icon -', 'wds-mega-menus' ) : $this->get_svg( $current_value ) . ' ' .  ucfirst( str_replace( '-', ' ', $current_value ) ); // WPCS: XSS ok. Actual string being echoed is validated.
 									?>
 									<span class="caret"></span>
 								</button>
