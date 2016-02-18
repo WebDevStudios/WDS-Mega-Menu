@@ -160,11 +160,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 						})( jQuery );
 					</script>
 					<div class="field-menu-item-widget-area description description-wide">
-						<p class="description"><?php _e( 'Select Widget Area to Display', 'wds-mega-menus' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Select Widget Area to Display', 'wds-mega-menus' ); ?></p>
 						<p>
 							<select id="widget-area-<?php echo esc_attr( absint( $id ) ); ?>" name="menu-item-widget-area[<?php echo esc_attr( absint( $id ) ); ?>]">
 								<?php $current_area = get_post_meta( $id, '_menu_item_widget_area', true ); ?>
-								<option value=""<?php selected( $current_area, '' ); ?>><?php _e( '- Select Widget Area -', 'wds-mega-menus' ); ?></option>
+								<option value=""<?php selected( $current_area, '' ); ?>><?php esc_html_e( '- Select Widget Area -', 'wds-mega-menus' ); ?></option>
 								<?php
 									global $wp_registered_sidebars;
 									foreach( $wp_registered_sidebars as $sidebar ) {
