@@ -47,7 +47,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 * @see wp_nav_menu()
 		 */
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
-			$indent = str_repeat("\t", $depth);
+			$indent = str_repeat( "\t", $depth );
 			if ( 1 == $depth ) {
 				$output .= "\n$indent<ul class=\"sub-menu depth-$depth\">\n";
 			} else {
@@ -68,7 +68,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 * @see wp_nav_menu()
 		 */
 		public function end_lvl( &$output, $depth = 0, $args = array() ) {
-			$indent = str_repeat("\t", $depth);
+			$indent = str_repeat( "\t", $depth );
 			$output .= "$indent</ul>\n";
 		}
 
@@ -115,7 +115,6 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 
 			/**
 			 * Filter the ID applied to a menu item's list item element.
-			 *
 			 *
 			 * @param string $menu_id The ID that is applied to the menu item's `<li>` element.
 			 * @param object $item    The current menu item.
@@ -196,10 +195,10 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 					$item_output .= '<div class="menu-item-description">';
 						$item_output .= '<a' . $attributes . ' class="menu-item-description-title"><h3>';
 						$item_output .= ( ! $icon ) ? '' : $this->get_svg( $icon );
-						$item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
+						$item_output .= apply_filters( 'the_title', $item->title, $item->ID );
 						$item_output .= '</h3></a>';
 
-						$item_output .=  $item_content;
+						$item_output .= $item_content;
 
 						$item_output .= '<p><a' . $attributes . ' class="keep-reading-more">';
 						$item_output .= __( 'Keep Reading', 'wds-mega-menus' );
