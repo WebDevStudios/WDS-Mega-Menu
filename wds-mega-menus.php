@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 /**
 * Plugin Name: WDS Mega Menus
 * Plugin URI:  http://webdevstudios.com
@@ -10,22 +9,7 @@
 * Donate link: http://webdevstudios.com
 * License:     GPLv2
 * Text Domain: wds-mega-menus
- * Domain Path: /languages
- */
-=======
->>>>>>> master
-
-/*
-Plugin Name: WDS Mega Menus
-Plugin URI:  http://webdevstudios.com
-Description: Make magnificently magical Mega Menus and more.
-Version:     1.1-dev
-Author:      WebDevStudios
-Author URI:  http://webdevstudios.com
-Donate link: http://webdevstudios.com
-License:     GPLv2
-Text Domain: wds-mega-menus
-Domain Path: /languages
+* Domain Path: /languages
 */
 
 /*
