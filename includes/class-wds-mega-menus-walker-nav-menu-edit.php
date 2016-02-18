@@ -46,9 +46,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		/**
 		 * Create the markup for our custom field
 		 *
-		 * @param $id
-		 *
-		 * @return string
+		 * @param  int   $id   Menu item ID.
+		 * @param  array $args Array of arguments passed from start_el.
+		 * @return string      The markup for the custom field.
+		 * @since  0.1.0
 		 */
 		public function field_display( $id, $args = array() ) {
 			ob_start();
