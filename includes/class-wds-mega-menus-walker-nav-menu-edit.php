@@ -105,7 +105,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 							</p>
 							<p>
 								<ul class="dropdown-menu">
-									<li><input type="radio" name="menu-item-icon[<?php echo esc_attr( absint( $id ) ); ?>]" id="<?php echo esc_attr( absint( $id ) ); ?>_icon_none" value="" <?php checked( $current_value, '' ); ?> /><label for="<?php echo esc_attr( absint( $id ) ); ?>_icon_none"> <?php _e( 'No Icon', 'wds-mega-menus' ); ?></label></li>
+									<li><input type="radio" name="menu-item-icon[<?php echo esc_attr( absint( $id ) ); ?>]" id="<?php echo esc_attr( absint( $id ) ); ?>_icon_none" value="" <?php checked( $current_value, '' ); ?> /><label for="<?php echo esc_attr( absint( $id ) ); ?>_icon_none"> <?php esc_html_e( 'No Icon', 'wds-mega-menus' ); ?></label></li>
 									<?php
 									$options = $this->get_svg_list();
 									foreach ( $options as $slug => $name ) {
@@ -118,18 +118,18 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 					</div>
 					<div class="field-menu-item-image description description-wide">
 						<p class="description">
-							<?php _e( 'Menu Item Image', 'wds-mega-menus' ); ?><br />
-							<small><?php _e( 'Images should be 130px wide by 250px high to prevent cropping.', 'wds-mega-menus' ); ?></small>
+							<?php esc_html_e( 'Menu Item Image', 'wds-mega-menus' ); ?><br />
+							<small><?php esc_html_e( 'Images should be 130px wide by 250px high to prevent cropping.', 'wds-mega-menus' ); ?></small>
 						</p>
 						<p class="hide-if-no-js">
-							<button title="<?php _e( 'Set Menu Item Image', 'wds-mega-menus' ); ?>" href="javascript:void(0);" id="set-menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>"><?php _e( 'Set menu item image', 'wds-mega-menus' ); ?></button>
+							<button title="<?php esc_html_e( 'Set Menu Item Image', 'wds-mega-menus' ); ?>" href="javascript:void(0);" id="set-menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>"><?php esc_html_e( 'Set menu item image', 'wds-mega-menus' ); ?></button>
 						</p>
 						<p id="menu-item-image-container-<?php echo esc_attr( absint( $id ) ); ?>" class="hidden menu-item-image-container">
 							<img src="<?php echo esc_url( $img_url[0] ); ?>" alt="" title="" style="width: 130px;" />
 							<input id="menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>" name="menu-item-image[<?php echo esc_attr( absint( $id ) ); ?>]" type="hidden" value="<?php echo esc_attr( $img_id ); ?>" />
 						</p>
 						<p class="hide-if-no-js hidden">
-								<button title="Remove Menu Item Image" href="javascript:;" id="remove-menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>"><?php _e( 'Remove menu item image', 'wds-mega-menus' ); ?></button>
+								<button title="<?php esc_html_e( 'Remove Menu Item Image', 'wds-mega-menus' ); ?>" href="javascript:;" id="remove-menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>"><?php esc_html_e( 'Remove menu item image', 'wds-mega-menus' ); ?></button>
 						</p>
 					</div>
 					<script>
