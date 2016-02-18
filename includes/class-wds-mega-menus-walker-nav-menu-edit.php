@@ -19,11 +19,12 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		/**
 		 * Override the start of elements in the walker.
 		 *
-		 * @param string $output
-		 * @param object $item
-		 * @param int    $depth
-		 * @param array  $args
-		 * @param int    $id
+		 * @param string $output (Required) Passed by reference. Used to append additional content.
+		 * @param object $item   (Required) Menu item data object.
+		 * @param int    $depth  (Required) Depth of menu item. Used for padding.
+		 * @param array  $args   Not used.
+		 * @param int    $id     Not used.
+		 * @since 0.1.0
 		 */
 		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 			$item_output = '';
