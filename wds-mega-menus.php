@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
 * Plugin Name: WDS Mega Menus
 * Plugin URI:  http://webdevstudios.com
@@ -11,8 +12,31 @@
 * Text Domain: wds-mega-menus
  * Domain Path: /languages
  */
+=======
+>>>>>>> master
 
-/**
+/*
+Plugin Name: WDS Mega Menus
+Plugin URI:  http://webdevstudios.com
+Description: Make magnificently magical Mega Menus and more.
+Version:     1.1-dev
+Author:      WebDevStudios
+Author URI:  http://webdevstudios.com
+Donate link: http://webdevstudios.com
+License:     GPLv2
+Text Domain: wds-mega-menus
+Domain Path: /languages
+*/
+
+/*
+ *  _ _ _  ___  ___   __ __                  __ __
+ * | | | || . \/ __> |  \  \ ___  ___  ___  |  \  \ ___ ._ _  _ _  ___
+ * | | | || | |\__ \ |     |/ ._>/ . |<_> | |     |/ ._>| ' || | |<_-<
+ * |__/_/ |___/<___/ |_|_|_|\___.\_. |<___| |_|_|_|\___.|_|_|`___|/__/
+ *                               <___'
+ *
+ * WDS Mega Menus is a plugin that helps you customize things in the WP Nav.
+ *
  * Copyright (c) 2015 WebDevStudios (email : contact@webdevstudios.com)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,181 +54,9 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-/**
- * Built using generator-plugin-wp
- */
-
-
-require 'includes/walker.php';
-require 'includes/nav-menu-edit-walker.php';
-
-
-/**
- * Main initiation class
- *
- * @since  0.1.0
- * @var  string $version  Plugin version
- * @var  string $basename Plugin basename
- * @var  string $url      Plugin URL
- * @var  string $path     Plugin Path
- */
-class WDS_Mega_Menus {
-
-	/**
-	 * Current version
-	 *
-	 * @var  string
-	 * @since  0.1.0
-	 */
-	const VERSION = '0.1.0';
-
-	/**
-	 * URL of plugin directory
-	 *
-	 * @var string
-	 * @since  0.1.0
-	 */
-	protected $url      = '';
-
-	/**
-	 * Path of plugin directory
-	 *
-	 * @var string
-	 * @since  0.1.0
-	 */
-	protected $path     = '';
-
-	/**
-	 * Plugin basename
-	 *
-	 * @var string
-	 * @since  0.1.0
-	 */
-	protected $basename = '';
-
-	/**
-	 * Singleton instance of plugin
-	 *
-	 * @var WDS_Mega_Menus
-	 * @since  0.1.0
-	 */
-	protected static $single_instance = null;
-
-	/**
-	 * Creates or returns an instance of this class.
-	 *
-	 * @since  0.1.0
-	 * @return WDS_Mega_Menus A single instance of this class.
-	 */
-	public static function get_instance() {
-		if ( null === self::$single_instance ) {
-			self::$single_instance = new self();
-		}
-
-		return self::$single_instance;
-	}
-
-	/**
-	 * Sets up our plugin
-	 *
-	 * @since  0.1.0
-	 * @return  null
-	 */
-	protected function __construct() {
-		$this->basename = plugin_basename( __FILE__ );
-		$this->url      = plugin_dir_url( __FILE__ );
-		$this->path     = plugin_dir_path( __FILE__ );
-
-		require $this->path . 'includes/admin.php';
-		$this->plugin_classes();
-		$this->hooks();
-	}
-
-	/**
-	 * Attach other plugin classes to the base plugin class.
-	 *
-	 * @since 0.1.0
-	 * @return  null
-	 */
-	function plugin_classes() {
-		$this->admin = new WDSMM_Admin( $this );
-	}
-
-	/**
-	 * Add hooks and filters
-	 *
-	 * @since 0.1.0
-	 * @return null
-	 */
-	public function hooks() {
-		register_activation_hook( __FILE__, array( $this, '_activate' ) );
-		register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
-
-		add_action( 'init', array( $this, 'init' ) );
-	}
-
-	/**
-	 * Activate the plugin
-	 *
-	 * @since  0.1.0
-	 * @return null
-	 */
-	function _activate() {
-		// Make sure any rewrite functionality has been loaded
-		flush_rewrite_rules();
-	}
-
-	/**
-	 * Deactivate the plugin
-	 * Uninstall routines should be in uninstall.php
-	 *
-	 * @since  0.1.0
-	 * @return null
-	 */
-	function _deactivate() {}
-
-	/**
-	 * Init hooks
-	 *
-	 * @since  0.1.0
-	 * @return null
-	 */
-	public function init() {
-		load_plugin_textdomain( 'wds-mega-menus', false, dirname( $this->basename ) . '/languages/' );
-	}
-
-	/**
-	 * Magic getter for our object.
-	 *
-	 * @since  0.1.0
-	 * @param string $field
-	 * @throws Exception Throws an exception if the field is invalid.
-	 * @return mixed
-	 */
-	public function __get( $field ) {
-		switch ( $field ) {
-			case 'version':
-				return self::VERSION;
-			case 'basename':
-			case 'url':
-			case 'path':
-				return $this->$field;
-			default:
-				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
-		}
-	}
+if ( defined( 'DISABLE_WDS_MEGA_MENU' ) && DISABLE_WDS_MEGA_MENU ) {
+	return; // Bail if they configure this not to load.
 }
 
-/**
- * Grab the WDS_Mega_Menus object and return it.
- * Wrapper for WDS_Mega_Menus::get_instance()
- *
- * @since  0.1.0
- * @return WDS_Mega_Menus  Singleton instance of plugin class.
- */
-function wds_mega_menus() {
-	return WDS_Mega_Menus::get_instance();
-}
-
-// Kick it off
-wds_mega_menus();
+// Our base class.
+require_once( 'includes/class-wds-mega-menus.php' );

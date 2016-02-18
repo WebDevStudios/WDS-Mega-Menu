@@ -4,7 +4,7 @@
  *
  * Displays the media uploader for selecting an image.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 function wds_mega_menu_renderMediaUploader( element_id ) {
 	'use strict';
