@@ -83,8 +83,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			 *     	return array( 1 ); // Only allow at depth 1
 			 *     }
 			 *     add_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', 'my_filter' );
-			 *
-			 *
 			 */
 			$allowed_depths = apply_filters( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', array() );
 			if ( ! empty( $allowed_depths ) && in_array( $args['depth'], $allowed_depths ) ) :
