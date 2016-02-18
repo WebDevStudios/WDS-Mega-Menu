@@ -43,10 +43,11 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param int    $depth  Depth of menu item. Used for padding.
-		 * @param array  $args   An array of arguments. @see wp_nav_menu()
+		 * @param array  $args   An array of arguments.
+		 * @see wp_nav_menu()
 		 */
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
-			$indent = str_repeat("\t", $depth);
+			$indent = str_repeat( "\t", $depth );
 			if ( 1 == $depth ) {
 				$output .= "\n$indent<ul class=\"sub-menu depth-$depth\">\n";
 			} else {
@@ -63,10 +64,11 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param int    $depth  Depth of menu item. Used for padding.
-		 * @param array  $args   An array of arguments. @see wp_nav_menu()
+		 * @param array  $args   An array of arguments.
+		 * @see wp_nav_menu()
 		 */
 		public function end_lvl( &$output, $depth = 0, $args = array() ) {
-			$indent = str_repeat("\t", $depth);
+			$indent = str_repeat( "\t", $depth );
 			$output .= "$indent</ul>\n";
 		}
 
@@ -80,7 +82,8 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param object $item   Menu item data object.
 		 * @param int    $depth  Depth of menu item. Used for padding.
-		 * @param array  $args   An array of arguments. @see wp_nav_menu()
+		 * @param array  $args   An array of arguments.
+		 * @see wp_nav_menu()
 		 * @param int    $id     Current item ID.
 		 */
 		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -112,7 +115,6 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 
 			/**
 			 * Filter the ID applied to a menu item's list item element.
-			 *
 			 *
 			 * @param string $menu_id The ID that is applied to the menu item's `<li>` element.
 			 * @param object $item    The current menu item.
@@ -161,7 +163,7 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			// Add the menu link.
 			$item_output .= '<a' . $attributes . '>';
 				$item_output .= ( ! $icon ) ? $this->get_svg( apply_filters( 'wds_mega_menu_default_icon', false ) ) : $this->get_svg( $icon );
-				// This filter is documented in wp-includes/post-template.php
+				// This filter is documented in wp-includes/post-template.php.
 				$item_output .= isset( $args->link_before ) ? $args->link_before : '';
 	            $item_output .= apply_filters( 'the_title', $item->title, $item->ID );
 				$item_output .= isset( $args->link_after ) ? $args->link_after : '';
@@ -193,10 +195,10 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 					$item_output .= '<div class="menu-item-description">';
 						$item_output .= '<a' . $attributes . ' class="menu-item-description-title"><h3>';
 						$item_output .= ( ! $icon ) ? '' : $this->get_svg( $icon );
-						$item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
+						$item_output .= apply_filters( 'the_title', $item->title, $item->ID );
 						$item_output .= '</h3></a>';
 
-						$item_output .=  $item_content;
+						$item_output .= $item_content;
 
 						$item_output .= '<p><a' . $attributes . ' class="keep-reading-more">';
 						$item_output .= __( 'Keep Reading', 'wds-mega-menus' );
@@ -239,7 +241,8 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 * @param string $output Passed by reference. Used to append additional content.
 		 * @param object $item   Page data object. Not used.
 		 * @param int    $depth  Depth of page. Not Used.
-		 * @param array  $args   An array of arguments. @see wp_nav_menu()
+		 * @param array  $args   An array of arguments.
+		 * @see wp_nav_menu()
 		 */
 		public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 			$output .= "</li>\n";
@@ -256,10 +259,9 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 
 			return false;
 		}
-
 	} // class WDS_Mega_Menu_Walker.
 
-// We don't have the requirements for this.
+	// We don't have the requirements for this.
 } else {
 	$wds_mega_menus = false; // Destroy our instance!
 } // if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' )

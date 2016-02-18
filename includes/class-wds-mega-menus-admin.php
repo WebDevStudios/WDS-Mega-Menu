@@ -22,7 +22,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'wp_setup_nav_menu_item', array( $this, 'register_nav_field' ) );
-			add_action( 'wp_update_nav_menu_item', array( $this, 'update_nav_fields'), 10, 3 );
+			add_action( 'wp_update_nav_menu_item', array( $this, 'update_nav_fields' ), 10, 3 );
 			add_filter( 'wp_edit_nav_menu_walker', array( $this, 'nav_menu_edit_walker' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		}
@@ -31,7 +31,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * Enqueue scripts.
 		 */
 		public function admin_enqueue_scripts() {
-			if ( 'nav-menus'  !== get_current_screen()->id ) {
+			if ( 'nav-menus' !== get_current_screen()->id ) {
 				return; // Only show on nav-menu's screen.
 			}
 
@@ -53,8 +53,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Register a field for the nav menu
 		 *
-		 * @param $menu_item
-		 *
+		 * @param object $menu_item The menu item object.
 		 * @return mixed
 		 */
 		public function register_nav_field( $menu_item ) {
@@ -67,14 +66,16 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Save the new field data for the nav menu.
 		 *
-		 * @param $menu_id
-		 * @param $menu_item_db_id
-		 * @param $args
+		 * @param int   $menu_id         Not used here.
+		 * @param int   $menu_item_db_id The menu item post ID.
+		 * @param array $args            Not used here.
+		 * @since 0.1.0
+		 * @todo Maybe add nonces when getting data from $_POST?
 		 */
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 
 			// Hide on mobile.
-			if ( isset( $_POST['hide-menu-on-mobile'][$menu_item_db_id] ) ) {
+			if ( isset( $_POST['hide-menu-on-mobile'][ $menu_item_db_id ] ) ) {
 				update_post_meta( $menu_item_db_id, 'hide_menu_on_mobile', empty( $_POST['hide-menu-on-mobile'][ $menu_item_db_id ] ) ? false : 'on' );
 			} else {
 				delete_post_meta( $menu_item_db_id, 'hide_menu_on_mobile' );
@@ -102,6 +103,5 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			}
 
 		}
-
 	} // class WDS_Mega_Menus_Admin
 } // if class WDS_Mega_Menus_Admin.

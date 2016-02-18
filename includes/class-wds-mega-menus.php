@@ -59,8 +59,8 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * Magic getter for our object.
 		 *
 		 * @since  0.1.0
-		 * @param string $field
-		 * @throws Exception Throws an exception if the field is invalid.
+		 * @param  string $field The field we're trying to fetch.
+		 * @throws Exception     Throws an exception if the field is invalid.
 		 * @return mixed
 		 */
 		public function __get( $field ) {
@@ -83,7 +83,6 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	 * Wrapper for WDS_Mega_Menus::get_instance()
 	 *
 	 * @since  0.1.0
-	 *
 	 * @return WDS_Mega_Menus  Singleton instance of plugin class.
 	 */
 	function wds_mega_menus() {
