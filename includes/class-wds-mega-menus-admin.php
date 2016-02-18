@@ -53,8 +53,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Register a field for the nav menu
 		 *
-		 * @param $menu_item
-		 *
+		 * @param object $menu_item The menu item object.
 		 * @return mixed
 		 */
 		public function register_nav_field( $menu_item ) {
@@ -67,9 +66,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Save the new field data for the nav menu.
 		 *
-		 * @param $menu_id
-		 * @param $menu_item_db_id
-		 * @param $args
+		 * @param int   $menu_id         Not used here.
+		 * @param int   $menu_item_db_id The menu item post ID.
+		 * @param array $args            Not used here.
+		 * @since 0.1.0
+		 * @todo Maybe add nonces when getting data from $_POST?
 		 */
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 
@@ -102,6 +103,5 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			}
 
 		}
-
 	} // class WDS_Mega_Menus_Admin
 } // if class WDS_Mega_Menus_Admin.
