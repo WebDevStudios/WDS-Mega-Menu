@@ -68,7 +68,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 					<p class="field-menu-item-icon description description-wide">
 						<div class="hide-menu-on-mobile">
 							<label for="hide-menu-on-mobile">
-								<input type="checkbox" <?php echo ( $hide_on_mobile ) ? 'checked="checked"' : ''; ?> name="hide-menu-on-mobile[<?php echo absint( $id ); ?>]" /> <?php _e( 'Hide this on mobile', 'wds-mega-menus' ); ?>
+								<input type="checkbox" <?php echo ( $hide_on_mobile ) ? 'checked="checked"' : ''; ?> name="hide-menu-on-mobile[<?php echo absint( $id ); ?>]" /> <?php esc_html_e( 'Hide this on mobile', 'wds-mega-menus' ); ?>
 							</label>
 						</div>
 					</p>
