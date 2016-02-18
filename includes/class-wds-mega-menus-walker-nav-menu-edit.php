@@ -1,4 +1,9 @@
 <?php
+/**
+ * Mega Menu Nav Walker.
+ *
+ * @package WDS_Mega_Menus
+ */
 
 if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/nav-menu.php'; // We'll need the nav menu stuff here.

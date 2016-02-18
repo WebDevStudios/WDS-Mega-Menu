@@ -1,9 +1,11 @@
 <?php
-
-/*
+/**
  * As long as we don't have our base class already and we haven't
  * already initiated our base class.
+ *
+ * @package WDS_Mega_Menus
  */
+
 if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	require 'class-wds-mega-menu-walker.php';
 	require 'class-wds-mega-menus-walker-nav-menu-edit.php';

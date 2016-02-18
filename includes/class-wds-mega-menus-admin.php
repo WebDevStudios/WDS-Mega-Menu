@@ -1,6 +1,12 @@
 <?php
+/**
+ * Mega Menu Admin.
+ *
+ * @package WDS_Mega_Menus
+ */
 
 if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
+
 	/**
 	 * Mega Menu Administration.
 	 *

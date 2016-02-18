@@ -1,6 +1,12 @@
 <?php
+/**
+ * Mega Menu Walker.
+ *
+ * @package WDS_Mega_Menus
+ */
 
 if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
+
 	/**
 	 * Walker Customizations.
 	 *
