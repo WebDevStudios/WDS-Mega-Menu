@@ -31,7 +31,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * Enqueue scripts.
 		 */
 		public function admin_enqueue_scripts() {
-			if ( 'nav-menus'  !== get_current_screen()->id ) {
+			if ( 'nav-menus' !== get_current_screen()->id ) {
 				return; // Only show on nav-menu's screen.
 			}
 
