@@ -169,8 +169,14 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 				$item_output .= isset( $args->link_after ) ? $args->link_after : '';
 			$item_output .= '</a>';
 
+			// The item title.
+			$item_title = apply_filters( 'wds-mega-menu-title', '<a' . $attributes . ' class="menu-item-description-title"><h3>' . ( ! $icon ) ? '' : $this->get_svg( $icon ) . apply_filters( 'the_title', $item->title, $item->ID ) . '</h3></a>' );
+
 			// The item content.
 			$item_content = apply_filters( 'wds-mega-menu-content', wpautop( $item->post_content ) );
+
+			// The item read more link.
+			$item_read_more = apply_filters( 'wds-mega-menu-read-more', '<p><a' . $attributes . ' class="keep-reading-more">' . __( 'Keep Reading', 'wds-mega-menus' ) . '</a></p>' );
 
 			// Use an inline image, or CSS on a Div?
 			$item_use_real_image = apply_filters( 'wds-mega-menu-inline-image', true );
@@ -193,16 +199,9 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 					$item_output .= '</div>';
 
 					$item_output .= '<div class="menu-item-description">';
-						$item_output .= '<a' . $attributes . ' class="menu-item-description-title"><h3>';
-						$item_output .= ( ! $icon ) ? '' : $this->get_svg( $icon );
-						$item_output .= apply_filters( 'the_title', $item->title, $item->ID );
-						$item_output .= '</h3></a>';
-
+						$item_output .= $item_title;
 						$item_output .= $item_content;
-
-						$item_output .= '<p><a' . $attributes . ' class="keep-reading-more">';
-						$item_output .= __( 'Keep Reading', 'wds-mega-menus' );
-						$item_output .= '</a></p>';
+						$item_output .= $item_read_more;
 					$item_output .= '</div>';
 				$item_output .= '</div>';
 			}
