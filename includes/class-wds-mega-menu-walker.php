@@ -175,11 +175,13 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			// Use an inline image, or CSS on a Div?
 			$item_use_real_image = apply_filters( 'wds-mega-menu-inline-image', true );
 
+			// Start the menu item wrap so it can contain a potential sidebar widget
+			$item_output .= '<div class="menu-item-container">';
+
 			// Add the content of the walker.
 			if ( has_post_thumbnail( $item->ID ) ) {
 				$image_size = apply_filters( 'wds-mega-menus-image-size', 'full' );
 
-				$item_output .= '<div class="menu-item-container">';
 					$item_output .= '<div class="menu-item-image">';
 						$item_output .= '<a' . $attributes . '>';
 
@@ -204,15 +206,23 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 						$item_output .= __( 'Keep Reading', 'wds-mega-menus' );
 						$item_output .= '</a></p>';
 					$item_output .= '</div>';
-				$item_output .= '</div>';
 			}
 
+			// Look for a widget area for this menu item
 			$widget_area = get_post_meta( $item->ID, '_menu_item_widget_area', true );
+
+			// Place the widget area into the menu item
 			if ( $widget_area ) {
+				ob_start();
 				dynamic_sidebar( $widget_area );
+				$item_output .= ob_get_contents();
+				ob_end_clean();
 			}
 
 			$item_output .= isset( $args->after ) ? $args->after : '';
+
+			// Close the menu item content container
+			$item_output .= '</div>'; // .menu-item-container
 
 			/**
 			 * Filter a menu item's starting output.
