@@ -145,7 +145,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 					<script>
 						(function( $ ) {
 							// @TODO localize and enqueue!
-							wds_mega_menu_renderFeaturedImage( $, <?php echo esc_attr( absint( $id ) ); ?> );
+							WDS.MegaMenu.renderFeaturedImage( <?php echo esc_attr( absint( $id ) ); ?> );
 
 							'use strict';
 
