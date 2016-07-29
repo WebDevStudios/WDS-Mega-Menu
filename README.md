@@ -1,12 +1,12 @@
 # WDS Mega Menus
-**Contributors:**      [dustyf](https://github.com/dustyf), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal), [aubreypwd](https://github.com/aubreypwd), [coreymcollins](https://github.com/coreymcollins), [phatsk](https://github.io/phatsk) 
-**Donate link:**       http://webdevstudios.com 
-**Tags:** 
-**Requires at least:** 3.6.0 
-**Tested up to:**      4.5.3 
-**Stable tag:**        0.2.1 
-**License:**           GPLv2 
-**License URI:**       http://www.gnu.org/licenses/gpl-2.0.html 
+**Contributors:**      [dustyf](https://github.com/dustyf), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal), [aubreypwd](https://github.com/aubreypwd), [coreymcollins](https://github.com/coreymcollins), [phatsk](https://github.io/phatsk)  
+**Donate link:**       http://webdevstudios.com  
+**Tags:**  
+**Requires at least:** 3.6.0  
+**Tested up to:**      4.5.3  
+**Stable tag:**        0.2.1  
+**License:**           GPLv2  
+**License URI:**       http://www.gnu.org/licenses/gpl-2.0.html  
 
 ## Description ##
 
