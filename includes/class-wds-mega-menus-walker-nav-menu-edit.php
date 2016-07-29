@@ -88,14 +88,13 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 			// Check for version 0.2.1+ option.
 			if ( empty( $allowed_depths ) ) {
-				$megamenus    = WDS_Mega_Menus::get_instance();
-				$option_value = $megamenus->options->get_option( 'wds_mega_menus_depth', '' );
+				$option_value = WDS_Mega_Menus::get_instance()->options->get_option( 'wds_mega_menus_depth', '' );
 
 				if ( strlen( $option_value ) ) {
 					$allowed_depths = explode( ',', $option_value );
 				}
 			}
-			
+
 			if ( ! empty( $allowed_depths ) && in_array( $args['depth'], $allowed_depths ) ) :
 
 				$img_id  = get_post_thumbnail_id( $id );
