@@ -82,7 +82,6 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * @since  0.1.0
 		 */
 		protected function __construct() {
-			$this->admin = new WDS_Mega_Menus_Admin(); // Most of the stuff is here!
 			$this->basename = plugin_basename( __FILE__ );
 			$this->url      = plugin_dir_url( __FILE__ );
 			$this->path     = plugin_dir_path( __FILE__ );
@@ -91,6 +90,16 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 
 			// Plugin text domain.
 			load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );
+		}
+
+		/**
+		 * Attach other plugin classes to the base plugin class.
+		 *
+		 * @author Chris Reynolds
+		 * @since  0.2.0
+		 */
+		public function plugin_classes() {
+			$this->admin = new WDS_Mega_Menus_Admin(); // Most of the stuff is here!
 		}
 
 		/**
