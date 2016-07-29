@@ -186,9 +186,19 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		 */
 		public function get_svg_list() {
 			$svgs = array();
-			foreach ( glob( get_stylesheet_directory() . '/images/svg/*.svg' ) as $svg ) {
-				$slug          = str_replace( array( get_stylesheet_directory() . '/images/svg/', '.svg' ), '', $svg );
-				$svgs[ $slug ] = $this->get_svg( $slug ) . ' ' . ucfirst( str_replace( '-', ' ', $slug ) );
+
+			// Use the theme by default, always.
+			if ( file_exists( get_stylesheet_directory() . '/images/svg' ) ) {
+				foreach ( glob( get_stylesheet_directory() . '/images/svg/*.svg' ) as $svg ) {
+					$slug          = str_replace( array( get_stylesheet_directory() . '/images/svg/', '.svg' ), '', $svg );
+					$svgs[ $slug ] = $this->get_svg( $slug ) . ' ' . ucfirst( str_replace( '-', ' ', $slug ) );
+				}
+			} else {
+				// If the theme doesn't have icons, that's cool, we'll use our own.
+				foreach ( glob( wds_mega_menus()->path . '/assets/svg/*.svg' ) as $svg ) {
+					$slug = str_replace( array( wds_mega_menus()->path . '/assets/svg', '.svg' ), '', $svg );
+					$svgs[ $slug ] = $this->get_svg( $slug ) . ' ' . ucfirst( str_replace( '-', ' ', $slug ) );
+				}
 			}
 
 			return $svgs;
