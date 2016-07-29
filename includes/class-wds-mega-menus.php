@@ -85,6 +85,8 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 			$this->basename = plugin_basename( __FILE__ );
 			$this->url      = plugin_dir_url( __FILE__ );
 			$this->path     = plugin_dir_path( __FILE__ );
+			$this->svg_defs = $this->path . '/assets/svg-defs.svg';
+			$this->svg      = $this->path . '/assets/svg/';
 
 			$this->plugin_classes();
 
@@ -137,6 +139,8 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 				case 'basename':
 				case 'url':
 				case 'path':
+				case 'svg_defs':
+				case 'svg':
 					return $this->$field;
 				default:
 					throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
