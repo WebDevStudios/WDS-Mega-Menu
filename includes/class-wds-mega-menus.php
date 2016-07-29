@@ -89,9 +89,41 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 			$this->svg      = $this->path . '/assets/svg/';
 
 			$this->plugin_classes();
+			$this->update_svg_paths();
 
 			// Plugin text domain.
 			load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );
+		}
+
+		/**
+		 * Update SVG paths.
+		 *
+		 * Updates the default $this->svg_defs and $this->svg paths if the theme has svgs.
+		 *
+		 * @since  0.2.0
+		 * @author Chris Reynolds
+		 */
+		public function update_svg_paths() {
+			if ( $this->theme_has_svgs ) {
+				/**
+				 * SVG Defs Path
+				 *
+				 * @since  0.2.0
+				 * @author Chris Reynolds
+				 * @var string wdsmm_svg_defs_path
+				 */
+				$this->svg_defs = apply_filters( 'wdsmm_svg_defs_path', get_stylesheet_directory() . '/images/svg-defs.svg' );
+
+				/**
+				 * SVGs Directory
+				 *
+				 * Filter the directory path to the SVGs folder. Defaults to the current child theme in the /images/svg folder.
+				 *
+				 * @var   string wdsmm_svgs_directory
+				 * @since 0.2.0
+				 */
+				$this->svg = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/images/svg' );
+			}
 		}
 
 		/**
