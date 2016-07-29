@@ -85,6 +85,16 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			 *     add_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', 'my_filter' );
 			 */
 			$allowed_depths = apply_filters( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', array() );
+
+			// Check for version 0.2.1+ option.
+			if ( empty( $allowed_depths ) ) {
+				$option_value = WDS_Mega_Menus::get_instance()->options->get_option( 'wds_mega_menus_depth', '' );
+
+				if ( strlen( $option_value ) ) {
+					$allowed_depths = explode( ',', $option_value );
+				}
+			}
+
 			if ( ! empty( $allowed_depths ) && in_array( $args['depth'], $allowed_depths ) ) :
 
 				$img_id  = get_post_thumbnail_id( $id );
@@ -186,8 +196,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		 */
 		public function get_svg_list() {
 			$svgs = array();
-			foreach ( glob( get_stylesheet_directory() . '/images/svg/*.svg' ) as $svg ) {
-				$slug          = str_replace( array( get_stylesheet_directory() . '/images/svg/', '.svg' ), '', $svg );
+
+			// Loop through all the svgs to build the SVG list.
+			foreach ( glob( wds_mega_menus()->svg . '*.svg' ) as $svg ) {
+				$slug = str_replace( array( wds_mega_menus()->svg, '.svg' ), '', $svg );
 				$svgs[ $slug ] = $this->get_svg( $slug ) . ' ' . ucfirst( str_replace( '-', ' ', $slug ) );
 			}
 
