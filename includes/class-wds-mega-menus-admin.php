@@ -115,15 +115,15 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			// Define svg sprite file.
 			if ( wds_mega_menus()->theme_has_svgs ) {
 				/**
-				 * SVG Theme Defs
+				 * SVG Defs
 				 *
 				 * Path to svg-defs.svg sprite file.
 				 *
 				 * @author Chris Reynolds
 				 * @since  0.2.0
-				 * @var string wdsmm_svg_theme_defs
+				 * @var string wdsmm_svg_defs
 				 */
-				$svg_defs = apply_filters( 'wdsmm_svg_theme_defs', get_stylesheet_directory() . '/images/svg-defs.svg' );
+				$svg_defs = apply_filters( 'wdsmm_svg_defs', get_stylesheet_directory() . '/images/svg-defs.svg' );
 			}
 
 			// If it exsists, include it.
