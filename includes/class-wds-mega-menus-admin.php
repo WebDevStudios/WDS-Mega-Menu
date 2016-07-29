@@ -39,7 +39,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			wp_enqueue_style( 'wdsmm-admin', plugins_url( '../assets/css/admin.css', __FILE__ ), array(), time() );
 			wp_enqueue_script( 'wds-mega-menus', plugins_url( '../assets/js/wds-mega-menus.js', __FILE__ ), array( 'jquery' ), time() );
 			wp_enqueue_script( 'bootstrap-dropdown', plugins_url( '../assets/js/dropdowns-enhancement.js', __FILE__ ), array( 'jquery' ), time(), true );
-			wp_enqueue_script( 'wdsmm-svg-defs', wds_mega_menus()->path . '/assets/js/svgs.js', array( 'jquery' ), wds_mega_menus()->version, true );
+			wp_enqueue_script( 'wdsmm-svg-defs', wds_mega_menus()->url . '/assets/js/svgs.js', array( 'jquery' ), wds_mega_menus()->version, true );
 
 			wp_localize_script( 'wdsmm-svg-defs', 'svg_defs', array(
 				'svgs' => $this->include_svg_definitions(),
