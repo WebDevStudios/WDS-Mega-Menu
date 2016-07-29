@@ -104,7 +104,7 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * @author Chris Reynolds
 		 */
 		public function update_svg_paths() {
-			if ( $this->theme_has_svgs ) {
+			if ( $this->have_svgs ) {
 				/**
 				 * SVG Defs Path
 				 *
@@ -127,17 +127,17 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		}
 
 		/**
-		 * Check if the theme has an svgs folder.
+		 * Check if we already have an svgs folder.
 		 *
 		 * @since  0.2.0
 		 * @author Chris Reynolds
-		 * @return bool Whether the theme has its own svgs directory.
+		 * @return bool Whether we already have our own svgs directory. Checks the theme by default.
 		 */
-		public function theme_has_svgs() {
+		public function have_svgs() {
 			/**
 			 * SVGs Directory
 			 *
-			 * Filter the directory path to the SVGs folder. Defaults to the current child theme in the /images/svg folder.
+			 * Filter the directory path to the SVGs folder. Defaults to /images/svg in the current child theme folder.
 			 *
 			 * @var   string wdsmm_svgs_directory
 			 * @since 0.2.0
