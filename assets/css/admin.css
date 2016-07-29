@@ -896,9 +896,6 @@ input[type="button"].btn-block {
   background-color: transparent;
   border: 0;
 }
-.hidden {
-  display: none !important;
-}
 .affix {
   position: fixed;
 }
