@@ -104,7 +104,7 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * @author Chris Reynolds
 		 */
 		public function update_svg_paths() {
-			if ( $this->have_svgs ) {
+			if ( $this->have_svgs() ) {
 				/**
 				 * SVG Defs Path
 				 *
