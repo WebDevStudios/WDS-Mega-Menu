@@ -93,6 +93,26 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		}
 
 		/**
+		 * Check if the theme has an svgs folder.
+		 *
+		 * @since  0.2.0
+		 * @author Chris Reynolds
+		 * @return bool Whether the theme has its own svgs directory.
+		 */
+		public function theme_has_svgs() {
+			/**
+			 * SVGs Directory
+			 *
+			 * Filter the directory path to the SVGs folder. Defaults to the current child theme in the /images/svg folder.
+			 *
+			 * @var   string wdsmm_svgs_directory
+			 * @since 0.2.0
+			 */
+			$svgs_directory = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/images/svg' );
+			return file_exists( $svgs_directory );
+		}
+
+		/**
 		 * Attach other plugin classes to the base plugin class.
 		 *
 		 * @author Chris Reynolds
