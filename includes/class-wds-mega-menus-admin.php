@@ -42,7 +42,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			wp_enqueue_script( 'wdsmm-svg-defs', wds_mega_menus()->url . '/assets/js/svgs.js', array( 'jquery' ), wds_mega_menus()->version, true );
 
 			wp_localize_script( 'wdsmm-svg-defs', 'svg_defs', array(
-				'svgs' => $this->include_svg_definitions(),
+				'svgs' => printf( $this->include_svg_definitions() ),
 			) );
 		}
 
