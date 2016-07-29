@@ -36,9 +36,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			}
 
 			wp_enqueue_media();
-			wp_enqueue_style( 'wdsmm-admin', plugins_url( '../assets/css/admin.css', __FILE__ ), array(), time() );
-			wp_enqueue_script( 'wds-mega-menus', plugins_url( '../assets/js/wds-mega-menus.js', __FILE__ ), array( 'jquery' ), time() );
-			wp_enqueue_script( 'bootstrap-dropdown', plugins_url( '../assets/js/dropdowns-enhancement.js', __FILE__ ), array( 'jquery' ), time(), true );
+			wp_enqueue_style( 'wdsmm-admin', wds_mega_menus()->url . 'assets/css/admin.css', array(), wds_mega_menus()->version );
+			wp_enqueue_script( 'wds-mega-menus', wds_mega_menus()->url . 'assets/js/wds-mega-menus.js', array( 'jquery' ), wds_mega_menus()->version );
+			wp_enqueue_script( 'bootstrap-dropdown', wds_mega_menus()->url . 'assets/js/dropdowns-enhancement.js', array( 'jquery' ), wds_mega_menus()->version, true );
 		}
 
 		/**
