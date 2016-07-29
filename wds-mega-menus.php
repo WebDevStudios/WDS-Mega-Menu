@@ -115,15 +115,15 @@ class WDS_Mega_Menus {
 	 * @since  0.1.0
 	 */
 	protected function __construct() {
-		require 'class-wds-mega-menu-walker.php';
-		require 'class-wds-mega-menus-walker-nav-menu-edit.php';
-		require 'class-wds-mega-menus-admin.php';
-
 		$this->basename = plugin_basename( __FILE__ );
 		$this->url      = plugin_dir_url( __FILE__ );
 		$this->path     = plugin_dir_path( __FILE__ );
 		$this->svg_defs = $this->path . '/assets/svg-defs.svg';
 		$this->svg      = $this->path . '/assets/svg/';
+
+		require $this->path . 'includes/class-wds-mega-menu-walker.php';
+		require $this->path . 'includes/class-wds-mega-menus-walker-nav-menu-edit.php';
+		require $this->path . 'includes/class-wds-mega-menus-admin.php';
 
 		$this->plugin_classes();
 		$this->update_svg_paths();
