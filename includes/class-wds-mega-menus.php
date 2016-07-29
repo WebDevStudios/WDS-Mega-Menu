@@ -4,12 +4,14 @@
  * already initiated our base class.
  *
  * @package WDS_Mega_Menus
+ * @version 0.1.0
  */
 
 if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	require 'class-wds-mega-menu-walker.php';
 	require 'class-wds-mega-menus-walker-nav-menu-edit.php';
 	require 'class-wds-mega-menus-admin.php';
+	require 'class-options.php';
 
 	/**
 	 * WDS Mega Menus.
@@ -28,6 +30,14 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * @since  0.1.0
 		 */
 		protected static $single_instance = null;
+
+		/**
+		 * Options class instance.
+		 *
+		 * @var   WDS_Mega_Menus_Options
+		 * @since 0.1.0
+		 */
+		public $options;
 
 		/**
 		 * Creates or returns an instance of this class.
@@ -49,7 +59,8 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 * @since  0.1.0
 		 */
 		protected function __construct() {
-			$this->admin = new WDS_Mega_Menus_Admin(); // Most of the stuff is here!
+			$this->admin   = new WDS_Mega_Menus_Admin(); // Most of the stuff is here!
+			$this->options = new WDS_Mega_Menus_Options( $this );
 
 			// Plugin text domain.
 			load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );
