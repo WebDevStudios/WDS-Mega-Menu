@@ -25,6 +25,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			add_action( 'wp_update_nav_menu_item', array( $this, 'update_nav_fields' ), 10, 3 );
 			add_filter( 'wp_edit_nav_menu_walker', array( $this, 'nav_menu_edit_walker' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+			add_action( 'admin_print_scripts', array( $this, 'include_svg_definitions' ) );
 		}
 
 		/**
@@ -36,9 +37,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			}
 
 			wp_enqueue_media();
-			wp_enqueue_style( 'wdsmm-admin', plugins_url( '../assets/css/admin.css', __FILE__ ), array(), time() );
-			wp_enqueue_script( 'wds-mega-menus', plugins_url( '../assets/js/wds-mega-menus.js', __FILE__ ), array( 'jquery' ), time() );
-			wp_enqueue_script( 'bootstrap-dropdown', plugins_url( '../assets/js/dropdowns-enhancement.js', __FILE__ ), array( 'jquery' ), time(), true );
+			wp_enqueue_style( 'wdsmm-admin', wds_mega_menus()->url . 'assets/css/admin.css', array(), wds_mega_menus()->version );
+			wp_enqueue_script( 'wds-mega-menus', wds_mega_menus()->url . 'assets/js/wds-mega-menus.js', array( 'jquery' ), wds_mega_menus()->version );
+			wp_enqueue_script( 'bootstrap-dropdown', wds_mega_menus()->url . 'assets/js/dropdowns-enhancement.js', array( 'jquery' ), wds_mega_menus()->version, true );
 		}
 
 		/**
@@ -102,6 +103,24 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 				update_post_meta( $menu_item_db_id, '_menu_item_widget_area', sanitize_text_field( $_POST['menu-item-widget-area'][$menu_item_db_id] ) );
 			}
 
+		}
+
+		/**
+		 * Add SVG definitions to <head>.
+		 *
+		 * @author Chris Reynolds
+		 * @since  0.2.0
+		 */
+		public function include_svg_definitions() {
+			// Only do this on the nav menus page. Theme will load SVGs on its own.
+			$screen = get_current_screen();
+			if ( 'nav-menus' !== $screen->id ) {
+				return;
+			}
+			// Require the svg-defs.svg file.
+			if ( file_exists( wds_mega_menus()->svg_defs ) ) {
+				require_once( wds_mega_menus()->svg_defs );
+			}
 		}
 	} // class WDS_Mega_Menus_Admin
 } // if class WDS_Mega_Menus_Admin.
