@@ -21,6 +21,39 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 	 * @package  WDS_Mega_Menus
 	 */
 	class WDS_Mega_Menus {
+
+		/**
+		 * Current version
+		 *
+		 * @var  string
+		 * @since  NEXT
+		 */
+		const VERSION = '0.2.0';
+
+		/**
+		 * URL of plugin directory
+		 *
+		 * @var string
+		 * @since  NEXT
+		 */
+		protected $url = '';
+
+		/**
+		 * Path of plugin directory
+		 *
+		 * @var string
+		 * @since  NEXT
+		 */
+		protected $path = '';
+
+		/**
+		 * Plugin basename
+		 *
+		 * @var string
+		 * @since  NEXT
+		 */
+		protected $basename = '';
+
 		/**
 		 * Singleton instance of plugin.
 		 *
@@ -50,6 +83,11 @@ if ( ! class_exists( 'WDS_Mega_Menus' ) && ! isset( $wds_mega_menus ) ) {
 		 */
 		protected function __construct() {
 			$this->admin = new WDS_Mega_Menus_Admin(); // Most of the stuff is here!
+			$this->basename = plugin_basename( __FILE__ );
+			$this->url      = plugin_dir_url( __FILE__ );
+			$this->path     = plugin_dir_path( __FILE__ );
+
+			$this->plugin_classes();
 
 			// Plugin text domain.
 			load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );
