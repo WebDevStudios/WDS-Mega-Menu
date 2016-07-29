@@ -111,6 +111,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * @since  0.2.0
 		 */
 		public function include_svg_definitions() {
+			// Only do this on the nav menus page. Theme will load SVGs on its own.
+			$screen = get_current_screen();
+			if ( 'nav-menus' !== $screen->id ) {
+				return;
+			}
 			// Require the svg-defs.svg file.
 			if ( file_exists( wds_mega_menus()->svg_defs ) ) {
 				require_once( wds_mega_menus()->svg_defs );
