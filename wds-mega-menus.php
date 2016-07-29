@@ -124,6 +124,7 @@ class WDS_Mega_Menus {
 		require $this->path . 'includes/class-wds-mega-menu-walker.php';
 		require $this->path . 'includes/class-wds-mega-menus-walker-nav-menu-edit.php';
 		require $this->path . 'includes/class-wds-mega-menus-admin.php';
+		require $this->path . 'includes/class-options.php';
 
 		$this->plugin_classes();
 		$this->update_svg_paths();
@@ -190,7 +191,8 @@ class WDS_Mega_Menus {
 	 * @since  0.2.0
 	 */
 	public function plugin_classes() {
-		$this->admin = new WDS_Mega_Menus_Admin();
+		$this->admin   = new WDS_Mega_Menus_Admin();
+		$this->options = new WDS_Mega_Menus_Options( $this );
 	}
 
 	/**
