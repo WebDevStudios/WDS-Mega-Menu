@@ -159,7 +159,7 @@ class WDS_Mega_Menus {
 			 * @var   string wdsmm_svgs_directory
 			 * @since 0.2.0
 			 */
-			$this->svg = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/images/svg' );
+			$this->svg = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/images/svg/' );
 		}
 	}
 
