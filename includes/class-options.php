@@ -142,6 +142,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		 * @since 0.1.0
 		 */
 		public function register_menu() {
+			if ( has_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths' ) ) {
+				return;
+			}
+
 			add_submenu_page(
 				$this->page,
 				$this->page_title,
