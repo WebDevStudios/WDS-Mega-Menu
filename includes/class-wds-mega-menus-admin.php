@@ -103,5 +103,33 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 			}
 
 		}
+
+		/**
+		 * Add SVG definitions to <head>.
+		 *
+		 * @author Chris Reynolds
+		 * @since  0.2.0
+		 */
+		public function include_svg_definitions() {
+
+			// Define svg sprite file.
+			if ( wds_mega_menus()->theme_has_svgs ) {
+				/**
+				 * SVG Theme Defs
+				 *
+				 * Path to svg-defs.svg sprite file.
+				 *
+				 * @author Chris Reynolds
+				 * @since  0.2.0
+				 * @var string wdsmm_svg_theme_defs
+				 */
+				$svg_defs = apply_filters( 'wdsmm_svg_theme_defs', get_stylesheet_directory() . '/images/svg-defs.svg' );
+			}
+
+			// If it exsists, include it.
+			if ( file_exists( $svg_defs ) ) {
+				require_once( $svg_defs );
+			}
+		}
 	} // class WDS_Mega_Menus_Admin
 } // if class WDS_Mega_Menus_Admin.
