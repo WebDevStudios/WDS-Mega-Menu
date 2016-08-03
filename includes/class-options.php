@@ -3,7 +3,7 @@
  * Mega Menus Admin Options.
  *
  * @package WDS_Mega_Menus
- * @version 0.1.0
+ * @version 0.1.1
  */
 
 if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
@@ -97,11 +97,21 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		}
 
 		/**
+		 * Deepest menu depth.
+		 *
+		 * @since 0.1.1
+		 * @var   int
+		 */
+		private $deepest_menu = 1;
+
+		/**
 		 * Show the options page. This also handles saving.
 		 *
 		 * @since 0.1.0
 		 */
 		public function handle_options_page() {
+			$this->deepest_menu = $this->get_deepest_menu() ?: 1;
+
 			/**
 			 * Some quick todos for later.
 			 *
@@ -111,7 +121,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 			$this->add_field( array(
 				'key'   => 'wds_mega_menus_depth',
 				'title' => __( 'Applied Menu Depth(s)', 'wds-mega-menus' ),
-				'desc'  => __( '<em>Should be a comma-separated list of depths, e.g. "1,2,4"</em> (replaces <code>wds_mega_menus_walker_nav_menu_edit_allowed_depths</code> filter).', 'wds-mega-menus' ),
+				'desc'  => __( '<em>Select menu levels to apply the Mega Menu to.</em>', 'wds-mega-menus' ), // (replaces <code>wds_mega_menus_walker_nav_menu_edit_allowed_depths</code> filter).', 'wds-mega-menus' ),
 			) );
 
 			// Check to see if anything is saved.
@@ -133,7 +143,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		 */
 		public function hooks() {
 			add_action( 'admin_menu', array( $this, 'register_menu' ) );
-			add_filter( 'wds_mega_menus_options_save', array( $this, 'clean_depths' ), 10, 2 );
+			add_filter( 'wds_mega_menus_options_save', array( $this, 'process_depth_value' ), 10, 2 );
+			add_filter( 'wds_mega_menus_input', array( $this, 'render_depth_input' ), 10, 3 );
 		}
 
 		/**
@@ -251,13 +262,29 @@ HTML;
 
 			foreach ( $this->fields as $field ) {
 				$value = $this->get_option( $field['key'] );
+
+				$input = vsprintf( '<input type="text" value="%1$s" id="%2$s" name="%2$s">', array(
+					esc_attr( $value ),
+					esc_attr( $field['key'] ),
+				) );
+
+				/**
+				 * Filter an input's HTML before rendering the field.
+				 *
+				 * @since  0.1.1
+				 * @param  string $field The field name.
+				 * @param  mixed  $value The field value.
+				 * @return string
+				 */
+				$input = apply_filters( 'wds_mega_menus_input', $input, $field, $value );
+
 				$html .= <<<HTML
 				<tr>
 					<th scope="row">
 						<label for="{$field['key']}">{$field['title']}</label>
 					</th>
 					<td>
-						<input type="text" value="{$value}" id="{$field['key']}" name="{$field['key']}">
+						{$input}
 						<br>
 						<span class="description">
 							{$field['desc']}
@@ -288,8 +315,6 @@ HTML;
 						continue;
 					}
 
-					$value = sanitize_text_field( wp_unslash( $_POST[ $key ] ) );
-
 					/**
 					 * Filter the value before saving.
 					 *
@@ -297,33 +322,114 @@ HTML;
 					 * @param  string $key The key of the field being processed.
 					 * @return mixed
 					 */
-					$value = apply_filters( 'wds_mega_menus_options_save', $value, $key );
+					$value = apply_filters( 'wds_mega_menus_options_save', wp_unslash( $_POST[ $key ] ), $key );
 					$this->set_option( $key, $value );
 				}
 			}
 		}
 
 		/**
-		 * Clean the mega menu depths option.
+		 * Process a saved depth value.
 		 *
-		 * @since 0.1.0
+		 * @since 0.1.1
 		 *
 		 * @param  mixed  $value The menu depths value. Comma-separated list of depths.
 		 * @param  string $key   The key of the field being processed.
 		 * @return mixed
 		 */
-		public function clean_depths( $value, $key ) {
+		public function process_depth_value( $value, $key ) {
 			if ( 'wds_mega_menus_depth' !== $key ) {
 				continue;
 			}
 
-			if ( ! is_numeric( strtr( $value, array( ',' => '' ) ) ) ) {
-				return '';
+			if ( empty( $value ) ) {
+				return array();
 			}
 
-			$value = strtr( trim( $value ), array( ' ' => '' ) );
-			$value = rtrim( $value, ',' );
-			return $value;
+			return implode( ',', $value );
+		}
+
+		/**
+		 * Render the depth input field.
+		 *
+		 * @since 0.1.1
+		 *
+		 * @param  string $input The input field HMTL.
+		 * @param  string $field The field name.
+		 * @param  mixed  $value The field value.
+		 * @return string
+		 */
+		public function render_depth_input( $input, $field, $value ) {
+			if ( 'wds_mega_menus_depth' !== $field['key'] ) {
+				return;
+			}
+
+			// Set to 1 when the deepest menu is 0.
+			$checked_items = explode( ',', $value );
+			$html = '';
+
+			for ( $i = 0; $i <= $this->deepest_menu; $i++ ) {
+				$html .= '<ul>';
+				$checked = '';
+
+				if ( in_array( $i, $checked_items ) ) {
+					$checked = 'checked="checked"';
+				}
+
+				$key   = esc_attr( $field['key'] );
+				$html .= sprintf( '<li><input type="checkbox" name="%1$s[]" value="%3$s" %2$s />', $key, $checked, $i );
+				$html .= sprintf( __( '<label for="%1$s">Menu Depth: %2$s</label><br/>', 'wds-mega-menus' ), $key, $i );
+			}
+
+			$i--;
+
+			do {
+				$html .= '</li></ul>';
+			} while ( $i-- );
+
+			return $html;
+		}
+
+		/**
+		 * Find the deepest menu depth.
+		 *
+		 * @since  0.1.1
+		 * @return int
+		 */
+		private function get_deepest_menu() {
+			$deepest = 0;
+			$menu_items = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+
+			foreach ( $menu_items as $item ) {
+				$nav_menu_items = isset( $menus[ $item->slug ] ) ? $menus[ $item->slug ] : wp_get_nav_menu_items( $item->slug );
+
+				foreach ( $nav_menu_items as $nav_item ) {
+					if ( ! $nav_item->menu_item_parent ) {
+						continue;
+					}
+
+					$parent_meta = get_post_meta( $nav_item->menu_item_parent, '_menu_item_menu_item_parent', true );
+					$depth       = 0;
+
+					do {
+						$depth++;
+						$nav_item = get_post( $parent_meta );
+
+						if ( ! $parent_meta || ! $nav_item ) {
+							break;
+						}
+
+						$parent_meta = get_post_meta( $nav_item->ID, '_menu_item_menu_item_parent', true );
+					} while ( ! empty( $parent_meta ) );
+
+					if ( $depth > $deepest ) {
+						$deepest = $depth;
+					}
+				}
+			}
+
+			// Account for WP menu levels.
+			return $deepest + 1;
 		}
 	}
 }
