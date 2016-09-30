@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WDS Mega Menus 0.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wds-mega-menus\n"
-"POT-Creation-Date: 2016-09-30 18:25:59+00:00\n"
+"POT-Creation-Date: 2016-09-30 19:11:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,47 +41,47 @@ msgstr ""
 msgid "Hide this on mobile"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:106
+#: includes/class-walker-nav-menu-edit.php:109
 msgid "Menu Item Icon"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:111
+#: includes/class-walker-nav-menu-edit.php:114
 msgid "- Choose an icon -"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:116
+#: includes/class-walker-nav-menu-edit.php:119
 msgid "No Icon"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:129
+#: includes/class-walker-nav-menu-edit.php:132
 msgid "Menu Item Image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:130
+#: includes/class-walker-nav-menu-edit.php:133
 msgid "Images should be 130px wide by 250px high to prevent cropping."
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:133
+#: includes/class-walker-nav-menu-edit.php:136
 msgid "Set Menu Item Image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:133
+#: includes/class-walker-nav-menu-edit.php:136
 msgid "Set menu item image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:140
+#: includes/class-walker-nav-menu-edit.php:143
 msgid "Remove Menu Item Image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:140
+#: includes/class-walker-nav-menu-edit.php:143
 msgid "Remove menu item image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:171
+#: includes/class-walker-nav-menu-edit.php:174
 msgid "Select Widget Area to Display"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:175
+#: includes/class-walker-nav-menu-edit.php:178
 msgid "- Select Widget Area -"
 msgstr ""
 
