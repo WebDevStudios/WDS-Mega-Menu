@@ -207,6 +207,66 @@ class WDS_Mega_Menus {
 			$this->update_svg_paths();
 		}
 	}
+
+	/**
+	 * Check if the plugin meets requirements and
+	 * disable it if they are not present.
+	 *
+	 * @since  0.3.0
+	 * @return boolean result of meets_requirements
+	 */
+	public function check_requirements() {
+		if ( ! $this->meets_requirements() ) {
+
+			// Add a dashboard notice.
+			add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
+
+			// Deactivate our plugin.
+			add_action( 'admin_init', array( $this, 'deactivate_me' ) );
+
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Deactivates this plugin, hook this function on admin_init.
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function deactivate_me() {
+		deactivate_plugins( $this->basename );
+	}
+
+	/**
+	 * Check that all plugin requirements are met
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 * @return boolean True if requirements are met.
+	 */
+	public static function meets_requirements() {
+		// Do checks for required classes / functions
+		// function_exists('') & class_exists('').
+		// We have met all requirements.
+		return true;
+	}
+
+	/**
+	 * Adds a notice to the dashboard if the plugin requirements are not met
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function requirements_not_met_notice() {
+		// Output our error.
+		echo '<div id="message" class="error">';
+		echo '<p>' . sprintf( __( 'WDS Mega Menus is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'wds-mega-menus' ), admin_url( 'plugins.php' ) ) . '</p>';
+		echo '</div>';
+	}
+
 	/**
 	 * Update SVG paths.
 	 *
@@ -256,17 +316,6 @@ class WDS_Mega_Menus {
 		 */
 		$svgs_directory = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/images/svg' );
 		return file_exists( $svgs_directory );
-	}
-
-	/**
-	 * Attach other plugin classes to the base plugin class.
-	 *
-	 * @author Chris Reynolds
-	 * @since  0.2.0
-	 */
-	public function plugin_classes() {
-		$this->admin   = new WDS_Mega_Menus_Admin();
-		$this->options = new WDS_Mega_Menus_Options( $this );
 	}
 
 	/**
