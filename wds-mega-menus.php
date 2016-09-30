@@ -163,8 +163,14 @@ class WDS_Mega_Menus {
 		$this->options = new WDS_Mega_Menus_Options( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
-		// Plugin text domain.
-		load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );
+	/**
+	 * Add hooks and filters
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function hooks() {
+		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
@@ -187,6 +193,20 @@ class WDS_Mega_Menus {
 	 */
 	public function _deactivate() {}
 
+
+	/**
+	 * Init hooks
+	 *
+	 * @since  0.3.0
+	 * @return void
+	 */
+	public function init() {
+		if ( $this->check_requirements() ) {
+			load_plugin_textdomain( 'wds-mega-menus', false, dirname( $this->basename ) . '/languages/' );
+			$this->plugin_classes();
+			$this->update_svg_paths();
+		}
+	}
 	/**
 	 * Update SVG paths.
 	 *
