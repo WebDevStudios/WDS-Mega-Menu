@@ -50,6 +50,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 *
 		 * @since  0.1.0
 		 * @author Dustin Filippini, Aubrey Portwood
+		 *
 		 * @return string
 		 */
 		public function nav_menu_edit_walker() {
@@ -61,6 +62,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 *
 		 * @since  0.1.0
 		 * @author Dustin Filippini, Aubrey Portwood
+		 *
 		 * @param  object $menu_item The menu item object.
 		 * @return mixed
 		 */
@@ -74,11 +76,12 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Save the new field data for the nav menu.
 		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
+		 *
 		 * @param  int   $menu_id         Not used here.
 		 * @param  int   $menu_item_db_id The menu item post ID.
 		 * @param  array $args            Not used here.
-		 * @since  0.1.0
-		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
 		 * @todo   Maybe add nonces when getting data from $_POST?
 		 */
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
@@ -116,8 +119,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Add SVG definitions to <head>.
 		 *
-		 * @author Chris Reynolds
 		 * @since  0.2.0
+		 * @author Chris Reynolds
 		 */
 		public function include_svg_definitions() {
 			// Only do this on the nav menus page. Theme will load SVGs on its own.

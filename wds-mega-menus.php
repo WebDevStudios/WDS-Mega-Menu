@@ -52,6 +52,7 @@ if ( defined( 'DISABLE_WDS_MEGA_MENU' ) && DISABLE_WDS_MEGA_MENU ) {
  *
  * @since  0.3.0
  * @author Chris Reynolds
+ *
  * @param  string $class_name Name of the class being requested.
  */
 function wds_menus_autoload_classes( $class_name ) {
@@ -74,40 +75,40 @@ spl_autoload_register( 'wds_menus_autoload_classes' );
  * This base class handles mostly the instance itself and the plugin
  * as a whole.
  *
- * @since  0.1.0
- * @package  WDS_Mega_Menus
+ * @since   0.1.0
+ * @package WDS_Mega_Menus
  */
 class WDS_Mega_Menus {
 
 	/**
 	 * Current version
 	 *
-	 * @var  string
-	 * @since  0.1.0
+	 * @var   string
+	 * @since 0.1.0
 	 */
 	const VERSION = '0.3.0';
 
 	/**
 	 * URL of plugin directory
 	 *
-	 * @var string
-	 * @since  0.1.0
+	 * @var   string
+	 * @since 0.1.0
 	 */
 	protected $url = '';
 
 	/**
 	 * Path of plugin directory
 	 *
-	 * @var string
-	 * @since  0.1.0
+	 * @var   string
+	 * @since 0.1.0
 	 */
 	protected $path = '';
 
 	/**
 	 * Plugin basename
 	 *
-	 * @var string
-	 * @since  0.1.0
+	 * @var   string
+	 * @since 0.1.0
 	 */
 	protected $basename = '';
 
@@ -186,8 +187,8 @@ class WDS_Mega_Menus {
 	/**
 	 * Attach other plugin classes to the base plugin class.
 	 *
-	 * @author Chris Reynolds
 	 * @since  0.2.0
+	 * @author Chris Reynolds
 	 */
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
@@ -246,6 +247,7 @@ class WDS_Mega_Menus {
 	 *
 	 * @since  0.3.0
 	 * @author Chris Reynolds
+	 *
 	 * @return boolean result of meets_requirements
 	 */
 	public function check_requirements() {
@@ -278,6 +280,7 @@ class WDS_Mega_Menus {
 	 *
 	 * @since  0.3.0
 	 * @author Chris Reynolds
+	 *
 	 * @return boolean True if requirements are met.
 	 */
 	public static function meets_requirements() {
@@ -336,6 +339,7 @@ class WDS_Mega_Menus {
 	 *
 	 * @since  0.2.0
 	 * @author Chris Reynolds
+	 *
 	 * @return bool Whether we already have our own svgs directory. Checks the theme by default.
 	 */
 	public function have_svgs() {
@@ -356,6 +360,7 @@ class WDS_Mega_Menus {
 	 *
 	 * @since  0.3.0
 	 * @author Chris Reynolds
+	 *
 	 * @param  string $filename Name of the file to be included.
 	 * @return bool   Result of include call.
 	 */
@@ -371,6 +376,7 @@ class WDS_Mega_Menus {
 	 * Magic getter for our object.
 	 *
 	 * @since  0.1.0
+	 *
 	 * @param  string $field The field we're trying to fetch.
 	 * @throws Exception     Throws an exception if the field is invalid.
 	 * @return mixed
@@ -397,6 +403,7 @@ class WDS_Mega_Menus {
 	 *
 	 * @since  0.3.0
 	 * @author Chris Reynolds
+	 *
 	 * @param  string $path (optional) appended path.
 	 * @return string       Directory and path
 	 */
@@ -411,6 +418,7 @@ class WDS_Mega_Menus {
 	 *
 	 * @since  0.3.0
 	 * @author Chris Reynolds
+	 *
 	 * @param  string $path (optional) appended path.
 	 * @return string       URL and path
 	 */
