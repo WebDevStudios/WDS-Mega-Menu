@@ -1,7 +1,21 @@
 /**
+ * Plugin Name: WDS Mega Menus
+ * Plugin URI:  http://webdevstudios.com
+ * Description: Make Magnificently Magical Mega Menus and More
+ * Version:     0.2.2
+ * Author:      WebDevStudios
+ * Author URI:  http://webdevstudios.com
+ * Donate link: http://webdevstudios.com
+ * License:     GPLv2
+ * Text Domain: wds-mega-menus
+ * Domain Path: /languages
+ *
+ * @package WDS_Mega_Menus
+ */
+/**
  * Bootstrap base button and dropdown styles
  */
-
+/* line 26, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -12,8 +26,9 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-.sr-only-focusable:active,
-.sr-only-focusable:focus {
+
+/* line 38, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.sr-only-focusable:active, .sr-only-focusable:focus {
   position: static;
   width: auto;
   height: auto;
@@ -21,9 +36,13 @@
   overflow: visible;
   clip: auto;
 }
+
+/* line 48, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 [role="button"] {
   cursor: pointer;
 }
+
+/* line 52, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn {
   display: inline-block;
   margin-bottom: 0;
@@ -31,7 +50,7 @@
   text-align: center;
   vertical-align: middle;
   -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
   background-image: none;
   border: 1px solid transparent;
@@ -45,504 +64,1087 @@
   -ms-user-select: none;
   user-select: none;
 }
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn.active.focus {
+
+/* line 72, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.btn:hover,
-.btn:focus,
-.btn.focus {
+
+/* line 77, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn:hover, .btn:focus, .btn.focus {
   color: #333333;
   text-decoration: none;
 }
-.btn:active,
-.btn.active {
+
+/* line 81, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn:active, .btn.active {
   outline: 0;
   background-image: none;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.btn.disabled,
-.btn[disabled],
+
+/* line 87, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn.disabled, .btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  box-shadow: none;
+}
+
+/* line 96, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 fieldset[disabled] .btn {
   cursor: not-allowed;
   opacity: 0.65;
   filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
-a.btn.disabled,
-fieldset[disabled] a.btn {
+
+/* line 104, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+a.btn.disabled, fieldset[disabled] a.btn {
   pointer-events: none;
 }
+
+/* line 108, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-default {
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
 }
-.btn-default:focus,
-.btn-default.focus {
+
+/* line 112, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default:focus, .btn-default.focus {
   color: #333333;
   background-color: #e6e6e6;
   border-color: #8c8c8c;
 }
-.btn-default:hover {
+
+/* line 117, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default:hover, .btn-default:active, .btn-default.active {
   color: #333333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
-.btn-default:active,
-.btn-default.active,
+
+/* line 124, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-default {
   color: #333333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
-.btn-default:active:hover,
-.btn-default.active:hover,
-.open > .dropdown-toggle.btn-default:hover,
-.btn-default:active:focus,
-.btn-default.active:focus,
-.open > .dropdown-toggle.btn-default:focus,
-.btn-default:active.focus,
-.btn-default.active.focus,
+
+/* line 131, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default:active:hover, .btn-default.active:hover {
+  color: #333333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+/* line 138, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-default:hover {
+  color: #333333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+/* line 145, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default:active:focus, .btn-default.active:focus {
+  color: #333333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+/* line 152, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-default:focus {
+  color: #333333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+/* line 159, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default:active.focus, .btn-default.active.focus {
+  color: #333333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+/* line 166, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-default.focus {
   color: #333333;
   background-color: #d4d4d4;
   border-color: #8c8c8c;
 }
-.btn-default:active,
-.btn-default.active,
+
+/* line 173, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default:active, .btn-default.active {
+  background-image: none;
+}
+
+/* line 178, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-default {
   background-image: none;
 }
-.btn-default.disabled,
-.btn-default[disabled],
-fieldset[disabled] .btn-default,
-.btn-default.disabled:hover,
-.btn-default[disabled]:hover,
-fieldset[disabled] .btn-default:hover,
-.btn-default.disabled:focus,
-.btn-default[disabled]:focus,
-fieldset[disabled] .btn-default:focus,
-.btn-default.disabled.focus,
-.btn-default[disabled].focus,
-fieldset[disabled] .btn-default.focus,
-.btn-default.disabled:active,
-.btn-default[disabled]:active,
-fieldset[disabled] .btn-default:active,
-.btn-default.disabled.active,
-.btn-default[disabled].active,
+
+/* line 183, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default.disabled, .btn-default[disabled] {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 189, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-default {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 195, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default.disabled:hover, .btn-default[disabled]:hover {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 201, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-default:hover {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 207, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default.disabled:focus, .btn-default[disabled]:focus {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 213, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-default:focus {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 219, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default.disabled.focus, .btn-default[disabled].focus {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 225, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-default.focus {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 231, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default.disabled:active, .btn-default[disabled]:active {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 237, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-default:active {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 243, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-default.disabled.active, .btn-default[disabled].active {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+
+/* line 249, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 fieldset[disabled] .btn-default.active {
   background-color: #ffffff;
   border-color: #cccccc;
 }
+
+/* line 254, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-default .badge {
   color: #ffffff;
   background-color: #333333;
 }
+
+/* line 259, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-primary {
   color: #ffffff;
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-.btn-primary:focus,
-.btn-primary.focus {
+
+/* line 263, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary:focus, .btn-primary.focus {
   color: #ffffff;
   background-color: #286090;
   border-color: #122b40;
 }
-.btn-primary:hover {
+
+/* line 268, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary:hover, .btn-primary:active, .btn-primary.active {
   color: #ffffff;
   background-color: #286090;
   border-color: #204d74;
 }
-.btn-primary:active,
-.btn-primary.active,
+
+/* line 275, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-primary {
   color: #ffffff;
   background-color: #286090;
   border-color: #204d74;
 }
-.btn-primary:active:hover,
-.btn-primary.active:hover,
-.open > .dropdown-toggle.btn-primary:hover,
-.btn-primary:active:focus,
-.btn-primary.active:focus,
-.open > .dropdown-toggle.btn-primary:focus,
-.btn-primary:active.focus,
-.btn-primary.active.focus,
+
+/* line 282, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary:active:hover, .btn-primary.active:hover {
+  color: #ffffff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
+
+/* line 289, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-primary:hover {
+  color: #ffffff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
+
+/* line 296, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary:active:focus, .btn-primary.active:focus {
+  color: #ffffff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
+
+/* line 303, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-primary:focus {
+  color: #ffffff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
+
+/* line 310, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary:active.focus, .btn-primary.active.focus {
+  color: #ffffff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
+
+/* line 317, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-primary.focus {
   color: #ffffff;
   background-color: #204d74;
   border-color: #122b40;
 }
-.btn-primary:active,
-.btn-primary.active,
+
+/* line 324, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary:active, .btn-primary.active {
+  background-image: none;
+}
+
+/* line 329, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-primary {
   background-image: none;
 }
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus,
-.btn-primary[disabled].focus,
-fieldset[disabled] .btn-primary.focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
+
+/* line 334, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary.disabled, .btn-primary[disabled] {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 340, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-primary {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 346, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 352, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-primary:hover {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 358, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 364, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-primary:focus {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 370, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary.disabled.focus, .btn-primary[disabled].focus {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 376, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-primary.focus {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 382, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary.disabled:active, .btn-primary[disabled]:active {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 388, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-primary:active {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 394, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-primary.disabled.active, .btn-primary[disabled].active {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* line 400, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 fieldset[disabled] .btn-primary.active {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
+
+/* line 405, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-primary .badge {
   color: #337ab7;
   background-color: #ffffff;
 }
+
+/* line 410, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-success {
   color: #ffffff;
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
-.btn-success:focus,
-.btn-success.focus {
+
+/* line 414, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success:focus, .btn-success.focus {
   color: #ffffff;
   background-color: #449d44;
   border-color: #255625;
 }
-.btn-success:hover {
+
+/* line 419, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success:hover, .btn-success:active, .btn-success.active {
   color: #ffffff;
   background-color: #449d44;
   border-color: #398439;
 }
-.btn-success:active,
-.btn-success.active,
+
+/* line 426, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-success {
   color: #ffffff;
   background-color: #449d44;
   border-color: #398439;
 }
-.btn-success:active:hover,
-.btn-success.active:hover,
-.open > .dropdown-toggle.btn-success:hover,
-.btn-success:active:focus,
-.btn-success.active:focus,
-.open > .dropdown-toggle.btn-success:focus,
-.btn-success:active.focus,
-.btn-success.active.focus,
+
+/* line 433, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success:active:hover, .btn-success.active:hover {
+  color: #ffffff;
+  background-color: #398439;
+  border-color: #255625;
+}
+
+/* line 440, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-success:hover {
+  color: #ffffff;
+  background-color: #398439;
+  border-color: #255625;
+}
+
+/* line 447, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success:active:focus, .btn-success.active:focus {
+  color: #ffffff;
+  background-color: #398439;
+  border-color: #255625;
+}
+
+/* line 454, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-success:focus {
+  color: #ffffff;
+  background-color: #398439;
+  border-color: #255625;
+}
+
+/* line 461, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success:active.focus, .btn-success.active.focus {
+  color: #ffffff;
+  background-color: #398439;
+  border-color: #255625;
+}
+
+/* line 468, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-success.focus {
   color: #ffffff;
   background-color: #398439;
   border-color: #255625;
 }
-.btn-success:active,
-.btn-success.active,
+
+/* line 475, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success:active, .btn-success.active {
+  background-image: none;
+}
+
+/* line 480, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-success {
   background-image: none;
 }
-.btn-success.disabled,
-.btn-success[disabled],
-fieldset[disabled] .btn-success,
-.btn-success.disabled:hover,
-.btn-success[disabled]:hover,
-fieldset[disabled] .btn-success:hover,
-.btn-success.disabled:focus,
-.btn-success[disabled]:focus,
-fieldset[disabled] .btn-success:focus,
-.btn-success.disabled.focus,
-.btn-success[disabled].focus,
-fieldset[disabled] .btn-success.focus,
-.btn-success.disabled:active,
-.btn-success[disabled]:active,
-fieldset[disabled] .btn-success:active,
-.btn-success.disabled.active,
-.btn-success[disabled].active,
+
+/* line 485, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success.disabled, .btn-success[disabled] {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 491, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-success {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 497, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success.disabled:hover, .btn-success[disabled]:hover {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 503, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-success:hover {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 509, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success.disabled:focus, .btn-success[disabled]:focus {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 515, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-success:focus {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 521, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success.disabled.focus, .btn-success[disabled].focus {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 527, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-success.focus {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 533, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success.disabled:active, .btn-success[disabled]:active {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 539, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-success:active {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 545, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-success.disabled.active, .btn-success[disabled].active {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* line 551, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 fieldset[disabled] .btn-success.active {
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
+
+/* line 556, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-success .badge {
   color: #5cb85c;
   background-color: #ffffff;
 }
+
+/* line 561, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-info {
   color: #ffffff;
   background-color: #5bc0de;
   border-color: #46b8da;
 }
-.btn-info:focus,
-.btn-info.focus {
+
+/* line 565, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info:focus, .btn-info.focus {
   color: #ffffff;
   background-color: #31b0d5;
   border-color: #1b6d85;
 }
-.btn-info:hover {
+
+/* line 570, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info:hover, .btn-info:active, .btn-info.active {
   color: #ffffff;
   background-color: #31b0d5;
   border-color: #269abc;
 }
-.btn-info:active,
-.btn-info.active,
+
+/* line 577, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-info {
   color: #ffffff;
   background-color: #31b0d5;
   border-color: #269abc;
 }
-.btn-info:active:hover,
-.btn-info.active:hover,
-.open > .dropdown-toggle.btn-info:hover,
-.btn-info:active:focus,
-.btn-info.active:focus,
-.open > .dropdown-toggle.btn-info:focus,
-.btn-info:active.focus,
-.btn-info.active.focus,
+
+/* line 584, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info:active:hover, .btn-info.active:hover {
+  color: #ffffff;
+  background-color: #269abc;
+  border-color: #1b6d85;
+}
+
+/* line 591, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-info:hover {
+  color: #ffffff;
+  background-color: #269abc;
+  border-color: #1b6d85;
+}
+
+/* line 598, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info:active:focus, .btn-info.active:focus {
+  color: #ffffff;
+  background-color: #269abc;
+  border-color: #1b6d85;
+}
+
+/* line 605, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-info:focus {
+  color: #ffffff;
+  background-color: #269abc;
+  border-color: #1b6d85;
+}
+
+/* line 612, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info:active.focus, .btn-info.active.focus {
+  color: #ffffff;
+  background-color: #269abc;
+  border-color: #1b6d85;
+}
+
+/* line 619, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-info.focus {
   color: #ffffff;
   background-color: #269abc;
   border-color: #1b6d85;
 }
-.btn-info:active,
-.btn-info.active,
+
+/* line 626, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info:active, .btn-info.active {
+  background-image: none;
+}
+
+/* line 631, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-info {
   background-image: none;
 }
-.btn-info.disabled,
-.btn-info[disabled],
-fieldset[disabled] .btn-info,
-.btn-info.disabled:hover,
-.btn-info[disabled]:hover,
-fieldset[disabled] .btn-info:hover,
-.btn-info.disabled:focus,
-.btn-info[disabled]:focus,
-fieldset[disabled] .btn-info:focus,
-.btn-info.disabled.focus,
-.btn-info[disabled].focus,
-fieldset[disabled] .btn-info.focus,
-.btn-info.disabled:active,
-.btn-info[disabled]:active,
-fieldset[disabled] .btn-info:active,
-.btn-info.disabled.active,
-.btn-info[disabled].active,
+
+/* line 636, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info.disabled, .btn-info[disabled] {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 642, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-info {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 648, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info.disabled:hover, .btn-info[disabled]:hover {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 654, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-info:hover {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 660, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info.disabled:focus, .btn-info[disabled]:focus {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 666, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-info:focus {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 672, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info.disabled.focus, .btn-info[disabled].focus {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 678, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-info.focus {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 684, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info.disabled:active, .btn-info[disabled]:active {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 690, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-info:active {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 696, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-info.disabled.active, .btn-info[disabled].active {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* line 702, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 fieldset[disabled] .btn-info.active {
   background-color: #5bc0de;
   border-color: #46b8da;
 }
+
+/* line 707, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-info .badge {
   color: #5bc0de;
   background-color: #ffffff;
 }
+
+/* line 712, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-warning {
   color: #ffffff;
   background-color: #f0ad4e;
   border-color: #eea236;
 }
-.btn-warning:focus,
-.btn-warning.focus {
+
+/* line 716, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning:focus, .btn-warning.focus {
   color: #ffffff;
   background-color: #ec971f;
   border-color: #985f0d;
 }
-.btn-warning:hover {
+
+/* line 721, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning:hover, .btn-warning:active, .btn-warning.active {
   color: #ffffff;
   background-color: #ec971f;
   border-color: #d58512;
 }
-.btn-warning:active,
-.btn-warning.active,
+
+/* line 728, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-warning {
   color: #ffffff;
   background-color: #ec971f;
   border-color: #d58512;
 }
-.btn-warning:active:hover,
-.btn-warning.active:hover,
-.open > .dropdown-toggle.btn-warning:hover,
-.btn-warning:active:focus,
-.btn-warning.active:focus,
-.open > .dropdown-toggle.btn-warning:focus,
-.btn-warning:active.focus,
-.btn-warning.active.focus,
+
+/* line 735, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning:active:hover, .btn-warning.active:hover {
+  color: #ffffff;
+  background-color: #d58512;
+  border-color: #985f0d;
+}
+
+/* line 742, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-warning:hover {
+  color: #ffffff;
+  background-color: #d58512;
+  border-color: #985f0d;
+}
+
+/* line 749, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning:active:focus, .btn-warning.active:focus {
+  color: #ffffff;
+  background-color: #d58512;
+  border-color: #985f0d;
+}
+
+/* line 756, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-warning:focus {
+  color: #ffffff;
+  background-color: #d58512;
+  border-color: #985f0d;
+}
+
+/* line 763, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning:active.focus, .btn-warning.active.focus {
+  color: #ffffff;
+  background-color: #d58512;
+  border-color: #985f0d;
+}
+
+/* line 770, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-warning.focus {
   color: #ffffff;
   background-color: #d58512;
   border-color: #985f0d;
 }
-.btn-warning:active,
-.btn-warning.active,
+
+/* line 777, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning:active, .btn-warning.active {
+  background-image: none;
+}
+
+/* line 782, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-warning {
   background-image: none;
 }
-.btn-warning.disabled,
-.btn-warning[disabled],
-fieldset[disabled] .btn-warning,
-.btn-warning.disabled:hover,
-.btn-warning[disabled]:hover,
-fieldset[disabled] .btn-warning:hover,
-.btn-warning.disabled:focus,
-.btn-warning[disabled]:focus,
-fieldset[disabled] .btn-warning:focus,
-.btn-warning.disabled.focus,
-.btn-warning[disabled].focus,
-fieldset[disabled] .btn-warning.focus,
-.btn-warning.disabled:active,
-.btn-warning[disabled]:active,
-fieldset[disabled] .btn-warning:active,
-.btn-warning.disabled.active,
-.btn-warning[disabled].active,
+
+/* line 787, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning.disabled, .btn-warning[disabled] {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 793, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-warning {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 799, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning.disabled:hover, .btn-warning[disabled]:hover {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 805, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-warning:hover {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 811, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning.disabled:focus, .btn-warning[disabled]:focus {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 817, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-warning:focus {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 823, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning.disabled.focus, .btn-warning[disabled].focus {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 829, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-warning.focus {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 835, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning.disabled:active, .btn-warning[disabled]:active {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 841, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-warning:active {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 847, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-warning.disabled.active, .btn-warning[disabled].active {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* line 853, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 fieldset[disabled] .btn-warning.active {
   background-color: #f0ad4e;
   border-color: #eea236;
 }
+
+/* line 858, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-warning .badge {
   color: #f0ad4e;
   background-color: #ffffff;
 }
+
+/* line 863, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-danger {
   color: #ffffff;
   background-color: #d9534f;
   border-color: #d43f3a;
 }
-.btn-danger:focus,
-.btn-danger.focus {
+
+/* line 867, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger:focus, .btn-danger.focus {
   color: #ffffff;
   background-color: #c9302c;
   border-color: #761c19;
 }
-.btn-danger:hover {
+
+/* line 872, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger:hover, .btn-danger:active, .btn-danger.active {
   color: #ffffff;
   background-color: #c9302c;
   border-color: #ac2925;
 }
-.btn-danger:active,
-.btn-danger.active,
+
+/* line 879, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-danger {
   color: #ffffff;
   background-color: #c9302c;
   border-color: #ac2925;
 }
-.btn-danger:active:hover,
-.btn-danger.active:hover,
-.open > .dropdown-toggle.btn-danger:hover,
-.btn-danger:active:focus,
-.btn-danger.active:focus,
-.open > .dropdown-toggle.btn-danger:focus,
-.btn-danger:active.focus,
-.btn-danger.active.focus,
+
+/* line 886, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger:active:hover, .btn-danger.active:hover {
+  color: #ffffff;
+  background-color: #ac2925;
+  border-color: #761c19;
+}
+
+/* line 893, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-danger:hover {
+  color: #ffffff;
+  background-color: #ac2925;
+  border-color: #761c19;
+}
+
+/* line 900, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger:active:focus, .btn-danger.active:focus {
+  color: #ffffff;
+  background-color: #ac2925;
+  border-color: #761c19;
+}
+
+/* line 907, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.open > .dropdown-toggle.btn-danger:focus {
+  color: #ffffff;
+  background-color: #ac2925;
+  border-color: #761c19;
+}
+
+/* line 914, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger:active.focus, .btn-danger.active.focus {
+  color: #ffffff;
+  background-color: #ac2925;
+  border-color: #761c19;
+}
+
+/* line 921, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-danger.focus {
   color: #ffffff;
   background-color: #ac2925;
   border-color: #761c19;
 }
-.btn-danger:active,
-.btn-danger.active,
+
+/* line 928, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger:active, .btn-danger.active {
+  background-image: none;
+}
+
+/* line 933, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-toggle.btn-danger {
   background-image: none;
 }
-.btn-danger.disabled,
-.btn-danger[disabled],
-fieldset[disabled] .btn-danger,
-.btn-danger.disabled:hover,
-.btn-danger[disabled]:hover,
-fieldset[disabled] .btn-danger:hover,
-.btn-danger.disabled:focus,
-.btn-danger[disabled]:focus,
-fieldset[disabled] .btn-danger:focus,
-.btn-danger.disabled.focus,
-.btn-danger[disabled].focus,
-fieldset[disabled] .btn-danger.focus,
-.btn-danger.disabled:active,
-.btn-danger[disabled]:active,
-fieldset[disabled] .btn-danger:active,
-.btn-danger.disabled.active,
-.btn-danger[disabled].active,
+
+/* line 938, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger.disabled, .btn-danger[disabled] {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 944, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-danger {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 950, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger.disabled:hover, .btn-danger[disabled]:hover {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 956, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-danger:hover {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 962, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger.disabled:focus, .btn-danger[disabled]:focus {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 968, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-danger:focus {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 974, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger.disabled.focus, .btn-danger[disabled].focus {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 980, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-danger.focus {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 986, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger.disabled:active, .btn-danger[disabled]:active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 992, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-danger:active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 998, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-danger.disabled.active, .btn-danger[disabled].active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* line 1004, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 fieldset[disabled] .btn-danger.active {
   background-color: #d9534f;
   border-color: #d43f3a;
 }
+
+/* line 1009, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-danger .badge {
   color: #d9534f;
   background-color: #ffffff;
 }
+
+/* line 1014, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-link {
   color: #337ab7;
   font-weight: normal;
   border-radius: 0;
-}
-.btn-link,
-.btn-link:active,
-.btn-link.active,
-.btn-link[disabled],
-fieldset[disabled] .btn-link {
   background-color: transparent;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
-.btn-link,
-.btn-link:hover,
-.btn-link:focus,
-.btn-link:active {
+
+/* line 1021, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-link:active, .btn-link.active, .btn-link[disabled] {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* line 1028, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-link {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* line 1034, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-link {
   border-color: transparent;
 }
-.btn-link:hover,
-.btn-link:focus {
+
+/* line 1036, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-link:hover, .btn-link:focus, .btn-link:active {
+  border-color: transparent;
+}
+
+/* line 1039, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-link:hover, .btn-link:focus {
   color: #23527c;
   text-decoration: underline;
   background-color: transparent;
 }
-.btn-link[disabled]:hover,
-fieldset[disabled] .btn-link:hover,
-.btn-link[disabled]:focus,
-fieldset[disabled] .btn-link:focus {
+
+/* line 1044, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-link[disabled]:hover {
   color: #777777;
   text-decoration: none;
 }
-.btn-lg,
-.btn-group-lg > .btn {
+
+/* line 1050, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+fieldset[disabled] .btn-link:hover, .btn-link[disabled]:focus, fieldset[disabled] .btn-link:focus {
+  color: #777777;
+  text-decoration: none;
+}
+
+/* line 1055, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-lg, .btn-group-lg > .btn {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
-.btn-sm,
-.btn-group-sm > .btn {
+
+/* line 1062, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-sm, .btn-group-sm > .btn {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
-.btn-xs,
-.btn-group-xs > .btn {
+
+/* line 1069, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-xs, .btn-group-xs > .btn {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
+
+/* line 1076, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-block {
   display: block;
   width: 100%;
 }
+
+/* line 1079, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-block + .btn-block {
   margin-top: 5px;
 }
-input[type="submit"].btn-block,
-input[type="reset"].btn-block,
-input[type="button"].btn-block {
+
+/* line 1085, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
   width: 100%;
 }
+
+/* line 1090, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .caret {
   display: inline-block;
   width: 0;
@@ -554,13 +1156,18 @@ input[type="button"].btn-block {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
-.dropup,
-.dropdown {
+
+/* line 1102, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropup, .dropdown {
   position: relative;
 }
+
+/* line 1106, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-toggle:focus {
   outline: 0;
 }
+
+/* line 1110, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu {
   position: absolute;
   top: 57px;
@@ -578,21 +1185,25 @@ input[type="button"].btn-block {
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  -webkit-background-clip: padding-box;
-          background-clip: padding-box;
+  background-clip: padding-box;
 }
+
+/* line 1131, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.pull-right {
   right: 0;
   left: auto;
 }
+
+/* line 1135, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu .divider {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
+
+/* line 1142, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu > li > a {
   display: block;
   padding: 3px 20px;
@@ -602,47 +1213,72 @@ input[type="button"].btn-block {
   color: #333333;
   white-space: nowrap;
 }
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
+
+/* line 1150, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #262626;
   background-color: #f5f5f5;
 }
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
+
+/* line 1156, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .active > a {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
   background-color: #337ab7;
 }
-.dropdown-menu > .disabled > a,
-.dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
+
+/* line 1161, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #337ab7;
+}
+
+/* line 1168, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .disabled > a {
   color: #777777;
 }
-.dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
+
+/* line 1170, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+  color: #777777;
+}
+
+/* line 1173, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   cursor: not-allowed;
 }
+
+/* line 1185, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > .dropdown-menu {
   display: block;
 }
+
+/* line 1188, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .open > a {
   outline: 0;
 }
+
+/* line 1193, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu-right {
   left: auto;
   right: 0;
 }
+
+/* line 1198, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu-left {
   left: 0;
   right: auto;
 }
+
+/* line 1203, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-header {
   display: block;
   padding: 3px 20px;
@@ -651,6 +1287,8 @@ input[type="button"].btn-block {
   color: #777777;
   white-space: nowrap;
 }
+
+/* line 1212, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-backdrop {
   position: fixed;
   left: 0;
@@ -659,236 +1297,333 @@ input[type="button"].btn-block {
   top: 0;
   z-index: 990;
 }
+
+/* line 1221, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .pull-right > .dropdown-menu {
   right: 0;
   left: auto;
 }
-.dropup .caret,
-.navbar-fixed-bottom .dropdown .caret {
+
+/* line 1226, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropup .caret, .navbar-fixed-bottom .dropdown .caret {
   border-top: 0;
   border-bottom: 4px dashed;
   border-bottom: 4px solid \9;
   content: "";
 }
-.dropup .dropdown-menu,
-.navbar-fixed-bottom .dropdown .dropdown-menu {
+
+/* line 1233, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
   bottom: 100%;
   margin-bottom: 2px;
 }
-@media (min-width: 768px) {
-  .navbar-right .dropdown-menu {
-    left: auto;
-    right: 0;
-  }
-  .navbar-right .dropdown-menu-left {
-    left: 0;
-    right: auto;
-  }
-}
-.btn-group,
-.btn-group-vertical {
+
+/* line 1252, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group, .btn-group-vertical {
   position: relative;
   display: inline-block;
   vertical-align: middle;
 }
-.btn-group > .btn,
-.btn-group-vertical > .btn {
+
+/* line 1258, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group > .btn, .btn-group-vertical > .btn {
   position: relative;
   float: left;
 }
-.btn-group > .btn:hover,
-.btn-group-vertical > .btn:hover,
-.btn-group > .btn:focus,
-.btn-group-vertical > .btn:focus,
-.btn-group > .btn:active,
-.btn-group-vertical > .btn:active,
-.btn-group > .btn.active,
-.btn-group-vertical > .btn.active {
+
+/* line 1263, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group > .btn:hover, .btn-group-vertical > .btn:hover, .btn-group > .btn:focus, .btn-group-vertical > .btn:focus, .btn-group > .btn:active, .btn-group-vertical > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn.active {
   z-index: 2;
 }
-.btn-group .btn + .btn,
-.btn-group .btn + .btn-group,
-.btn-group .btn-group + .btn,
-.btn-group .btn-group + .btn-group {
+
+/* line 1269, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group .btn + .btn, .btn-group .btn + .btn-group {
   margin-left: -1px;
 }
+
+/* line 1274, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+
+/* line 1280, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-toolbar {
   margin-left: -5px;
 }
-.btn-toolbar .btn,
-.btn-toolbar .btn-group,
-.btn-toolbar .input-group {
+
+/* line 1282, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group {
   float: left;
 }
-.btn-toolbar > .btn,
-.btn-toolbar > .btn-group,
-.btn-toolbar > .input-group {
+
+/* line 1286, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
   margin-left: 5px;
 }
+
+/* line 1295, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0;
 }
+
+/* line 1298, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn:first-child {
   margin-left: 0;
 }
+
+/* line 1300, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
-.btn-group > .btn:last-child:not(:first-child),
+
+/* line 1305, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group > .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+/* line 1310, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
+
+/* line 1314, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn-group {
   float: left;
 }
+
+/* line 1316, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
 }
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
-.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+
+/* line 1320, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
+
+/* line 1325, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
-.btn-group .dropdown-toggle:active,
-.btn-group.open .dropdown-toggle {
+
+/* line 1331, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group .dropdown-toggle:active {
   outline: 0;
 }
+
+/* line 1334, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group.open .dropdown-toggle {
+  outline: 0;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+/* line 1338, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group.open .dropdown-toggle.btn-link {
+  box-shadow: none;
+}
+
+/* line 1344, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px;
 }
+
+/* line 1348, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group > .btn-lg + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px;
 }
-.btn-group.open .dropdown-toggle {
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-.btn-group.open .dropdown-toggle.btn-link {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
+
+/* line 1355, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn .caret {
   margin-left: 0;
 }
+
+/* line 1359, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-lg .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0;
 }
+
+/* line 1364, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropup .btn-lg .caret {
   border-width: 0 5px 5px;
 }
-.btn-group-vertical > .btn,
-.btn-group-vertical > .btn-group,
-.btn-group-vertical > .btn-group > .btn {
+
+/* line 1369, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group-vertical > .btn {
   display: block;
   float: none;
   width: 100%;
   max-width: 100%;
 }
+
+/* line 1375, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group-vertical > .btn-group {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* line 1380, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-vertical > .btn-group > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
   float: none;
 }
-.btn-group-vertical > .btn + .btn,
-.btn-group-vertical > .btn + .btn-group,
-.btn-group-vertical > .btn-group + .btn,
-.btn-group-vertical > .btn-group + .btn-group {
+
+/* line 1389, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn + .btn-group {
   margin-top: -1px;
   margin-left: 0;
 }
+
+/* line 1395, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-group {
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+/* line 1401, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
+
+/* line 1404, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-vertical > .btn:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+/* line 1409, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-vertical > .btn:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
+
+/* line 1416, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
 }
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+
+/* line 1420, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+/* line 1425, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
+
+/* line 1432, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-justified {
   display: table;
   width: 100%;
   table-layout: fixed;
   border-collapse: separate;
 }
-.btn-group-justified > .btn,
+
+/* line 1438, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group-justified > .btn {
+  float: none;
+  display: table-cell;
+  width: 1%;
+}
+
+/* line 1443, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-justified > .btn-group {
   float: none;
   display: table-cell;
   width: 1%;
 }
+
+/* line 1447, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-justified > .btn-group .btn {
   width: 100%;
 }
+
+/* line 1450, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .btn-group-justified > .btn-group .dropdown-menu {
   left: auto;
 }
-[data-toggle="buttons"] > .btn input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
-[data-toggle="buttons"] > .btn input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+
+/* line 1458, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
-.clearfix:before,
-.clearfix:after,
-.btn-toolbar:before,
-.btn-toolbar:after,
-.btn-group-vertical > .btn-group:before,
-.btn-group-vertical > .btn-group:after {
+
+/* line 1466, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.clearfix:before, .clearfix:after {
   content: " ";
   display: table;
 }
-.clearfix:after,
-.btn-toolbar:after,
-.btn-group-vertical > .btn-group:after {
+
+/* line 1473, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-toolbar:before, .btn-toolbar:after {
+  content: " ";
+  display: table;
+}
+
+/* line 1480, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after {
+  content: " ";
+  display: table;
+}
+
+/* line 1486, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.clearfix:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after {
   clear: both;
 }
+
+/* line 1490, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .center-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
+/* line 1496, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .pull-right {
   float: right !important;
 }
+
+/* line 1500, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .pull-left {
   float: left !important;
 }
+
+/* line 1504, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .hide {
   display: none !important;
 }
+
+/* line 1508, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .show {
   display: block !important;
 }
+
+/* line 1512, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .invisible {
   visibility: hidden;
 }
+
+/* line 1516, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .text-hide {
   font: 0/0 a;
   color: transparent;
@@ -896,15 +1631,16 @@ input[type="button"].btn-block {
   background-color: transparent;
   border: 0;
 }
+
+/* line 1524, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .affix {
   position: fixed;
 }
 
-
 /**
  * Dropdowns enhancement CSS
  */
-
+/* line 1535, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu > li > label {
   display: block;
   padding: 3px 20px;
@@ -914,93 +1650,154 @@ input[type="button"].btn-block {
   color: #333333;
   white-space: nowrap;
 }
-.dropdown-menu > li > label:hover,
-.dropdown-menu > li > label:focus {
+
+/* line 1543, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > label:hover, .dropdown-menu > li > label:focus {
   text-decoration: none;
   color: #262626;
   background-color: #f5f5f5;
 }
-.dropdown-menu > li > input:checked ~ label,
-.dropdown-menu > li > input:checked ~ label:hover,
-.dropdown-menu > li > input:checked ~ label:focus,
-.dropdown-menu > .active > label,
-.dropdown-menu > .active > label:hover,
-.dropdown-menu > .active > label:focus {
+
+/* line 1549, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > input:checked ~ label {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
   background-color: #428bca;
 }
-.dropdown-menu > li > input[disabled] ~ label,
-.dropdown-menu > li > input[disabled] ~ label:hover,
-.dropdown-menu > li > input[disabled] ~ label:focus,
-.dropdown-menu > .disabled > label,
-.dropdown-menu > .disabled > label:hover,
-.dropdown-menu > .disabled > label:focus {
+
+/* line 1554, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > input:checked ~ label:hover, .dropdown-menu > li > input:checked ~ label:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+
+/* line 1562, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .active > label {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+
+/* line 1567, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .active > label:hover, .dropdown-menu > .active > label:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+
+/* line 1574, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > input[disabled] ~ label {
   color: #999999;
 }
-.dropdown-menu > li > input[disabled] ~ label:hover,
-.dropdown-menu > li > input[disabled] ~ label:focus,
-.dropdown-menu > .disabled > label:hover,
-.dropdown-menu > .disabled > label:focus {
+
+/* line 1576, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > input[disabled] ~ label:hover, .dropdown-menu > li > input[disabled] ~ label:focus {
+  color: #999999;
+}
+
+/* line 1580, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .disabled > label {
+  color: #999999;
+}
+
+/* line 1582, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .disabled > label:hover, .dropdown-menu > .disabled > label:focus {
+  color: #999999;
+}
+
+/* line 1587, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > input[disabled] ~ label:hover, .dropdown-menu > li > input[disabled] ~ label:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   cursor: not-allowed;
 }
+
+/* line 1596, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > .disabled > label:hover, .dropdown-menu > .disabled > label:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+
+/* line 1605, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu > li > label {
   margin-bottom: 0;
   cursor: pointer;
 }
-.dropdown-menu > li > input[type="radio"],
-.dropdown-menu > li > input[type="checkbox"] {
+
+/* line 1610, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > input[type="radio"], .dropdown-menu > li > input[type="checkbox"] {
   display: none;
   position: absolute;
   top: -9999em;
   left: -9999em;
 }
-.dropdown-menu > li > label:focus,
-.dropdown-menu > li > input:focus ~ label {
+
+/* line 1617, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu > li > label:focus, .dropdown-menu > li > input:focus ~ label {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+
+/* line 1624, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.pull-right {
   right: 0;
   left: auto;
 }
+
+/* line 1628, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.pull-top {
   bottom: 100%;
   top: auto;
   margin: 0 0 2px;
-  -webkit-box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.175);
 }
+
+/* line 1635, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.pull-center {
   right: 50%;
   left: auto;
 }
+
+/* line 1639, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.pull-middle {
   right: 100%;
   margin: 0 2px 0 0;
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
   left: auto;
 }
+
+/* line 1644, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.pull-middle.pull-right {
   right: auto;
   left: 100%;
   margin: 0 0 0 2px;
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
 }
+
+/* line 1650, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.pull-middle.pull-center {
   right: 50%;
   margin: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+/* line 1656, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet {
   margin-top: 8px;
 }
+
+/* line 1658, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet:before {
   width: 0;
   height: 0;
@@ -1016,6 +1813,8 @@ input[type="button"].btn-block {
   top: -7px;
   left: 9px;
 }
+
+/* line 1673, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet:after {
   width: 0;
   height: 0;
@@ -1030,18 +1829,26 @@ input[type="button"].btn-block {
   top: -6px;
   left: 10px;
 }
+
+/* line 1688, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-right:before {
   left: auto;
   right: 9px;
 }
+
+/* line 1692, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-right:after {
   left: auto;
   right: 10px;
 }
+
+/* line 1697, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-top {
   margin-top: 0;
   margin-bottom: 8px;
 }
+
+/* line 1700, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-top:before {
   top: auto;
   bottom: -7px;
@@ -1050,6 +1857,8 @@ input[type="button"].btn-block {
   border-top-color: #cccccc;
   border-top-color: rgba(0, 0, 0, 0.15);
 }
+
+/* line 1708, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-top:after {
   top: auto;
   bottom: -6px;
@@ -1057,19 +1866,27 @@ input[type="button"].btn-block {
   border-top-width: 6px;
   border-top-color: #ffffff;
 }
+
+/* line 1717, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-center:before {
   left: auto;
   right: 50%;
   margin-right: -7px;
 }
+
+/* line 1722, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-center:after {
   left: auto;
   right: 50%;
   margin-right: -6px;
 }
+
+/* line 1728, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-middle {
   margin-right: 8px;
 }
+
+/* line 1730, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-middle:before {
   top: 50%;
   left: 100%;
@@ -1081,6 +1898,8 @@ input[type="button"].btn-block {
   border-left-color: #cccccc;
   border-left-color: rgba(0, 0, 0, 0.15);
 }
+
+/* line 1741, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-middle:after {
   top: 50%;
   left: 100%;
@@ -1091,10 +1910,14 @@ input[type="button"].btn-block {
   border-top-width: 6px;
   border-left-color: #ffffff;
 }
+
+/* line 1751, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-middle.pull-right {
   margin-right: 0;
   margin-left: 8px;
 }
+
+/* line 1754, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-middle.pull-right:before {
   left: -7px;
   border-left-width: 0;
@@ -1102,27 +1925,33 @@ input[type="button"].btn-block {
   border-right-color: #cccccc;
   border-right-color: rgba(0, 0, 0, 0.15);
 }
+
+/* line 1761, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-middle.pull-right:after {
   left: -6px;
   border-left-width: 0;
   border-right-width: 6px;
   border-right-color: #ffffff;
 }
+
+/* line 1768, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-menu.bullet.pull-middle.pull-center {
   margin-left: 0;
   margin-right: 0;
 }
-.dropdown-menu.bullet.pull-middle.pull-center:before {
+
+/* line 1771, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.dropdown-menu.bullet.pull-middle.pull-center:before, .dropdown-menu.bullet.pull-middle.pull-center:after {
   border: none;
   display: none;
 }
-.dropdown-menu.bullet.pull-middle.pull-center:after {
-  border: none;
-  display: none;
-}
+
+/* line 1780, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-submenu {
   position: relative;
 }
+
+/* line 1783, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-submenu > .dropdown-menu {
   top: 0;
   left: 100%;
@@ -1130,6 +1959,8 @@ input[type="button"].btn-block {
   margin-left: -1px;
   border-top-left-radius: 0;
 }
+
+/* line 1790, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
 .dropdown-submenu > a:before {
   display: block;
   float: right;
@@ -1144,7 +1975,66 @@ input[type="button"].btn-block {
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
-@media (max-width: 767px) {
+
+/* line 1848, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.navbar-default .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a {
+  background-color: #e7e7e7;
+  color: #555555;
+}
+
+/* line 1851, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.navbar-default .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:hover, .navbar-default .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:focus {
+  background-color: #e7e7e7;
+  color: #555555;
+}
+
+/* line 1863, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.navbar-inverse .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a {
+  background-color: #080808;
+  color: #ffffff;
+}
+
+/* line 1866, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.navbar-inverse .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:hover, .navbar-inverse .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:focus {
+  background-color: #080808;
+  color: #ffffff;
+}
+
+/**
+ * Custom User CSS
+ */
+/* line 1883, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group ul.dropdown-menu {
+  overflow: scroll;
+  max-height: 250px;
+}
+
+/* line 1887, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group svg.icon {
+  height: 14px;
+  width: 14px;
+  position: relative;
+  top: 2px;
+}
+
+/* line 1893, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+.btn-group li:hover {
+  background-color: #ddd;
+}
+@media (min-width: 768px) {/* line 1241, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }/* line 1245, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-right .dropdown-menu-left {
+    left: 0;
+    right: auto;
+  }
+}
+@media (max-width: 767px) {/* line 1809, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-nav .dropdown-submenu > a {
+    padding-left: 40px;
+  }/* line 1810, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
   .navbar-nav .dropdown-submenu > a:before {
     margin-top: 8px;
     border-color: inherit;
@@ -1152,72 +2042,26 @@ input[type="button"].btn-block {
     border-width: 4px 4px 0;
     border-left-color: transparent;
     border-right-color: transparent;
-  }
-  .navbar-nav .dropdown-submenu > a {
-    padding-left: 40px;
-  }
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > a,
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > label {
+  }/* line 1821, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > a, .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > label {
     padding-left: 35px;
-  }
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > a,
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > label {
+  }/* line 1825, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > a, .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > label {
     padding-left: 45px;
-  }
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > a,
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > label {
+  }/* line 1829, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > a, .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > label {
     padding-left: 55px;
-  }
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > a,
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > label {
+  }/* line 1833, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > a, .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > label {
     padding-left: 65px;
-  }
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > a,
-  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > label {
+  }/* line 1837, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
+  .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > a, .navbar-nav > .open > .dropdown-menu > .dropdown-submenu > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > .dropdown-menu > li > label {
     padding-left: 75px;
-  }
-}
-.navbar-default .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a,
-.navbar-default .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:hover,
-.navbar-default .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:focus {
-  background-color: #e7e7e7;
-  color: #555555;
-}
-@media (max-width: 767px) {
+  }/* line 1858, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
   .navbar-default .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:before {
     border-top-color: #555555;
-  }
-}
-.navbar-inverse .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a,
-.navbar-inverse .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:hover,
-.navbar-inverse .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:focus {
-  background-color: #080808;
-  color: #ffffff;
-}
-@media (max-width: 767px) {
+  }/* line 1873, /Users/jomurgel/Dropbox/Private/Dorcfiles/Projects/Development/Server/wds/wp-content/plugins/WDS-Mega-Menu/assets/scss/admin.scss */
   .navbar-inverse .navbar-nav .open > .dropdown-menu > .dropdown-submenu.open > a:before {
     border-top-color: #ffffff;
   }
-}
-
-
-/**
- * Custom User CSS
- */
-
-
-.btn-group ul.dropdown-menu {
-    overflow: scroll;
-    max-height: 250px;
-}
-
-.btn-group svg.icon {
-    height: 14px;
-    width: 14px;
-    position: relative;
-    top: 2px;
-}
-
-.btn-group li:hover {
-	background-color: #ddd;
 }
