@@ -17,7 +17,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Constructor
 		 *
-		 * @since 0.1.0
+		 * @since  0.1.0
+		 * @author Aubrey Portwood
 		 */
 		public function __construct() {
 			add_filter( 'wp_setup_nav_menu_item', array( $this, 'register_nav_field' ) );
@@ -29,6 +30,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 
 		/**
 		 * Enqueue scripts.
+		 *
+		 * @since  0.1.0
+		 * @author Aubrey Portwood, Chris Reynolds, Jo Murgel
 		 */
 		public function admin_enqueue_scripts() {
 			if ( 'nav-menus' !== get_current_screen()->id ) {
@@ -44,6 +48,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Filter the walker being used for the menu edit screen
 		 *
+		 * @since  0.1.0
+		 * @author Aubrey Portwood
 		 * @return string
 		 */
 		public function nav_menu_edit_walker() {
@@ -53,7 +59,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Register a field for the nav menu
 		 *
-		 * @param object $menu_item The menu item object.
+		 * @since  0.1.0
+		 * @author Aubrey Portwood
+		 * @param  object $menu_item The menu item object.
 		 * @return mixed
 		 */
 		public function register_nav_field( $menu_item ) {
@@ -66,11 +74,12 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Save the new field data for the nav menu.
 		 *
-		 * @param int   $menu_id         Not used here.
-		 * @param int   $menu_item_db_id The menu item post ID.
-		 * @param array $args            Not used here.
-		 * @since 0.1.0
-		 * @todo Maybe add nonces when getting data from $_POST?
+		 * @param  int   $menu_id         Not used here.
+		 * @param  int   $menu_item_db_id The menu item post ID.
+		 * @param  array $args            Not used here.
+		 * @since  0.1.0
+		 * @author Aubrey Portwood, Chris Reynolds
+		 * @todo   Maybe add nonces when getting data from $_POST?
 		 */
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 
