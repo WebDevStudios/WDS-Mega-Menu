@@ -387,6 +387,32 @@ class WDS_Mega_Menus {
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
 		}
 	}
+
+	/**
+	 * This plugin's directory
+	 *
+	 * @since  1.0.0
+	 * @param  string $path (optional) appended path.
+	 * @return string       Directory and path
+	 */
+	public static function dir( $path = '' ) {
+		static $dir;
+		$dir = $dir ? $dir : trailingslashit( dirname( __FILE__ ) );
+		return $dir . $path;
+	}
+
+	/**
+	 * This plugin's url
+	 *
+	 * @since  1.0.0
+	 * @param  string $path (optional) appended path.
+	 * @return string       URL and path
+	 */
+	public static function url( $path = '' ) {
+		static $url;
+		$url = $url ? $url : trailingslashit( plugin_dir_url( __FILE__ ) );
+		return $url . $path;
+	}
 } // class WDS_Mega_Menus
 
 /**
