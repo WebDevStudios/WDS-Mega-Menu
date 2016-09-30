@@ -18,8 +18,10 @@
 		*
 		* Displays the media uploader for selecting an image.
 		*
-		* @since 1.0.0
-		* @param string element_id The ID of the mega menu target.
+		* @since  0.1.0
+		* @author Dustin Filippini, Zach Owen
+		*
+		* @param  string element_id The ID of the mega menu target.
 		*/
 		this.renderMediaUploader = function( element_id ) {
 			var file_frame;
@@ -136,8 +138,10 @@
 		 *
 		 * Otherwise, the standard anchor is rendered.
 		 *
-		 * @since 1.0.0
-		 * @param string element_id The ID of the mega menu target.
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Zach Owen
+		 *
+		 * @param  string element_id The ID of the mega menu target.
 		 */
 		this.renderFeaturedImage = function( element_id ) {
 			/* If a thumbnail URL has been associated with this image
