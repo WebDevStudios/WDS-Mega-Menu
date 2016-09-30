@@ -10,27 +10,27 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 	/**
 	 * Walker Customizations.
 	 *
-	 * @since  0.1.0
-	 * @package  WDS_Mega_Menus
-	 * @uses  Walker_Nav_Menu
+	 * @since   0.1.0
+	 * @package WDS_Mega_Menus
+	 * @uses    Walker_Nav_Menu
 	 */
 	class WDS_Mega_Menu_Walker extends Walker_Nav_Menu {
 		/**
 		 * What the class handles.
 		 *
-		 * @see Walker::$tree_type
+		 * @see   Walker::$tree_type
 		 * @since 0.1.0
-		 * @var string
+		 * @var   string
 		 */
 		public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
 
 		/**
 		 * Database fields to use.
 		 *
-		 * @see Walker::$db_fields
+		 * @see   Walker::$db_fields
 		 * @since 0.1.0
-		 * @todo Decouple this.
-		 * @var array
+		 * @todo  Decouple this.
+		 * @var   array
 		 */
 		public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
 
@@ -39,12 +39,13 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::start_lvl()
 		 *
-		 * @since 0.1.0
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
 		 *
-		 * @param string $output Passed by reference. Used to append additional content.
-		 * @param int    $depth  Depth of menu item. Used for padding.
-		 * @param array  $args   An array of arguments.
-		 * @see wp_nav_menu()
+		 * @param  string $output Passed by reference. Used to append additional content.
+		 * @param  int    $depth  Depth of menu item. Used for padding.
+		 * @param  array  $args   An array of arguments.
+		 * @see    wp_nav_menu()
 		 */
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent = str_repeat( "\t", $depth );
@@ -60,12 +61,13 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::end_lvl()
 		 *
-		 * @since 0.1.0
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
 		 *
-		 * @param string $output Passed by reference. Used to append additional content.
-		 * @param int    $depth  Depth of menu item. Used for padding.
-		 * @param array  $args   An array of arguments.
-		 * @see wp_nav_menu()
+		 * @param  string $output Passed by reference. Used to append additional content.
+		 * @param  int    $depth  Depth of menu item. Used for padding.
+		 * @param  array  $args   An array of arguments.
+		 * @see    wp_nav_menu()
 		 */
 		public function end_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent = str_repeat( "\t", $depth );
@@ -77,14 +79,15 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::start_el()
 		 *
-		 * @since 0.1.0
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Corey Collins
 		 *
-		 * @param string $output Passed by reference. Used to append additional content.
-		 * @param object $item   Menu item data object.
-		 * @param int    $depth  Depth of menu item. Used for padding.
-		 * @param array  $args   An array of arguments.
-		 * @see wp_nav_menu()
-		 * @param int    $id     Current item ID.
+		 * @param  string $output Passed by reference. Used to append additional content.
+		 * @param  object $item   Menu item data object.
+		 * @param  int    $depth  Depth of menu item. Used for padding.
+		 * @param  array  $args   An array of arguments.
+		 * @param  int    $id     Current item ID.
+		 * @see    wp_nav_menu()
 		 */
 		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
@@ -103,12 +106,13 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			/**
 			 * Filter the CSS class(es) applied to a menu item's list item element.
 			 *
-			 * @since 0.1.0
+			 * @since  0.1.0
+			 * @author Dustin Filippini, Aubrey Portwood
 			 *
-			 * @param array  $classes The CSS classes that are applied to the menu item's `<li>` element.
-			 * @param object $item    The current menu item.
-			 * @param array  $args    An array of {@see wp_nav_menu()} arguments.
-			 * @param int    $depth   Depth of menu item. Used for padding.
+			 * @param  array  $classes The CSS classes that are applied to the menu item's `<li>` element.
+			 * @param  object $item    The current menu item.
+			 * @param  array  $args    An array of {@see wp_nav_menu()} arguments.
+			 * @param  int    $depth   Depth of menu item. Used for padding.
 			 */
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
@@ -116,10 +120,13 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			/**
 			 * Filter the ID applied to a menu item's list item element.
 			 *
-			 * @param string $menu_id The ID that is applied to the menu item's `<li>` element.
-			 * @param object $item    The current menu item.
-			 * @param array  $args    An array of {@see wp_nav_menu()} arguments.
-			 * @param int    $depth   Depth of menu item. Used for padding.
+			 * @since  0.1.0
+			 * @author Dustin Filippini, Aubrey Portwood
+			 *
+			 * @param  string $menu_id The ID that is applied to the menu item's `<li>` element.
+			 * @param  object $item    The current menu item.
+			 * @param  array  $args    An array of {@see wp_nav_menu()} arguments.
+			 * @param  int    $depth   Depth of menu item. Used for padding.
 			 */
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
@@ -134,6 +141,9 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 
 			/**
 			 * Filter the HTML attributes applied to a menu item's anchor element.
+			 *
+			 * @since  0.1.0
+			 * @author Dustin Filippini, Aubrey Portwood
 			 *
 			 * @param array $atts {
 			 *     The HTML attributes applied to the menu item's `<a>` element, empty strings are ignored.
@@ -230,12 +240,13 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			 * the menu item's title, the closing `</a>`, and `$args->after`. Currently, there is
 			 * no filter for modifying the opening and closing `<li>` for a menu item.
 			 *
-			 * @since 0.1.0
+			 * @since  0.1.0
+			 * @author Dustin Filippini, Aubrey Portwood
 			 *
-			 * @param string $item_output The menu item's starting HTML output.
-			 * @param object $item        Menu item data object.
-			 * @param int    $depth       Depth of menu item. Used for padding.
-			 * @param array  $args        An array of {@see wp_nav_menu()} arguments.
+			 * @param  string $item_output The menu item's starting HTML output.
+			 * @param  object $item        Menu item data object.
+			 * @param  int    $depth       Depth of menu item. Used for padding.
+			 * @param  array  $args        An array of {@see wp_nav_menu()} arguments.
 			 */
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
@@ -245,19 +256,29 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		 *
 		 * @see Walker::end_el()
 		 *
-		 * @since 0.1.0
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
 		 *
-		 * @param string $output Passed by reference. Used to append additional content.
-		 * @param object $item   Page data object. Not used.
-		 * @param int    $depth  Depth of page. Not Used.
-		 * @param array  $args   An array of arguments.
-		 * @see wp_nav_menu()
+		 * @param  string $output Passed by reference. Used to append additional content.
+		 * @param  object $item   Page data object. Not used.
+		 * @param  int    $depth  Depth of page. Not Used.
+		 * @param  array  $args   An array of arguments.
+		 * @see    wp_nav_menu()
 		 */
 		public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 			$output .= "</li>\n";
 		}
 
-		function get_svg( $icon_name ) {
+		/**
+		 * Returns the SVG markup.
+		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
+		 *
+		 * @param  string $icon_name The SVG icon slug/name.
+		 * @return string            The full SVG markup.
+		 */
+		private function get_svg( $icon_name ) {
 			if ( $icon_name && ! empty( $icon_name ) ) {
 				$svg = '<svg class="icon icon-' . esc_html( $icon_name ) . '">';
 				$svg .= '	<use xlink:href="#icon-' . esc_html( $icon_name ) . '"></use>';
@@ -271,6 +292,4 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 	} // class WDS_Mega_Menu_Walker.
 
 	// We don't have the requirements for this.
-} else {
-	$wds_mega_menus = false; // Destroy our instance!
 } // if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' )

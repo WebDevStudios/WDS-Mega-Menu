@@ -11,20 +11,25 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	/**
 	 * Nav walker customizations.
 	 *
-	 * @package  WDS_Mega_Menus
-	 * @since  0.1.0
-	 * @uses Walker_Nav_Menu_Edit
+	 * @package WDS_Mega_Menus
+	 *
+	 * @since   0.1.0
+	 * @author  Dustin Filippini, Aubrey Portwood
+	 *
+	 * @uses    Walker_Nav_Menu_Edit
 	 */
 	class WDS_Mega_Menus_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit {
 		/**
 		 * Override the start of elements in the walker.
 		 *
-		 * @param string $output (Required) Passed by reference. Used to append additional content.
-		 * @param object $item   (Required) Menu item data object.
-		 * @param int    $depth  (Required) Depth of menu item. Used for padding.
-		 * @param array  $args   Not used.
-		 * @param int    $id     Not used.
-		 * @since 0.1.0
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
+		 *
+		 * @param  string $output (Required) Passed by reference. Used to append additional content.
+		 * @param  object $item   (Required) Menu item data object.
+		 * @param  int    $depth  (Required) Depth of menu item. Used for padding.
+		 * @param  array  $args   Not used.
+		 * @param  int    $id     Not used.
 		 */
 		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 			$item_output = '';
@@ -46,10 +51,12 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		/**
 		 * Create the markup for our custom field
 		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds, Zach Owen, Jo Murgel
+		 *
 		 * @param  int   $id   Menu item ID.
 		 * @param  array $args Array of arguments passed from start_el.
 		 * @return string      The markup for the custom field.
-		 * @since  0.1.0
 		 */
 		public function field_display( $id, $args = array() ) {
 			ob_start();
@@ -77,14 +84,19 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			/**
 			 * Filter what depths these custom fields are allowed on.
 			 *
-			 * E.g.
+			 * @since  0.1.0
+			 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
 			 *
+			 * Usage:
 			 *     function my_filter( $depth ) {
 			 *     	return array( 1 ); // Only allow at depth 1
 			 *     }
-			 *     add_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', 'my_filter' );
+			 *     add_filter( 'wdsmm_walker_nav_allowed_depths', 'my_filter' );
 			 */
-			$allowed_depths = apply_filters( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', array() );
+			$allowed_depths = apply_filters( 'wdsmm_walker_nav_allowed_depths', array() );
+
+			// Deprecate the old filter.
+			_deprecated_hook( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', '0.3.0', 'wdsmm_walker_nav_allowed_depths' );
 
 			// Check for version 0.2.1+ option.
 			if ( empty( $allowed_depths ) ) {
@@ -117,7 +129,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 									<?php
 									$options = $this->get_svg_list();
 									foreach ( $options as $slug => $name ) {
-										echo '<li><input type="radio" name="menu-item-icon[' . esc_attr( absint( $id ) ) . ']" id="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '"' . checked( $slug, $current_value, false ) . '><label for="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '">' . wp_kses_data( $name ) . '</label></li>';
+										echo '<li>' . $this->get_svg( $slug ) . '<input type="radio" name="menu-item-icon[' . esc_attr( absint( $id ) ) . ']" id="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '" value="' . esc_attr( $slug ) . '"' . checked( $slug, $current_value, false ) . '><label for="' . esc_attr( absint( $id ) ) . '_icon_' . esc_attr( $slug ) . '">' . wp_kses_data( $name ) . '</label></li>';
 									}
 									?>
 								</ul>
@@ -189,6 +201,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 		/**
 		 * Get the SVGs.
+		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
+		 *
 		 * @todo   Need to provide a fallback to use SVGs in the plugin.
 		 * @return array An array of all the SVG names/slugs.
 		 */
@@ -206,6 +222,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 		/**
 		 * Return the SVG icon markup.
+		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
+		 *
 		 * @param  string $icon_name The SVG icon name/slug (based on the original filename).
 		 * @return string            The SVG markup.
 		 */
@@ -220,6 +240,4 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	} // class WDS_Mega_Menus_Walker_Nav_Menu_Edit.
 
 	// We don't have the requirements to do this.
-} else {
-	$wds_mega_menus = false; // Destroy our instance!
 } // class WDS_Mega_Menus_Walker_Nav_Menu_Edit exists.

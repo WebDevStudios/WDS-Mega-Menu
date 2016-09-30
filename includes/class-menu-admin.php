@@ -17,8 +17,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Constructor
 		 *
-		 * @since 0.1.0
-		 * @return  null
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
 		 */
 		public function __construct() {
 			add_filter( 'wp_setup_nav_menu_item', array( $this, 'register_nav_field' ) );
@@ -30,6 +30,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 
 		/**
 		 * Enqueue scripts.
+		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds, Jo Murgel
 		 */
 		public function admin_enqueue_scripts() {
 			if ( 'nav-menus' !== get_current_screen()->id ) {
@@ -38,12 +41,15 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 
 			wp_enqueue_media();
 			wp_enqueue_style( 'wdsmm-admin', wds_mega_menus()->url . 'assets/css/admin.css', array(), wds_mega_menus()->version );
-			wp_enqueue_script( 'wds-mega-menus', wds_mega_menus()->url . 'assets/js/wds-mega-menus.js', array( 'jquery' ), wds_mega_menus()->version );
+			wp_enqueue_script( 'wds-mega-menus', wds_mega_menus()->url . 'assets/js/wds-mega-menus.min.js', array( 'jquery' ), wds_mega_menus()->version );
 			wp_enqueue_script( 'bootstrap-dropdown', wds_mega_menus()->url . 'assets/js/dropdowns-enhancement.js', array( 'jquery' ), wds_mega_menus()->version, true );
 		}
 
 		/**
 		 * Filter the walker being used for the menu edit screen
+		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
 		 *
 		 * @return string
 		 */
@@ -54,7 +60,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Register a field for the nav menu
 		 *
-		 * @param object $menu_item The menu item object.
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
+		 *
+		 * @param  object $menu_item The menu item object.
 		 * @return mixed
 		 */
 		public function register_nav_field( $menu_item ) {
@@ -67,11 +76,13 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Save the new field data for the nav menu.
 		 *
-		 * @param int   $menu_id         Not used here.
-		 * @param int   $menu_item_db_id The menu item post ID.
-		 * @param array $args            Not used here.
-		 * @since 0.1.0
-		 * @todo Maybe add nonces when getting data from $_POST?
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
+		 *
+		 * @param  int   $menu_id         Not used here.
+		 * @param  int   $menu_item_db_id The menu item post ID.
+		 * @param  array $args            Not used here.
+		 * @todo   Maybe add nonces when getting data from $_POST?
 		 */
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 
@@ -108,8 +119,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		/**
 		 * Add SVG definitions to <head>.
 		 *
-		 * @author Chris Reynolds
 		 * @since  0.2.0
+		 * @author Chris Reynolds
 		 */
 		public function include_svg_definitions() {
 			// Only do this on the nav menus page. Theme will load SVGs on its own.

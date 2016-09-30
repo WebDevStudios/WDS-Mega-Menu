@@ -1,17 +1,21 @@
-# Copyright (C) 2016 WebDevStudios
-# This file is distributed under the GPLv2.
+# Copyright (C) 2016 wds-mega-menus
+# This file is distributed under the same license as the wds-mega-menus package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WDS Mega Menus 0.2.2\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wds-mega-menus\n"
-"POT-Creation-Date: 2016-09-30 15:09:47+00:00\n"
+"Project-Id-Version: wds-mega-menus\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: includes/class-menu-walker.php:179
+msgid "Keep Reading"
+msgstr ""
 
 #: includes/class-options.php:95
 msgid "WDS Mega Menus Options"
@@ -25,7 +29,7 @@ msgstr ""
 msgid "<em>Select menu levels to apply the Mega Menu to.</em>"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
+#: includes/class-options.php:163
 msgid "WDS Mega Menus"
 msgstr ""
 
@@ -33,66 +37,77 @@ msgstr ""
 msgid "<label for=\"%1$s\">Menu Depth: %2$s</label><br/>"
 msgstr ""
 
-#: includes/class-wds-mega-menu-walker.php:179
-msgid "Keep Reading"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:71
+#: includes/class-walker-nav-menu-edit.php:71
 msgid "Hide this on mobile"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:106
+#: includes/class-walker-nav-menu-edit.php:109
 msgid "Menu Item Icon"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:111
+#: includes/class-walker-nav-menu-edit.php:114
 msgid "- Choose an icon -"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:116
+#: includes/class-walker-nav-menu-edit.php:119
 msgid "No Icon"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:129
+#: includes/class-walker-nav-menu-edit.php:132
 msgid "Menu Item Image"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:130
+#: includes/class-walker-nav-menu-edit.php:133
 msgid "Images should be 130px wide by 250px high to prevent cropping."
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:133
+#: includes/class-walker-nav-menu-edit.php:136
 msgid "Set Menu Item Image"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:133
+#: includes/class-walker-nav-menu-edit.php:136
 msgid "Set menu item image"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:140
+#: includes/class-walker-nav-menu-edit.php:143
 msgid "Remove Menu Item Image"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:140
+#: includes/class-walker-nav-menu-edit.php:143
 msgid "Remove menu item image"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:171
+#: includes/class-walker-nav-menu-edit.php:174
 msgid "Select Widget Area to Display"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:175
+#: includes/class-walker-nav-menu-edit.php:178
 msgid "- Select Widget Area -"
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "http://webdevstudios.com"
+#: node_modules/grunt-wp-i18n/test/fixtures/basic-theme/exclude/file.php:3, node_modules/grunt-wp-i18n/test/fixtures/plugin-include/plugin-include.php:6
+msgid "Exclude"
 msgstr ""
 
-#. Description of the plugin/theme
-msgid "Make Magnificently Magical Mega Menus and More"
+#: node_modules/grunt-wp-i18n/test/fixtures/plugin-include/include/file.php:2
+msgid "Include"
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "WebDevStudios"
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:3, node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:4, node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:2, node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:3
+msgid "String"
+msgstr ""
+
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:6, node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:7, node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:8
+msgctxt "a string"
+msgid "String"
+msgstr ""
+
+#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:9, node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:10, node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-all-domains.php:11
+msgid "1 Star"
+msgid_plural "%s Stars"
+msgstr[0] ""
+msgstr[1] ""
+
+#: wds-mega-menus.php:298
+msgid "WDS Mega Menus is missing requirements and has been <a href=\"%s\">deactivated</a>. Please make sure all requirements are available."
 msgstr ""
