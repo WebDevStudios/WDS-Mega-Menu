@@ -351,6 +351,21 @@ class WDS_Mega_Menus {
 	}
 
 	/**
+	 * Include a file from the includes directory
+	 *
+	 * @since  1.0.0
+	 * @param  string $filename Name of the file to be included.
+	 * @return bool   Result of include call.
+	 */
+	public static function include_file( $filename ) {
+		$file = self::dir( 'includes/class-'. $filename .'.php' );
+		if ( file_exists( $file ) ) {
+			return include_once( $file );
+		}
+		return false;
+	}
+
+	/**
 	 * Magic getter for our object.
 	 *
 	 * @since  0.1.0
