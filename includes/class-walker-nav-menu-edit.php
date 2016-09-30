@@ -12,6 +12,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	 * Nav walker customizations.
 	 *
 	 * @package WDS_Mega_Menus
+	 *
 	 * @since   0.1.0
 	 * @author  Dustin Filippini, Aubrey Portwood
 	 *
