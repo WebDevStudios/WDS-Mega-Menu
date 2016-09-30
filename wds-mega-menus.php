@@ -158,6 +158,26 @@ class WDS_Mega_Menus {
 	}
 
 	/**
+	 * Activate the plugin
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function _activate() {
+		// Make sure any rewrite functionality has been loaded.
+		flush_rewrite_rules();
+	}
+
+	/**
+	 * Deactivate the plugin
+	 * Uninstall routines should be in uninstall.php
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function _deactivate() {}
+
+	/**
 	 * Update SVG paths.
 	 *
 	 * Updates the default $this->svg_defs and $this->svg paths if the theme has svgs.
@@ -257,4 +277,7 @@ function wds_mega_menus() {
 
 // Kick it off.
 add_action( 'plugins_loaded', array( wds_mega_menus(), 'hooks' ) );
+
+register_activation_hook( __FILE__, array( wds_mega_menus(), '_activate' ) );
+register_deactivation_hook( __FILE__, array( wds_mega_menus(), '_deactivate' ) );
 
