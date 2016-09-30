@@ -104,7 +104,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 					<div class="field-menu-item-icon description description-wide">
 						<div class="btn-group">
 							<p class="description"><?php esc_html_e( 'Menu Item Icon', 'wds-mega-menus' ); ?></p>
-							<p>
+							<div>
 								<button data-toggle="dropdown" id="<?php echo esc_attr( absint( $id ) ); ?>_icon" class="btn btn-default dropdown-toggle">
 									<?php
 									$current_value = get_post_meta( $id, '_menu_item_icon', true );
@@ -112,8 +112,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 									?>
 									<span class="caret"></span>
 								</button>
-							</p>
-							<p>
 								<ul class="dropdown-menu">
 									<li><input type="radio" name="menu-item-icon[<?php echo esc_attr( absint( $id ) ); ?>]" id="<?php echo esc_attr( absint( $id ) ); ?>_icon_none" value="" <?php checked( $current_value, '' ); ?> /><label for="<?php echo esc_attr( absint( $id ) ); ?>_icon_none"> <?php esc_html_e( 'No Icon', 'wds-mega-menus' ); ?></label></li>
 									<?php
@@ -123,7 +121,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 									}
 									?>
 								</ul>
-							</p>
+							</div>
 						</div>
 					</div>
 					<div class="field-menu-item-image description description-wide">
