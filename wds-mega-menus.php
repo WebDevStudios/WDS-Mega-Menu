@@ -112,10 +112,42 @@ class WDS_Mega_Menus {
 	protected $basename = '';
 
 	/**
+	 * Admin Nav Menus class instance
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	protected $admin = '';
+
+	/**
+	 * Options class instance
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	protected $options = '';
+
+	/**
+	 * Default svg-defs.svg path
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	$svg_defs = '';
+
+	/**
+	 * Default /svg assets path
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	$svg = '';
+
+	/**
 	 * Singleton instance of plugin.
 	 *
-	 * @var WDS_Mega_Menus
-	 * @since  0.1.0
+	 * @var   WDS_Mega_Menus
+	 * @since 0.1.0
 	 */
 	protected static $single_instance = null;
 
