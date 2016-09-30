@@ -33,6 +33,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 *
 		 * @since  0.1.0
 		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds, Jo Murgel
+		 * @todo   Add a way to determine whether to load minified js files.
 		 */
 		public function admin_enqueue_scripts() {
 			if ( 'nav-menus' !== get_current_screen()->id ) {
