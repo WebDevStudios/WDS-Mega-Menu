@@ -163,6 +163,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 				return;
 			}
 
+			// Check for the old filter and display a notice if it's being used. Add the submenu page for those folks.
+			if ( has_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths' ) ) {
+				_deprecated_hook( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', '0.3.0', 'wdsmm_walker_nav_allowed_depths' );
+			}
+
 			add_submenu_page(
 				$this->page,
 				$this->page_title,
