@@ -83,15 +83,15 @@ class WDS_Mega_Menus {
 	 * Current version
 	 *
 	 * @var  string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
-	const VERSION = '0.2.0';
+	const VERSION = '0.3.0';
 
 	/**
 	 * URL of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
 	protected $url = '';
 
