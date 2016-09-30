@@ -121,7 +121,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 			$this->add_field( array(
 				'key'   => 'wds_mega_menus_depth',
 				'title' => __( 'Applied Menu Depth(s)', 'wds-mega-menus' ),
-				'desc'  => __( '<em>Select menu levels to apply the Mega Menu to.</em>', 'wds-mega-menus' ), // (replaces <code>wds_mega_menus_walker_nav_menu_edit_allowed_depths</code> filter).', 'wds-mega-menus' ),
+				'desc'  => __( '<em>Select menu levels to apply the Mega Menu to.</em>', 'wds-mega-menus' ), // Replaces wdsmm_walker_nav_allowed_depths filter).
 			) );
 
 			// Check to see if anything is saved.
@@ -153,7 +153,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		 * @since 0.1.0
 		 */
 		public function register_menu() {
-			if ( has_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths' ) ) {
+			if ( has_filter( 'wdsmm_walker_nav_allowed_depths' ) ) {
 				return;
 			}
 
