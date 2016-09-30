@@ -196,6 +196,27 @@ HTML;
 	</table>
 	<p class="submit"><input type="submit" value="Save Changes" class="button-primary" name="Submit"></p>
 </form>
+<script>
+jQuery( document ).ready( function( $ ) {
+	// Check all items if All depths checked and lock them
+	$( '#all_depths' ).change( function() {
+		if(this.checked) {
+			$( ".depth_options" ).find( "li:not(:last-child) input" ).attr({
+				//disabled: "true", @TODO CMB2 doesn't save checkboxes with disabled attr, need another way for locking these
+			    checked: "checked"
+			});
+	    }
+	    else {
+	    	//$( ".depth_options" ).find( "li:not(:last-child) input" ).removeAttr( 'disabled' );
+	    }
+
+	});
+	// Uncheck All depth checkbox if any other item was unchecked
+	$( ".depth_options li:not(:last-child) input" ).change( function() {
+		$( '#all_depths' ).removeAttr( 'checked' );
+	});
+});
+</script>
 HTML;
 		}
 
@@ -367,7 +388,7 @@ HTML;
 			// Set to 1 when the deepest menu is 0.
 			$checked_items = explode( ',', $value );
 			$html = '';
-			$html .= '<ul>';
+			$html .= '<ul class="depth_options">';
 
 			for ( $i = 0; $i <= $this->deepest_menu; $i++ ) {
 				$checked = '';
@@ -382,7 +403,7 @@ HTML;
 
 
 			}
-			$html .= sprintf( '<li><input type="checkbox" name="%1$s[]" value="all" %2$s />', $key, in_array( "all", $checked_items ) ? 'checked' : '');
+			$html .= sprintf( '<li><input id="all_depths" type="checkbox" name="%1$s[]" value="all" %2$s />', $key, in_array( "all", $checked_items ) ? 'checked' : '');
 			$html .= sprintf( __( '<label for="%1$s">All Depths</label></li>', 'wds-mega-menus' ), $key );
 
 
