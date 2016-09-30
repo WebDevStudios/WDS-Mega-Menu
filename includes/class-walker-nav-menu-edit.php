@@ -11,20 +11,24 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	/**
 	 * Nav walker customizations.
 	 *
-	 * @package  WDS_Mega_Menus
-	 * @since  0.1.0
-	 * @uses Walker_Nav_Menu_Edit
+	 * @package WDS_Mega_Menus
+	 * @since   0.1.0
+	 * @author  Dustin Filippini, Aubrey Portwood
+	 *
+	 * @uses    Walker_Nav_Menu_Edit
 	 */
 	class WDS_Mega_Menus_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit {
 		/**
 		 * Override the start of elements in the walker.
 		 *
-		 * @param string $output (Required) Passed by reference. Used to append additional content.
-		 * @param object $item   (Required) Menu item data object.
-		 * @param int    $depth  (Required) Depth of menu item. Used for padding.
-		 * @param array  $args   Not used.
-		 * @param int    $id     Not used.
-		 * @since 0.1.0
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood
+		 *
+		 * @param  string $output (Required) Passed by reference. Used to append additional content.
+		 * @param  object $item   (Required) Menu item data object.
+		 * @param  int    $depth  (Required) Depth of menu item. Used for padding.
+		 * @param  array  $args   Not used.
+		 * @param  int    $id     Not used.
 		 */
 		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 			$item_output = '';
@@ -46,10 +50,12 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		/**
 		 * Create the markup for our custom field
 		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds, Zach Owen, Jo Murgel
+		 *
 		 * @param  int   $id   Menu item ID.
 		 * @param  array $args Array of arguments passed from start_el.
 		 * @return string      The markup for the custom field.
-		 * @since  0.1.0
 		 */
 		public function field_display( $id, $args = array() ) {
 			ob_start();
@@ -77,8 +83,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			/**
 			 * Filter what depths these custom fields are allowed on.
 			 *
-			 * E.g.
+			 * @since  0.1.0
+			 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
 			 *
+			 * Usage:
 			 *     function my_filter( $depth ) {
 			 *     	return array( 1 ); // Only allow at depth 1
 			 *     }
@@ -192,6 +200,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 		/**
 		 * Get the SVGs.
+		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
+		 *
 		 * @todo   Need to provide a fallback to use SVGs in the plugin.
 		 * @return array An array of all the SVG names/slugs.
 		 */
@@ -209,6 +221,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 		/**
 		 * Return the SVG icon markup.
+		 *
+		 * @since  0.1.0
+		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
+		 *
 		 * @param  string $icon_name The SVG icon name/slug (based on the original filename).
 		 * @return string            The SVG markup.
 		 */
