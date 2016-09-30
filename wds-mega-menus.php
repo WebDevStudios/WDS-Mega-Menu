@@ -316,7 +316,7 @@ class WDS_Mega_Menus {
 			 * @author Chris Reynolds
 			 * @var string wdsmm_svg_defs_path
 			 */
-			$this->svg_defs = apply_filters( 'wdsmm_svg_defs_path', get_stylesheet_directory() . '/images/svg-defs.svg' );
+			$this->svg_defs = apply_filters( 'wdsmm_svg_defs_path', get_stylesheet_directory() . '/assets/svg-defs.svg' );
 
 			/**
 			 * SVGs Directory
@@ -326,7 +326,7 @@ class WDS_Mega_Menus {
 			 * @var   string wdsmm_svgs_directory
 			 * @since 0.2.0
 			 */
-			$this->svg = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/images/svg/' );
+			$this->svg = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/assets/svg/' );
 		}
 	}
 
@@ -346,7 +346,7 @@ class WDS_Mega_Menus {
 		 * @var   string wdsmm_svgs_directory
 		 * @since 0.2.0
 		 */
-		$svgs_directory = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/images/svg' );
+		$svgs_directory = apply_filters( 'wdsmm_svgs_directory', get_stylesheet_directory() . '/assets/svg' );
 		return file_exists( $svgs_directory );
 	}
 
