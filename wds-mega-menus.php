@@ -145,9 +145,9 @@ class WDS_Mega_Menus {
 		$this->svg_defs = $this->path . '/assets/svg-defs.svg';
 		$this->svg      = $this->path . '/assets/svg/';
 
-		require $this->path . 'includes/class-wds-mega-menu-walker.php';
-		require $this->path . 'includes/class-wds-mega-menus-walker-nav-menu-edit.php';
-		require $this->path . 'includes/class-wds-mega-menus-admin.php';
+		require $this->path . 'includes/class-menu-walker.php';
+		require $this->path . 'includes/class-walker-nav-menu-edit.php';
+		require $this->path . 'includes/class-menu-admin.php';
 		require $this->path . 'includes/class-options.php';
 
 		$this->plugin_classes();
