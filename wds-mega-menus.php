@@ -255,5 +255,6 @@ function wds_mega_menus() {
 	return WDS_Mega_Menus::get_instance();
 }
 
-// Launch our class.
-wds_mega_menus();
+// Kick it off.
+add_action( 'plugins_loaded', array( wds_mega_menus(), 'hooks' ) );
+
