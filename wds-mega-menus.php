@@ -3,7 +3,7 @@
  * Plugin Name: WDS Mega Menus
  * Plugin URI:  http://webdevstudios.com
  * Description: Make Magnificently Magical Mega Menus and More
- * Version:     0.2.2
+ * Version:     0.3.0
  * Author:      WebDevStudios
  * Author URI:  http://webdevstudios.com
  * Donate link: http://webdevstudios.com
@@ -11,7 +11,10 @@
  * Text Domain: wds-mega-menus
  * Domain Path: /languages
  *
- * @package WDS_Mega_Menus
+ * @link http://webdevstudios.com
+ *
+ * @package WDS Mega Menus
+ * @version 0.3.0
  */
 
 /*
@@ -43,6 +46,27 @@
 if ( defined( 'DISABLE_WDS_MEGA_MENU' ) && DISABLE_WDS_MEGA_MENU ) {
 	return; // Bail if they configure this not to load.
 }
+
+/**
+ * Autoloads files with classes when needed
+ *
+ * @since  0.3.0
+ * @author Chris Reynolds
+ * @param  string $class_name Name of the class being requested.
+ */
+function wds_menus_autoload_classes( $class_name ) {
+	if ( 0 !== strpos( $class_name, 'WDS_Mega_Menu_' ) ) {
+		return;
+	}
+
+	$filename = strtolower( str_replace(
+		'_', '-',
+		substr( $class_name, strlen( 'WDS_Mega_Menu_' ) )
+	) );
+
+	WDS_Mega_Menus::include_file( $filename );
+}
+spl_autoload_register( 'wds_menus_autoload_classes' );
 
 /**
  * WDS Mega Menus.
