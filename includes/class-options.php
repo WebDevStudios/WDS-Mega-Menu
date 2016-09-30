@@ -378,13 +378,18 @@ HTML;
 
 				$key   = esc_attr( $field['key'] );
 				$html .= sprintf( '<li><input type="checkbox" name="%1$s[]" value="%3$s" %2$s />', $key, $checked, $i );
-				$html .= sprintf( __( '<label for="%1$s">Menu Depth: %2$s</label><br/>', 'wds-mega-menus' ), $key, $i );
+				$html .= sprintf( __( '<label for="%1$s">Menu Depth: %2$s</label></li>', 'wds-mega-menus' ), $key, $i );
+
+
 			}
+			$html .= sprintf( '<li><input type="checkbox" name="%1$s[]" value="all" %2$s />', $key, in_array( "all", $checked_items ) ? 'checked' : '');
+			$html .= sprintf( __( '<label for="%1$s">All Depths</label></li>', 'wds-mega-menus' ), $key );
+
 
 			$i--;
 
 			do {
-				$html .= '</li></ul>';
+				$html .= '</ul>';
 			} while ( $i-- );
 
 			return $html;
