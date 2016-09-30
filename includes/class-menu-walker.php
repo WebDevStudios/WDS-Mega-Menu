@@ -292,6 +292,4 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 	} // class WDS_Mega_Menu_Walker.
 
 	// We don't have the requirements for this.
-} else {
-	$wds_mega_menus = false; // Destroy our instance!
 } // if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' )
