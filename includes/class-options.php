@@ -199,9 +199,10 @@ HTML;
 		 * Close the options form table.
 		 *
 		 * @since  0.2.1
-		 * @author Zach Owen
+		 * @author Zach Owen, Pavel Korotenko
 		 *
 		 * @return string
+		 * @todo   Properly enqueue the javascript here.
 		 */
 		private function close_options_page() {
 			return <<<HTML
@@ -379,7 +380,7 @@ HTML;
 		 * Process a saved depth value.
 		 *
 		 * @since  0.2.1
-		 * @author Zach Owen
+		 * @author Zach Owen, Pavel Korotenko
 		 *
 		 * @param  mixed  $value The menu depths value. Comma-separated list of depths.
 		 * @param  string $key   The key of the field being processed.
@@ -401,7 +402,7 @@ HTML;
 		 * Render the depth input field.
 		 *
 		 * @since  0.2.1
-		 * @author Zach Owen
+		 * @author Zach Owen, Pavel Korotenko
 		 *
 		 * @param  string $input The input field HMTL.
 		 * @param  string $field The field name.
