@@ -133,7 +133,7 @@ class WDS_Mega_Menus {
 	 * @var   string
 	 * @since 0.3.0
 	 */
-	$svg_defs = '';
+	protected $svg_defs = '';
 
 	/**
 	 * Default /svg assets path
@@ -141,7 +141,7 @@ class WDS_Mega_Menus {
 	 * @var   string
 	 * @since 0.3.0
 	 */
-	$svg = '';
+	protected $svg = '';
 
 	/**
 	 * Singleton instance of plugin.
