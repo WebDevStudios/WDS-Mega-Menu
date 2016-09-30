@@ -1,27 +1,44 @@
 {
-	"name": "wds-mega-menus",
-	"title": "WDS Mega Menus",
-	"version": "1.0.0",
-	"description": "Make magnificently magical Mega Menus and more.",
-	"author": {
-		"name": "WebDevStudios",
-		"url": "http://webdevstudios.com"
-	},
-	"license": "GPLv2",
-	"dependencies": {
-		"autoprefixer": "^6.3.2",
-		"css-mqpacker": "^4.0.0",
-		"grunt": "^0.4.5",
-		"grunt-contrib-jshint": "^0.12.0",
-		"grunt-contrib-uglify": "^0.11.1",
-		"grunt-contrib-watch": "^0.6.1",
-		"grunt-cssnano": "^2.0.1",
-		"grunt-notify": "^0.4.3",
-		"grunt-postcss": "^0.7.1",
-		"grunt-sass": "^1.1.0",
-		"grunt-svgmin": "^3.1.2",
-		"grunt-svgstore": "^0.5.0",
-		"load-grunt-tasks": "^3.4.0",
-		"grunt-wp-i18n": "latest"
-	}
+  "name": "wds-mega-menus",
+  "title": "WDS Mega Menus",
+  "version": "1.0.0",
+  "description": "Make magnificently magical Mega Menus and more.",
+  "main": "Gulpfile.js",
+  "dependencies": {
+    "autoprefixer": "^6.3.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sass-lint": "^1.1.1",
+    "gulp-sort": "^1.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-svgmin": "^1.2.1",
+    "gulp-svgstore": "^5.0.5",
+    "gulp-uglify": "^1.5.2",
+    "gulp-util": "^3.0.7",
+    "gulp-wp-pot": "^1.1.1",
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDevStudios/WDS-Mega-Menu"
+  },
+  "keywords": [
+    "theme"
+  ],
+  "author": "WebDevStudios",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/WebDevStudios/WDS-Mega-Menu/issues"
+  },
+  "homepage": "https://github.com/WebDevStudios/WDS-Mega-Menu#readme"
 }
