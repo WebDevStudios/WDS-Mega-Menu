@@ -99,7 +99,7 @@ class WDS_Mega_Menus {
 	 * Path of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
 	protected $path = '';
 
@@ -107,7 +107,7 @@ class WDS_Mega_Menus {
 	 * Plugin basename
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
 	protected $basename = '';
 
