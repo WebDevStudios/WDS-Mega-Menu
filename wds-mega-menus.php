@@ -230,7 +230,7 @@ class WDS_Mega_Menus {
 	 * Init hooks
 	 *
 	 * @since  0.3.0
-	 * @return void
+	 * @author Chris Reynolds
 	 */
 	public function init() {
 		if ( $this->check_requirements() ) {
@@ -245,6 +245,7 @@ class WDS_Mega_Menus {
 	 * disable it if they are not present.
 	 *
 	 * @since  0.3.0
+	 * @author Chris Reynolds
 	 * @return boolean result of meets_requirements
 	 */
 	public function check_requirements() {
@@ -353,7 +354,8 @@ class WDS_Mega_Menus {
 	/**
 	 * Include a file from the includes directory
 	 *
-	 * @since  1.0.0
+	 * @since  0.3.0
+	 * @author Chris Reynolds
 	 * @param  string $filename Name of the file to be included.
 	 * @return bool   Result of include call.
 	 */
@@ -393,7 +395,8 @@ class WDS_Mega_Menus {
 	/**
 	 * This plugin's directory
 	 *
-	 * @since  1.0.0
+	 * @since  0.3.0
+	 * @author Chris Reynolds
 	 * @param  string $path (optional) appended path.
 	 * @return string       Directory and path
 	 */
@@ -406,7 +409,8 @@ class WDS_Mega_Menus {
 	/**
 	 * This plugin's url
 	 *
-	 * @since  1.0.0
+	 * @since  0.3.0
+	 * @author Chris Reynolds
 	 * @param  string $path (optional) appended path.
 	 * @return string       URL and path
 	 */
