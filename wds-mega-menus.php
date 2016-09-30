@@ -382,6 +382,8 @@ class WDS_Mega_Menus {
 			case 'path':
 			case 'svg_defs':
 			case 'svg':
+			case 'options':
+			case 'admin':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
