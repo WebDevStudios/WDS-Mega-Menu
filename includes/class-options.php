@@ -339,7 +339,7 @@ HTML;
 		 */
 		public function process_depth_value( $value, $key ) {
 			if ( 'wds_mega_menus_depth' !== $key ) {
-				continue;
+				return array();
 			}
 
 			if ( empty( $value ) ) {
