@@ -321,7 +321,7 @@ class WDS_Mega_Menus {
 			/**
 			 * SVGs Directory
 			 *
-			 * Filter the directory path to the SVGs folder. Defaults to the current child theme in the /images/svg folder.
+			 * Filter the directory path to the SVGs folder. Defaults to the current child theme in the /assets/svg folder.
 			 *
 			 * @var   string wdsmm_svgs_directory
 			 * @since 0.2.0
@@ -341,7 +341,7 @@ class WDS_Mega_Menus {
 		/**
 		 * SVGs Directory
 		 *
-		 * Filter the directory path to the SVGs folder. Defaults to /images/svg in the current child theme folder.
+		 * Filter the directory path to the SVGs folder. Defaults to /assets/svg in the current child theme folder.
 		 *
 		 * @var   string wdsmm_svgs_directory
 		 * @since 0.2.0
