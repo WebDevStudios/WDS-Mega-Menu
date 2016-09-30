@@ -84,7 +84,10 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			 *     }
 			 *     add_filter( 'wdsmm_walker_nav_allowed_depths', 'my_filter' );
 			 */
-			$allowed_depths = apply_filters( 'wdsmm_walker_nav_allowed_depths', array() );
+			$allowed_depths = apply_filters_deprecated( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', array(), '0.3.0', 'wdsmm_walker_nav_allowed_depths' );
+
+			// Deprecate the old filter.
+			_deprecated_hook( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', '0.3.0', 'wdsmm_walker_nav_allowed_depths' );
 
 			// Check for version 0.2.1+ option.
 			if ( empty( $allowed_depths ) ) {
