@@ -3,21 +3,22 @@
  * Mega Menus Admin Options.
  *
  * @package WDS_Mega_Menus
- * @version 0.1.1
+ * @author  Zach Owen
+ * @version 0.2.1
  */
 
 if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 	/**
 	 * Mega Menus Options.
 	 *
-	 * @package  WDS_Mega_Menus
-	 * @since  0.2.1
+	 * @package WDS_Mega_Menus
+	 * @since   0.2.1
 	 */
 	class WDS_Mega_Menus_Options {
 		/**
 		 * Registered fields to display and save.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   array
 		 */
 		private $fields = array();
@@ -25,7 +26,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Slug to use for the menu.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   string
 		 */
 		private $menu_slug = 'wds-mega-menu';
@@ -33,7 +34,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Nonce action to use.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   string
 		 */
 		private $nonce_action = 'wds-mega-menus-update';
@@ -41,7 +42,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Nonce field to use.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   string
 		 */
 		private $nonce_field = 'wmm-nonce';
@@ -49,7 +50,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Option key to use for getting admin options.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   string
 		 */
 		private $option_key = 'wds_mega_menus_options';
@@ -57,14 +58,14 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Static holder for options.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   array
 		 */
 		private static $options;
 		/**
 		 * The page to hook to for the menu.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   string
 		 */
 		private $page = 'themes.php';
@@ -72,14 +73,14 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Page title to use.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   string
 		 */
 		private $page_title = '';
 		/**
 		 * Parent class plugin instance.
 		 *
-		 * @since 0.1.0
+		 * @since 0.2.1
 		 * @var   WDS_Mega_Menus
 		 */
 		public $plugin;
@@ -87,8 +88,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Constructor
 		 *
-		 * @since 0.1.0
-		 * @param WDS_Mega_Menus $plugin The parent plugin of this class.
+		 * @since  0.2.1
+		 * @author Zach Owen
+		 * @param  WDS_Mega_Menus $plugin The parent plugin of this class.
 		 */
 		public function __construct( $plugin ) {
 			$this->plugin     = $plugin;
@@ -99,15 +101,17 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Deepest menu depth.
 		 *
-		 * @since 0.1.1
-		 * @var   int
+		 * @since  0.2.1
+		 * @author Zach Owen
+		 * @var    int
 		 */
 		private $deepest_menu = 1;
 
 		/**
 		 * Show the options page. This also handles saving.
 		 *
-		 * @since 0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen, Chris Reynolds
 		 */
 		public function handle_options_page() {
 			$this->deepest_menu = $this->get_deepest_menu() ?: 1;
@@ -139,7 +143,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Hooks to activate the options page.
 		 *
-		 * @since 0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen
 		 */
 		public function hooks() {
 			add_action( 'admin_menu', array( $this, 'register_menu' ) );
@@ -150,7 +155,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Register the submenu.
 		 *
-		 * @since 0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen, Chris Reynolds
 		 */
 		public function register_menu() {
 			if ( has_filter( 'wdsmm_walker_nav_allowed_depths' ) ) {
@@ -170,7 +176,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		/**
 		 * Returns the opening of the form page.
 		 *
-		 * @since 0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen
 		 */
 		private function open_options_page() {
 			return <<<HTML
@@ -186,7 +193,8 @@ HTML;
 		/**
 		 * Close the options form table.
 		 *
-		 * @since 0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen
 		 *
 		 * @return string
 		 */
@@ -202,7 +210,9 @@ HTML;
 		/**
 		 * Get an option from the serialized options array.
 		 *
-		 * @since  0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen
+		 *
 		 * @param  string $key     The option key to get.
 		 * @param  mixed  $default Optional default value to reutrn.
 		 * @return mixed
@@ -229,9 +239,11 @@ HTML;
 		/**
 		 * Set an option to the serialized array and sync to the options table.
 		 *
-		 * @since 0.1.0
-		 * @param string $key   The option key to use.
-		 * @param mixed  $value The option value to set.
+		 * @since  0.2.1
+		 * @author Zach Owen
+		 *
+		 * @param  string $key   The option key to use.
+		 * @param  mixed  $value The option value to set.
 		 */
 		private function set_option( $key, $value ) {
 			self::$options[ $key ] = $value;
@@ -242,8 +254,10 @@ HTML;
 		 * Add a field to the set to be rendered and saved.
 		 * Fields should contain a key, title, and description.
 		 *
-		 * @since 0.1.0
-		 * @param array $field The field definition.
+		 * @since  0.2.1
+		 * @author Zach Owen
+		 *
+		 * @param  array $field The field definition.
 		 */
 		private function add_field( $field ) {
 			if ( ! isset( $this->fields[ $field['key'] ] ) ) {
@@ -254,7 +268,9 @@ HTML;
 		/**
 		 * Render option fields to go in the table. Bear in mind that this only accounts for text fields currently.
 		 *
-		 * @since  0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen
+		 *
 		 * @return string
 		 */
 		private function get_options_fields() {
@@ -271,7 +287,9 @@ HTML;
 				/**
 				 * Filter an input's HTML before rendering the field.
 				 *
-				 * @since  0.1.1
+				 * @since  0.2.1
+				 * @author Zach Owen
+				 *
 				 * @param  string $field The field name.
 				 * @param  mixed  $value The field value.
 				 * @return string
@@ -300,7 +318,8 @@ HTML;
 		/**
 		 * Check for and save form data.
 		 *
-		 * @since 0.1.0
+		 * @since  0.2.1
+		 * @author Zach Owen
 		 */
 		private function check_for_save() {
 			if ( ! empty( $_POST ) && check_admin_referer( $this->nonce_action, $this->nonce_field ) ) {
@@ -318,7 +337,9 @@ HTML;
 					/**
 					 * Filter the value before saving.
 					 *
-					 * @since  0.1.0
+					 * @since  0.2.1
+					 * @author Zach Owen
+					 *
 					 * @param  string $key The key of the field being processed.
 					 * @return mixed
 					 */
@@ -331,7 +352,8 @@ HTML;
 		/**
 		 * Process a saved depth value.
 		 *
-		 * @since 0.1.1
+		 * @since  0.2.1
+		 * @author Zach Owen
 		 *
 		 * @param  mixed  $value The menu depths value. Comma-separated list of depths.
 		 * @param  string $key   The key of the field being processed.
@@ -352,7 +374,8 @@ HTML;
 		/**
 		 * Render the depth input field.
 		 *
-		 * @since 0.1.1
+		 * @since  0.2.1
+		 * @author Zach Owen
 		 *
 		 * @param  string $input The input field HMTL.
 		 * @param  string $field The field name.
@@ -393,7 +416,9 @@ HTML;
 		/**
 		 * Find the deepest menu depth.
 		 *
-		 * @since  0.1.1
+		 * @since  0.2.1
+		 * @author Zach Owen
+		 *
 		 * @return int
 		 */
 		private function get_deepest_menu() {
