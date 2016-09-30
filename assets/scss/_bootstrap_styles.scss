@@ -3,24 +3,26 @@
 //--------------------------------------------------------------
 
 .sr-only {
-	position: absolute;
-	width: 1px;
+	border: 0;
+	clip: rect(0, 0, 0, 0);
 	height: 1px;
 	margin: -1px;
-	padding: 0;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 .sr-only-focusable {
-	&:active, &:focus {
-	position: static;
-	width: auto;
-	height: auto;
-	margin: 0;
-	overflow: visible;
-	clip: auto;
+
+	&:active, 
+	&:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
 	}
 }
 
@@ -32,46 +34,54 @@
 }
 
 .btn {
-	display: inline-block;
-	margin-bottom: 0;
-	font-weight: normal;
-	text-align: center;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
 	background-image: none;
-	border: 1px solid transparent;
-	white-space: nowrap;
-	padding: 6px 12px;
-	font-size: 14px;
-	line-height: 1.42857143;
 	border-radius: 4px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	margin-bottom: 0;
+	padding: 6px 12px;
+	text-align: center;
+	touch-action: manipulation;
 	user-select: none;
-	&:focus, &:active:focus, &.active:focus, &.focus, &:active.focus, &.active.focus {
-	outline: thin dotted;
-	outline: 5px auto -webkit-focus-ring-color;
-	outline-offset: -2px;
+	vertical-align: middle;
+	white-space: nowrap;
+
+	&:focus, 
+	&:active:focus, 
+	&.active:focus, 
+	&.focus, 
+	&:active.focus, 
+	&.active.focus {
+		outline-offset: -2px;
+		outline: 5px auto -webkit-focus-ring-color;
+		outline: thin dotted;
 	}
-	&:hover, &:focus, &.focus {
-	color: $color-mine-shaft;
-	text-decoration: none;
+
+	&:hover, 
+	&:focus, 
+	&.focus {
+		color: $color-mine-shaft;
+		text-decoration: none;
 	}
-	&:active, &.active {
-	outline: 0;
-	background-image: none;
-	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+
+	&:active, 
+	&.active {
+		-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+		background-image: none;
+		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+		outline: 0;
 	}
-	&.disabled, &[disabled] {
-	cursor: not-allowed;
-	opacity: 0.65;
-	filter: alpha(opacity = 65);
-	-webkit-box-shadow: none;
-	box-shadow: none;
+
+	&.disabled, 
+	&[disabled] {
+		box-shadow: none;
+		cursor: not-allowed;
+		filter: alpha(opacity = 65);
+		opacity: 0.65;
 	}
 }
 
@@ -83,7 +93,8 @@ fieldset[disabled] .btn {
 	box-shadow: none;
 }
 
-a.btn.disabled, fieldset[disabled] a.btn {
+a.btn.disabled, 
+fieldset[disabled] a.btn {
 	pointer-events: none;
 }
 
@@ -91,17 +102,21 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	color: $color-mine-shaft;
 	background-color: $color-white;
 	border-color: $color-mercury;
-	&:focus, &.focus {
-	color: $color-mine-shaft;
-	background-color: $color-mercury;
-	border-color: $color-stack;
+
+	&:focus, 
+	&.focus {
+		color: $color-mine-shaft;
+		background-color: $color-mercury;
+		border-color: $color-stack;
 	}
-	&:hover, &:active, &.active {
-	color: $color-mine-shaft;
-	background-color: $color-mercury;
-	border-color: $color-silver-chalice;
+	&:hover, 
+	&:active, 
+	&.active {
+		color: $color-mine-shaft;
+		background-color: $color-mercury;
+		border-color: $color-silver-chalice;
 	}
-}
+} // .btn-default
 
 .open > .dropdown-toggle.btn-default {
 	color: $color-mine-shaft;
@@ -110,10 +125,12 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-default {
-	&:active:hover, &.active:hover {
-	color: $color-mine-shaft;
-	background-color: $color-mercury;
-	border-color: $color-stack;
+
+	&:active:hover, 
+	&.active:hover {
+		color: $color-mine-shaft;
+		background-color: $color-mercury;
+		border-color: $color-stack;
 	}
 }
 
@@ -124,10 +141,12 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-default {
-	&:active:focus, &.active:focus {
-	color: $color-mine-shaft;
-	background-color: $color-mercury;
-	border-color: $color-stack;
+
+	&:active:focus, 
+	&.active:focus {
+		color: $color-mine-shaft;
+		background-color: $color-mercury;
+		border-color: $color-stack;
 	}
 }
 
@@ -138,10 +157,12 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-default {
-	&:active.focus, &.active.focus {
-	color: $color-mine-shaft;
-	background-color: $color-mercury;
-	border-color: $color-stack;
+
+	&:active.focus, 
+	&.active.focus {
+		color: $color-mine-shaft;
+		background-color: $color-mercury;
+		border-color: $color-stack;
 	}
 }
 
@@ -152,8 +173,10 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-default {
-	&:active, &.active {
-	background-image: none;
+
+	&:active, 
+	&.active {
+		background-image: none;
 	}
 }
 
@@ -162,9 +185,11 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-default {
-	&.disabled, &[disabled] {
-	background-color: $color-white;
-	border-color: $color-mercury;
+
+	&.disabled, 
+	&[disabled] {
+		background-color: $color-white;
+		border-color: $color-mercury;
 	}
 }
 
@@ -174,9 +199,11 @@ fieldset[disabled] .btn-default {
 }
 
 .btn-default {
-	&.disabled:hover, &[disabled]:hover {
-	background-color: $color-white;
-	border-color: $color-mercury;
+
+	&.disabled:hover, 
+	&[disabled]:hover {
+		background-color: $color-white;
+		border-color: $color-mercury;
 	}
 }
 
@@ -186,9 +213,10 @@ fieldset[disabled] .btn-default:hover {
 }
 
 .btn-default {
-	&.disabled:focus, &[disabled]:focus {
-	background-color: $color-white;
-	border-color: $color-mercury;
+	&.disabled:focus, 
+	&[disabled]:focus {
+		background-color: $color-white;
+		border-color: $color-mercury;
 	}
 }
 
@@ -198,9 +226,10 @@ fieldset[disabled] .btn-default:focus {
 }
 
 .btn-default {
-	&.disabled.focus, &[disabled].focus {
-	background-color: $color-white;
-	border-color: $color-mercury;
+	&.disabled.focus, 
+	&[disabled].focus {
+		background-color: $color-white;
+		border-color: $color-mercury;
 	}
 }
 
@@ -210,9 +239,10 @@ fieldset[disabled] .btn-default.focus {
 }
 
 .btn-default {
-	&.disabled:active, &[disabled]:active {
-	background-color: $color-white;
-	border-color: $color-mercury;
+	&.disabled:active, 
+	&[disabled]:active {
+		background-color: $color-white;
+		border-color: $color-mercury;
 	}
 }
 
@@ -222,9 +252,10 @@ fieldset[disabled] .btn-default:active {
 }
 
 .btn-default {
-	&.disabled.active, &[disabled].active {
-	background-color: $color-white;
-	border-color: $color-mercury;
+	&.disabled.active, 
+	&[disabled].active {
+		background-color: $color-white;
+		border-color: $color-mercury;
 	}
 }
 
@@ -242,15 +273,20 @@ fieldset[disabled] .btn-default.active {
 	color: $color-white;
 	background-color: $color-curious-blue;
 	border-color: $color-curious-blue;
-	&:focus, &.focus {
-	color: $color-white;
-	background-color: $color-endeavor;
-	border-color: $color-big-stone;
+
+	&:focus, 
+	&.focus {
+		color: $color-white;
+		background-color: $color-endeavor;
+		border-color: $color-big-stone;
 	}
-	&:hover, &:active, &.active {
-	color: $color-white;
-	background-color: $color-endeavor;
-	border-color: $color-midnight;
+
+	&:hover, 
+	&:active, 
+	&.active {
+		color: $color-white;
+		background-color: $color-endeavor;
+		border-color: $color-midnight;
 	}
 }
 
@@ -261,10 +297,12 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-	&:active:hover, &.active:hover {
-	color: $color-white;
-	background-color: $color-midnight;
-	border-color: $color-big-stone;
+
+	&:active:hover, 
+	&.active:hover {
+		color: $color-white;
+		background-color: $color-midnight;
+		border-color: $color-big-stone;
 	}
 }
 
@@ -275,10 +313,12 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-	&:active:focus, &.active:focus {
-	color: $color-white;
-	background-color: $color-midnight;
-	border-color: $color-big-stone;
+
+	&:active:focus, 
+	&.active:focus {
+		color: $color-white;
+		background-color: $color-midnight;
+		border-color: $color-big-stone;
 	}
 }
 
@@ -289,10 +329,12 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-	&:active.focus, &.active.focus {
-	color: $color-white;
-	background-color: $color-midnight;
-	border-color: $color-big-stone;
+
+	&:active.focus, 
+	&.active.focus {
+		color: $color-white;
+		background-color: $color-midnight;
+		border-color: $color-big-stone;
 	}
 }
 
@@ -303,8 +345,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-	&:active, &.active {
-	background-image: none;
+	&:active, 
+	&.active {
+		background-image: none;
 	}
 }
 
@@ -313,9 +356,11 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-	&.disabled, &[disabled] {
-	background-color: $color-curious-blue;
-	border-color: $color-curious-blue;
+
+	&.disabled, 
+	&[disabled] {
+		background-color: $color-curious-blue;
+		border-color: $color-curious-blue;
 	}
 }
 
@@ -325,9 +370,11 @@ fieldset[disabled] .btn-primary {
 }
 
 .btn-primary {
-	&.disabled:hover, &[disabled]:hover {
-	background-color: $color-curious-blue;
-	border-color: $color-curious-blue;
+
+	&.disabled:hover, 
+	&[disabled]:hover {
+		background-color: $color-curious-blue;
+		border-color: $color-curious-blue;
 	}
 }
 
@@ -337,9 +384,10 @@ fieldset[disabled] .btn-primary:hover {
 }
 
 .btn-primary {
-	&.disabled:focus, &[disabled]:focus {
-	background-color: $color-curious-blue;
-	border-color: $color-curious-blue;
+	&.disabled:focus, 
+	&[disabled]:focus {
+		background-color: $color-curious-blue;
+		border-color: $color-curious-blue;
 	}
 }
 
@@ -349,9 +397,10 @@ fieldset[disabled] .btn-primary:focus {
 }
 
 .btn-primary {
-	&.disabled.focus, &[disabled].focus {
-	background-color: $color-curious-blue;
-	border-color: $color-curious-blue;
+	&.disabled.focus, 
+	&[disabled].focus {
+		background-color: $color-curious-blue;
+		border-color: $color-curious-blue;
 	}
 }
 
@@ -361,9 +410,10 @@ fieldset[disabled] .btn-primary.focus {
 }
 
 .btn-primary {
-	&.disabled:active, &[disabled]:active {
-	background-color: $color-curious-blue;
-	border-color: $color-curious-blue;
+	&.disabled:active, 
+	&[disabled]:active {
+		background-color: $color-curious-blue;
+		border-color: $color-curious-blue;
 	}
 }
 
@@ -373,9 +423,10 @@ fieldset[disabled] .btn-primary:active {
 }
 
 .btn-primary {
-	&.disabled.active, &[disabled].active {
-	background-color: $color-curious-blue;
-	border-color: $color-curious-blue;
+	&.disabled.active, 
+	&[disabled].active {
+		background-color: $color-curious-blue;
+		border-color: $color-curious-blue;
 	}
 }
 
@@ -393,15 +444,20 @@ fieldset[disabled] .btn-primary.active {
 	color: $color-white;
 	background-color: $color-fern;
 	border-color: $color-fern;
-	&:focus, &.focus {
-	color: $color-white;
-	background-color: $color-fruit-salad;
-	border-color: $color-fruit-salad;
+
+	&:focus, 
+	&.focus {
+		color: $color-white;
+		background-color: $color-fruit-salad;
+		border-color: $color-fruit-salad;
 	}
-	&:hover, &:active, &.active {
-	color: $color-white;
-	background-color: $color-fruit-salad;
-	border-color: $color-fruit-salad;
+
+	&:hover, 
+	&:active, 
+	&.active {
+		color: $color-white;
+		background-color: $color-fruit-salad;
+		border-color: $color-fruit-salad;
 	}
 }
 
@@ -412,10 +468,12 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-success {
-	&:active:hover, &.active:hover {
-	color: $color-white;
-	background-color: $color-fruit-salad;
-	border-color: $color-fruit-salad;
+	
+	&:active:hover, 
+	&.active:hover {
+		color: $color-white;
+		background-color: $color-fruit-salad;
+		border-color: $color-fruit-salad;
 	}
 }
 
@@ -426,10 +484,12 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-success {
-	&:active:focus, &.active:focus {
-	color: $color-white;
-	background-color: $color-fruit-salad;
-	border-color: $color-fruit-salad;
+
+	&:active:focus, 
+	&.active:focus {
+		color: $color-white;
+		background-color: $color-fruit-salad;
+		border-color: $color-fruit-salad;
 	}
 }
 
@@ -440,10 +500,11 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-success {
-	&:active.focus, &.active.focus {
-	color: $color-white;
-	background-color: $color-fruit-salad;
-	border-color: $color-fruit-salad;
+	&:active.focus, 
+	&.active.focus {
+		color: $color-white;
+		background-color: $color-fruit-salad;
+		border-color: $color-fruit-salad;
 	}
 }
 
@@ -454,8 +515,9 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-success {
-	&:active, &.active {
-	background-image: none;
+	&:active, 
+	&.active {
+		background-image: none;
 	}
 }
 
@@ -464,9 +526,11 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-success {
-	&.disabled, &[disabled] {
-	background-color: $color-fern;
-	border-color: $color-fern;
+
+	&.disabled, 
+	&[disabled] {
+		background-color: $color-fern;
+		border-color: $color-fern;
 	}
 }
 
@@ -476,9 +540,11 @@ fieldset[disabled] .btn-success {
 }
 
 .btn-success {
-	&.disabled:hover, &[disabled]:hover {
-	background-color: $color-fern;
-	border-color: $color-fern;
+
+	&.disabled:hover, 
+	&[disabled]:hover {
+		background-color: $color-fern;
+		border-color: $color-fern;
 	}
 }
 
@@ -488,9 +554,10 @@ fieldset[disabled] .btn-success:hover {
 }
 
 .btn-success {
-	&.disabled:focus, &[disabled]:focus {
-	background-color: $color-fern;
-	border-color: $color-fern;
+	&.disabled:focus, 
+	&[disabled]:focus {
+		background-color: $color-fern;
+		border-color: $color-fern;
 	}
 }
 
@@ -500,9 +567,11 @@ fieldset[disabled] .btn-success:focus {
 }
 
 .btn-success {
-	&.disabled.focus, &[disabled].focus {
-	background-color: $color-fern;
-	border-color: $color-fern;
+
+	&.disabled.focus, 
+	&[disabled].focus {
+		background-color: $color-fern;
+		border-color: $color-fern;
 	}
 }
 
@@ -512,9 +581,11 @@ fieldset[disabled] .btn-success.focus {
 }
 
 .btn-success {
-	&.disabled:active, &[disabled]:active {
-	background-color: $color-fern;
-	border-color: $color-fern;
+
+	&.disabled:active, 
+	&[disabled]:active {
+		background-color: $color-fern;
+		border-color: $color-fern;
 	}
 }
 
@@ -524,9 +595,11 @@ fieldset[disabled] .btn-success:active {
 }
 
 .btn-success {
-	&.disabled.active, &[disabled].active {
-	background-color: $color-fern;
-	border-color: $color-fern;
+
+	&.disabled.active, 
+	&[disabled].active {
+		background-color: $color-fern;
+		border-color: $color-fern;
 	}
 }
 
@@ -544,15 +617,20 @@ fieldset[disabled] .btn-success.active {
 	color: $color-white;
 	background-color: $color-malibu;
 	border-color: $color-malibu;
-	&:focus, &.focus {
-	color: $color-white;
-	background-color: $color-summer-sky;
-	border-color: $color-summer-sky;
+
+	&:focus, 
+	&.focus {
+		color: $color-white;
+		background-color: $color-summer-sky;
+		border-color: $color-summer-sky;
 	}
-	&:hover, &:active, &.active {
-	color: $color-white;
-	background-color: $color-summer-sky;
-	border-color: $color-summer-sky;
+
+	&:hover, 
+	&:active, 
+	&.active {
+		color: $color-white;
+		background-color: $color-summer-sky;
+		border-color: $color-summer-sky;
 	}
 }
 
@@ -563,10 +641,12 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-	&:active:hover, &.active:hover {
-	color: $color-white;
-	background-color: $color-summer-sky;
-	border-color: $color-summer-sky;
+	
+	&:active:hover, 
+	&.active:hover {
+		color: $color-white;
+		background-color: $color-summer-sky;
+		border-color: $color-summer-sky;
 	}
 }
 
@@ -577,10 +657,12 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-	&:active:focus, &.active:focus {
-	color: $color-white;
-	background-color: $color-summer-sky;
-	border-color: $color-summer-sky;
+
+	&:active:focus, 
+	&.active:focus {
+		color: $color-white;
+		background-color: $color-summer-sky;
+		border-color: $color-summer-sky;
 	}
 }
 
@@ -591,10 +673,12 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-	&:active.focus, &.active.focus {
-	color: $color-white;
-	background-color: $color-summer-sky;
-	border-color: $color-summer-sky;
+
+	&:active.focus, 
+	&.active.focus {
+		color: $color-white;
+		background-color: $color-summer-sky;
+		border-color: $color-summer-sky;
 	}
 }
 
@@ -605,8 +689,10 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-	&:active, &.active {
-	background-image: none;
+
+	&:active, 
+	&.active {
+		background-image: none;
 	}
 }
 
@@ -615,9 +701,11 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-	&.disabled, &[disabled] {
-	background-color: $color-malibu;
-	border-color: $color-malibu;
+
+	&.disabled, 
+	&[disabled] {
+		background-color: $color-malibu;
+		border-color: $color-malibu;
 	}
 }
 
@@ -627,9 +715,11 @@ fieldset[disabled] .btn-info {
 }
 
 .btn-info {
-	&.disabled:hover, &[disabled]:hover {
-	background-color: $color-malibu;
-	border-color: $color-malibu;
+
+	&.disabled:hover, 
+	&[disabled]:hover {
+		background-color: $color-malibu;
+		border-color: $color-malibu;
 	}
 }
 
@@ -639,9 +729,11 @@ fieldset[disabled] .btn-info:hover {
 }
 
 .btn-info {
-	&.disabled:focus, &[disabled]:focus {
-	background-color: $color-malibu;
-	border-color: $color-malibu;
+
+	&.disabled:focus, 
+	&[disabled]:focus {
+		background-color: $color-malibu;
+		border-color: $color-malibu;
 	}
 }
 
@@ -651,9 +743,11 @@ fieldset[disabled] .btn-info:focus {
 }
 
 .btn-info {
-	&.disabled.focus, &[disabled].focus {
-	background-color: $color-malibu;
-	border-color: $color-malibu;
+
+	&.disabled.focus, 
+	&[disabled].focus {
+		background-color: $color-malibu;
+		border-color: $color-malibu;
 	}
 }
 
@@ -663,9 +757,11 @@ fieldset[disabled] .btn-info.focus {
 }
 
 .btn-info {
-	&.disabled:active, &[disabled]:active {
-	background-color: $color-malibu;
-	border-color: $color-malibu;
+
+	&.disabled:active, 
+	&[disabled]:active {
+		background-color: $color-malibu;
+		border-color: $color-malibu;
 	}
 }
 
@@ -675,9 +771,11 @@ fieldset[disabled] .btn-info:active {
 }
 
 .btn-info {
-	&.disabled.active, &[disabled].active {
-	background-color: $color-malibu;
-	border-color: $color-malibu;
+
+	&.disabled.active, 
+	&[disabled].active {
+		background-color: $color-malibu;
+		border-color: $color-malibu;
 	}
 }
 
@@ -695,15 +793,20 @@ fieldset[disabled] .btn-info.active {
 	color: $color-white;
 	background-color: $color-casablanca;
 	border-color: $color-casablanca;
-	&:focus, &.focus {
-	color: $color-white;
-	background-color: $color-carrot;
-	border-color: $color-carrot;
+
+	&:focus, 
+	&.focus {
+		color: $color-white;
+		background-color: $color-carrot;
+		border-color: $color-carrot;
 	}
-	&:hover, &:active, &.active {
-	color: $color-white;
-	background-color: $color-carrot;
-	border-color: $color-carrot;
+
+	&:hover, 
+	&:active, 
+	&.active {
+		color: $color-white;
+		background-color: $color-carrot;
+		border-color: $color-carrot;
 	}
 }
 
@@ -714,10 +817,12 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-warning {
-	&:active:hover, &.active:hover {
-	color: $color-white;
-	background-color: $color-carrot;
-	border-color: $color-carrot;
+
+	&:active:hover, 
+	&.active:hover {
+		color: $color-white;
+		background-color: $color-carrot;
+		border-color: $color-carrot;
 	}
 }
 
@@ -728,10 +833,12 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-warning {
-	&:active:focus, &.active:focus {
-	color: $color-white;
-	background-color: $color-carrot;
-	border-color: $color-carrot;
+
+	&:active:focus, 
+	&.active:focus {
+		color: $color-white;
+		background-color: $color-carrot;
+		border-color: $color-carrot;
 	}
 }
 
@@ -742,10 +849,12 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-warning {
-	&:active.focus, &.active.focus {
-	color: $color-white;
-	background-color: $color-carrot;
-	border-color: $color-carrot;
+
+	&:active.focus, 
+	&.active.focus {
+		color: $color-white;
+		background-color: $color-carrot;
+		border-color: $color-carrot;
 	}
 }
 
@@ -756,8 +865,10 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-warning {
-	&:active, &.active {
-	background-image: none;
+
+	&:active, 
+	&.active {
+		background-image: none;
 	}
 }
 
@@ -766,9 +877,11 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-warning {
-	&.disabled, &[disabled] {
-	background-color: $color-casablanca;
-	border-color: $color-casablanca;
+
+	&.disabled, 
+	&[disabled] {
+		background-color: $color-casablanca;
+		border-color: $color-casablanca;
 	}
 }
 
@@ -778,9 +891,10 @@ fieldset[disabled] .btn-warning {
 }
 
 .btn-warning {
-	&.disabled:hover, &[disabled]:hover {
-	background-color: $color-casablanca;
-	border-color: $color-casablanca;
+	&.disabled:hover, 
+	&[disabled]:hover {
+		background-color: $color-casablanca;
+		border-color: $color-casablanca;
 	}
 }
 
@@ -790,9 +904,11 @@ fieldset[disabled] .btn-warning:hover {
 }
 
 .btn-warning {
-	&.disabled:focus, &[disabled]:focus {
-	background-color: $color-casablanca;
-	border-color: $color-casablanca;
+
+	&.disabled:focus, 
+	&[disabled]:focus {
+		background-color: $color-casablanca;
+		border-color: $color-casablanca;
 	}
 }
 
@@ -802,9 +918,11 @@ fieldset[disabled] .btn-warning:focus {
 }
 
 .btn-warning {
-	&.disabled.focus, &[disabled].focus {
-	background-color: $color-casablanca;
-	border-color: $color-casablanca;
+
+	&.disabled.focus, 
+	&[disabled].focus {
+		background-color: $color-casablanca;
+		border-color: $color-casablanca;
 	}
 }
 
@@ -814,9 +932,10 @@ fieldset[disabled] .btn-warning.focus {
 }
 
 .btn-warning {
-	&.disabled:active, &[disabled]:active {
-	background-color: $color-casablanca;
-	border-color: $color-casablanca;
+	&.disabled:active, 
+	&[disabled]:active {
+		background-color: $color-casablanca;
+		border-color: $color-casablanca;
 	}
 }
 
@@ -826,9 +945,11 @@ fieldset[disabled] .btn-warning:active {
 }
 
 .btn-warning {
-	&.disabled.active, &[disabled].active {
-	background-color: $color-casablanca;
-	border-color: $color-casablanca;
+
+	&.disabled.active, 
+	&[disabled].active {
+		background-color: $color-casablanca;
+		border-color: $color-casablanca;
 	}
 }
 
@@ -846,15 +967,20 @@ fieldset[disabled] .btn-warning.active {
 	color: $color-white;
 	background-color: $color-valencia;
 	border-color: $color-valencia;
-	&:focus, &.focus {
-	color: $color-white;
-	background-color: $color-persian-red;
-	border-color: $color-persian-red;
+
+	&:focus,
+	&.focus {
+		color: $color-white;
+		background-color: $color-persian-red;
+		border-color: $color-persian-red;
 	}
-	&:hover, &:active, &.active {
-	color: $color-white;
-	background-color: $color-persian-red;
-	border-color: $color-persian-red;
+
+	&:hover, 
+	&:active, 
+	&.active {
+		color: $color-white;
+		background-color: $color-persian-red;
+		border-color: $color-persian-red;
 	}
 }
 
@@ -865,10 +991,12 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .btn-danger {
-	&:active:hover, &.active:hover {
-	color: $color-white;
-	background-color: $color-persian-red;
-	border-color: $color-persian-red;
+
+	&:active:hover, 
+	&.active:hover {
+		color: $color-white;
+		background-color: $color-persian-red;
+		border-color: $color-persian-red;
 	}
 }
 
@@ -879,10 +1007,12 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .btn-danger {
-	&:active:focus, &.active:focus {
-	color: $color-white;
-	background-color: $color-persian-red;
-	border-color: $color-persian-red;
+
+	&:active:focus, 
+	&.active:focus {
+		color: $color-white;
+		background-color: $color-persian-red;
+		border-color: $color-persian-red;
 	}
 }
 
@@ -893,10 +1023,12 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .btn-danger {
-	&:active.focus, &.active.focus {
-	color: $color-white;
-	background-color: $color-persian-red;
-	border-color: $color-persian-red;
+
+	&:active.focus, 
+	&.active.focus {
+		color: $color-white;
+		background-color: $color-persian-red;
+		border-color: $color-persian-red;
 	}
 }
 
@@ -907,8 +1039,10 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .btn-danger {
-	&:active, &.active {
-	background-image: none;
+
+	&:active, 
+	&.active {
+		background-image: none;
 	}
 }
 
@@ -917,9 +1051,11 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .btn-danger {
-	&.disabled, &[disabled] {
-	background-color: $color-valencia;
-	border-color: $color-valencia;
+
+	&.disabled, 
+	&[disabled] {
+		background-color: $color-valencia;
+		border-color: $color-valencia;
 	}
 }
 
@@ -929,9 +1065,11 @@ fieldset[disabled] .btn-danger {
 }
 
 .btn-danger {
-	&.disabled:hover, &[disabled]:hover {
-	background-color: $color-valencia;
-	border-color: $color-valencia;
+
+	&.disabled:hover, 
+	&[disabled]:hover {
+		background-color: $color-valencia;
+		border-color: $color-valencia;
 	}
 }
 
@@ -941,9 +1079,11 @@ fieldset[disabled] .btn-danger:hover {
 }
 
 .btn-danger {
-	&.disabled:focus, &[disabled]:focus {
-	background-color: $color-valencia;
-	border-color: $color-valencia;
+
+	&.disabled:focus, 
+	&[disabled]:focus {
+		background-color: $color-valencia;
+		border-color: $color-valencia;
 	}
 }
 
@@ -953,9 +1093,11 @@ fieldset[disabled] .btn-danger:focus {
 }
 
 .btn-danger {
-	&.disabled.focus, &[disabled].focus {
-	background-color: $color-valencia;
-	border-color: $color-valencia;
+
+	&.disabled.focus, 
+	&[disabled].focus {
+		background-color: $color-valencia;
+		border-color: $color-valencia;
 	}
 }
 
@@ -965,9 +1107,11 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 .btn-danger {
-	&.disabled:active, &[disabled]:active {
-	background-color: $color-valencia;
-	border-color: $color-valencia;
+
+	&.disabled:active, 
+	&[disabled]:active {
+		background-color: $color-valencia;
+		border-color: $color-valencia;
 	}
 }
 
@@ -977,9 +1121,11 @@ fieldset[disabled] .btn-danger:active {
 }
 
 .btn-danger {
-	&.disabled.active, &[disabled].active {
-	background-color: $color-valencia;
-	border-color: $color-valencia;
+
+	&.disabled.active, 
+	&[disabled].active {
+		background-color: $color-valencia;
+		border-color: $color-valencia;
 	}
 }
 
@@ -1000,10 +1146,13 @@ fieldset[disabled] .btn-danger.active {
 	background-color: transparent;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	&:active, &.active, &[disabled] {
-	background-color: transparent;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+
+	&:active, 
+	&.active, 
+	&[disabled] {
+		background-color: transparent;
+		-webkit-box-shadow: none;
+		box-shadow: none;
 	}
 }
 
@@ -1015,40 +1164,51 @@ fieldset[disabled] .btn-link {
 
 .btn-link {
 	border-color: transparent;
-	&:hover, &:focus, &:active {
-	border-color: transparent;
+
+	&:hover, 
+	&:focus, 
+	&:active {
+		border-color: transparent;
 	}
-	&:hover, &:focus {
-	color: $color-endeavor;
-	text-decoration: underline;
-	background-color: transparent;
+
+	&:hover, 
+	&:focus {
+		color: $color-endeavor;
+		text-decoration: underline;
+		background-color: transparent;
 	}
+
 	&[disabled]:hover {
-	color: $color-monsoon;
-	text-decoration: none;
+		color: $color-monsoon;
+		text-decoration: none;
 	}
 }
 
-fieldset[disabled] .btn-link:hover, .btn-link[disabled]:focus, fieldset[disabled] .btn-link:focus {
+fieldset[disabled] .btn-link:hover, 
+.btn-link[disabled]:focus, 
+fieldset[disabled] .btn-link:focus {
 	color: $color-monsoon;
 	text-decoration: none;
 }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, 
+.btn-group-lg > .btn {
 	padding: 10px 16px;
 	font-size: 18px;
 	line-height: 1.3333333;
 	border-radius: 6px;
 }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, 
+.btn-group-sm > .btn {
 	padding: 5px 10px;
 	font-size: 12px;
 	line-height: 1.5;
 	border-radius: 3px;
 }
 
-.btn-xs, .btn-group-xs > .btn {
+.btn-xs, 
+.btn-group-xs > .btn {
 	padding: 1px 5px;
 	font-size: 12px;
 	line-height: 1.5;
@@ -1064,7 +1224,10 @@ fieldset[disabled] .btn-link:hover, .btn-link[disabled]:focus, fieldset[disabled
 }
 
 input {
-	&[type="submit"].btn-block, &[type="reset"].btn-block, &[type="button"].btn-block {
-	width: 100%;
+
+	&[type="submit"].btn-block, 
+	&[type="reset"].btn-block, 
+	&[type="button"].btn-block {
+		width: 100%;
 	}
 }
