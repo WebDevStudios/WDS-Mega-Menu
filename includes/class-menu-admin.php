@@ -18,7 +18,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * Constructor
 		 *
 		 * @since 0.1.0
-		 * @return  null
 		 */
 		public function __construct() {
 			add_filter( 'wp_setup_nav_menu_item', array( $this, 'register_nav_field' ) );
