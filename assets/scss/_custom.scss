@@ -2,17 +2,20 @@
 // Custom Styles
 //--------------------------------------------------------------
 .btn-group {
+
 	ul.dropdown-menu {
-		overflow: scroll;
 		max-height: 250px;
-	}
+		overflow: scroll;
+	} // ul.drpdown-menu
+
 	svg.icon {
 		height: 14px;
-		width: 14px;
 		position: relative;
 		top: 2px;
-	}
+		width: 14px;
+	} // svg.icon
+
 	li:hover {
 		background-color: $color-mercury;
-	}
-}
+	} // li:hover
+} // .btn-group
