@@ -3,7 +3,7 @@
  * Plugin Name: WDS Mega Menus
  * Plugin URI:  http://webdevstudios.com
  * Description: Make Magnificently Magical Mega Menus and More
- * Version:     0.2.2
+ * Version:     0.3.0
  * Author:      WebDevStudios
  * Author URI:  http://webdevstudios.com
  * Donate link: http://webdevstudios.com
@@ -11,7 +11,10 @@
  * Text Domain: wds-mega-menus
  * Domain Path: /languages
  *
- * @package WDS_Mega_Menus
+ * @link http://webdevstudios.com
+ *
+ * @package WDS Mega Menus
+ * @version 0.3.0
  */
 
 /*
@@ -45,6 +48,27 @@ if ( defined( 'DISABLE_WDS_MEGA_MENU' ) && DISABLE_WDS_MEGA_MENU ) {
 }
 
 /**
+ * Autoloads files with classes when needed
+ *
+ * @since  0.3.0
+ * @author Chris Reynolds
+ * @param  string $class_name Name of the class being requested.
+ */
+function wds_menus_autoload_classes( $class_name ) {
+	if ( 0 !== strpos( $class_name, 'WDS_Mega_Menu_' ) ) {
+		return;
+	}
+
+	$filename = strtolower( str_replace(
+		'_', '-',
+		substr( $class_name, strlen( 'WDS_Mega_Menu_' ) )
+	) );
+
+	WDS_Mega_Menus::include_file( $filename );
+}
+spl_autoload_register( 'wds_menus_autoload_classes' );
+
+/**
  * WDS Mega Menus.
  *
  * This base class handles mostly the instance itself and the plugin
@@ -59,15 +83,15 @@ class WDS_Mega_Menus {
 	 * Current version
 	 *
 	 * @var  string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
-	const VERSION = '0.2.0';
+	const VERSION = '0.3.0';
 
 	/**
 	 * URL of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
 	protected $url = '';
 
@@ -75,7 +99,7 @@ class WDS_Mega_Menus {
 	 * Path of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
 	protected $path = '';
 
@@ -83,15 +107,47 @@ class WDS_Mega_Menus {
 	 * Plugin basename
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.0
 	 */
 	protected $basename = '';
 
 	/**
+	 * Admin Nav Menus class instance
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	protected $admin = '';
+
+	/**
+	 * Options class instance
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	protected $options = '';
+
+	/**
+	 * Default svg-defs.svg path
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	$svg_defs = '';
+
+	/**
+	 * Default /svg assets path
+	 *
+	 * @var   string
+	 * @since 0.3.0
+	 */
+	$svg = '';
+
+	/**
 	 * Singleton instance of plugin.
 	 *
-	 * @var WDS_Mega_Menus
-	 * @since  0.1.0
+	 * @var   WDS_Mega_Menus
+	 * @since 0.1.0
 	 */
 	protected static $single_instance = null;
 
@@ -121,16 +177,126 @@ class WDS_Mega_Menus {
 		$this->svg_defs = $this->path . '/assets/svg-defs.svg';
 		$this->svg      = $this->path . '/assets/svg/';
 
-		require $this->path . 'includes/class-wds-mega-menu-walker.php';
-		require $this->path . 'includes/class-wds-mega-menus-walker-nav-menu-edit.php';
-		require $this->path . 'includes/class-wds-mega-menus-admin.php';
+		require $this->path . 'includes/class-menu-walker.php';
+		require $this->path . 'includes/class-walker-nav-menu-edit.php';
+		require $this->path . 'includes/class-menu-admin.php';
 		require $this->path . 'includes/class-options.php';
+	}
 
-		$this->plugin_classes();
-		$this->update_svg_paths();
+	/**
+	 * Attach other plugin classes to the base plugin class.
+	 *
+	 * @author Chris Reynolds
+	 * @since  0.2.0
+	 */
+	public function plugin_classes() {
+		// Attach other plugin classes to the base plugin class.
+		$this->admin   = new WDS_Mega_Menus_Admin();
+		$this->options = new WDS_Mega_Menus_Options( $this );
+	} // END OF PLUGIN CLASSES FUNCTION
 
-		// Plugin text domain.
-		load_plugin_textdomain( 'wds-mega-menus', false, dirname( __FILE__ ) . '/../languages/' );
+	/**
+	 * Add hooks and filters
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function hooks() {
+		add_action( 'init', array( $this, 'init' ) );
+	}
+
+	/**
+	 * Activate the plugin
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function _activate() {
+		// Make sure any rewrite functionality has been loaded.
+		flush_rewrite_rules();
+	}
+
+	/**
+	 * Deactivate the plugin
+	 * Uninstall routines should be in uninstall.php
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function _deactivate() {}
+
+
+	/**
+	 * Init hooks
+	 *
+	 * @since  0.3.0
+	 * @return void
+	 */
+	public function init() {
+		if ( $this->check_requirements() ) {
+			load_plugin_textdomain( 'wds-mega-menus', false, dirname( $this->basename ) . '/languages/' );
+			$this->plugin_classes();
+			$this->update_svg_paths();
+		}
+	}
+
+	/**
+	 * Check if the plugin meets requirements and
+	 * disable it if they are not present.
+	 *
+	 * @since  0.3.0
+	 * @return boolean result of meets_requirements
+	 */
+	public function check_requirements() {
+		if ( ! $this->meets_requirements() ) {
+
+			// Add a dashboard notice.
+			add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
+
+			// Deactivate our plugin.
+			add_action( 'admin_init', array( $this, 'deactivate_me' ) );
+
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Deactivates this plugin, hook this function on admin_init.
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function deactivate_me() {
+		deactivate_plugins( $this->basename );
+	}
+
+	/**
+	 * Check that all plugin requirements are met
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 * @return boolean True if requirements are met.
+	 */
+	public static function meets_requirements() {
+		// Do checks for required classes / functions
+		// function_exists('') & class_exists('').
+		// We have met all requirements.
+		return true;
+	}
+
+	/**
+	 * Adds a notice to the dashboard if the plugin requirements are not met
+	 *
+	 * @since  0.3.0
+	 * @author Chris Reynolds
+	 */
+	public function requirements_not_met_notice() {
+		// Output our error.
+		echo '<div id="message" class="error">';
+		echo '<p>' . sprintf( __( 'WDS Mega Menus is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'wds-mega-menus' ), admin_url( 'plugins.php' ) ) . '</p>';
+		echo '</div>';
 	}
 
 	/**
@@ -185,17 +351,6 @@ class WDS_Mega_Menus {
 	}
 
 	/**
-	 * Attach other plugin classes to the base plugin class.
-	 *
-	 * @author Chris Reynolds
-	 * @since  0.2.0
-	 */
-	public function plugin_classes() {
-		$this->admin   = new WDS_Mega_Menus_Admin();
-		$this->options = new WDS_Mega_Menus_Options( $this );
-	}
-
-	/**
 	 * Magic getter for our object.
 	 *
 	 * @since  0.1.0
@@ -231,5 +386,9 @@ function wds_mega_menus() {
 	return WDS_Mega_Menus::get_instance();
 }
 
-// Launch our class.
-wds_mega_menus();
+// Kick it off.
+add_action( 'plugins_loaded', array( wds_mega_menus(), 'hooks' ) );
+
+register_activation_hook( __FILE__, array( wds_mega_menus(), '_activate' ) );
+register_deactivation_hook( __FILE__, array( wds_mega_menus(), '_deactivate' ) );
+

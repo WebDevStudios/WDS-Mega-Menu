@@ -1,10 +1,10 @@
 # WDS Mega Menus
-**Contributors:**      [dustyf](https://github.com/dustyf), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal), [aubreypwd](https://github.com/aubreypwd), [coreymcollins](https://github.com/coreymcollins), [phatsk](https://github.io/phatsk)  
+**Contributors:**      [dustyf](https://github.com/dustyf), [jazzsequence](https://github.com/jazzsequence), [CamdenSegal](https://github.com/CamdenSegal), [aubreypwd](https://github.com/aubreypwd), [coreymcollins](https://github.com/coreymcollins), [phatsk](https://github.io/phatsk), [PavelK27](https://github.com/PavelK27), [jomurgel](https://github.com/jomurgel)  
 **Donate link:**       http://webdevstudios.com  
 **Tags:**  
 **Requires at least:** 3.6.0  
-**Tested up to:**      4.5.3  
-**Stable tag:**        0.2.1  
+**Tested up to:**      4.6.1  
+**Stable tag:**        0.3.0  
 **License:**           GPLv2  
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -23,7 +23,7 @@ check out the [Issues](https://github.com/WebDevStudios/WDS-Mega-Menu/issues) ta
 
 #### The Easy Way
 
-As of version 0.2.1, if you have nothing hooked on the `wds_mega_menus_walker_nav_menu_edit_allowed_depths` filter, a
+As of version 0.2.1, if you have nothing hooked on the `wdsmm_walker_nav_allowed_depths` filter, a
 new admin page called "WDS Mega Menus" will appear under the WordPress Appearance menu.
 
 #### The Manual Way
@@ -36,11 +36,12 @@ function my_allowed_depths( $array ) {
 	return array( 0, 1, 2, 3 );
 }
 
-add_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', 'my_allowed_depths' );
+add_filter( 'wdsmm_walker_nav_allowed_depths', 'my_allowed_depths' );
 ```
 
-This feature, in a future version, will be changed to allow all depths with
-the ability to set max depths and disallowed depths.
+#### ❕0.3.0 Compatibility Notice
+
+Previously, the filter was named `wds_mega_menus_walker_nav_menu_edit_allowed_depths`. This filter has been renamed to `wdsmm_walker_nav_allowed_depths`. Please update your functions if you are upgrading from a version earlier than 0.3.0.
 
 ## Installation ##
 
@@ -56,6 +57,10 @@ _none yet_
 _none yet_
 
 ## Changelog ##
+
+### 0.3.0 ###
+* Depths updated to checkboxes for allowed levels.
+* Code cleanup.
 
 ### 0.2.1 ###
 * Add options page (hidden if filter is set).
