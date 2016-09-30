@@ -2,67 +2,87 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WDS Mega Menus 1.1-dev\n"
+"Project-Id-Version: WDS Mega Menus 0.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wds-mega-menus\n"
-"POT-Creation-Date: 2016-02-17 20:57:25+00:00\n"
+"POT-Creation-Date: 2016-09-30 15:09:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.3\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
 
-#: includes/class-wds-mega-menu-walker.php:196
-msgid "Keep Reading"
+#: includes/class-options.php:95
+msgid "WDS Mega Menus Options"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:65
-msgid "Hide this on mobile"
+#: includes/class-options.php:123
+msgid "Applied Menu Depth(s)"
 msgstr ""
 
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:92
-msgid "Menu Item Icon"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:97
-msgid "- Choose an icon -"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:104
-msgid "No Icon"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:117
-msgid "Menu Item Image"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:118
-msgid "Images should be 130px wide by 250px high to prevent cropping."
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:121
-msgid "Set Menu Item Image"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:121
-msgid "Set menu item image"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:128
-msgid "Remove menu item image"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:159
-msgid "Select Widget Area to Display"
-msgstr ""
-
-#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:163
-msgid "- Select Widget Area -"
+#: includes/class-options.php:124
+msgid "<em>Select menu levels to apply the Mega Menu to.</em>"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "WDS Mega Menus"
+msgstr ""
+
+#: includes/class-options.php:381
+msgid "<label for=\"%1$s\">Menu Depth: %2$s</label><br/>"
+msgstr ""
+
+#: includes/class-wds-mega-menu-walker.php:179
+msgid "Keep Reading"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:71
+msgid "Hide this on mobile"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:106
+msgid "Menu Item Icon"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:111
+msgid "- Choose an icon -"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:116
+msgid "No Icon"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:129
+msgid "Menu Item Image"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:130
+msgid "Images should be 130px wide by 250px high to prevent cropping."
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:133
+msgid "Set Menu Item Image"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:133
+msgid "Set menu item image"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:140
+msgid "Remove Menu Item Image"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:140
+msgid "Remove menu item image"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:171
+msgid "Select Widget Area to Display"
+msgstr ""
+
+#: includes/class-wds-mega-menus-walker-nav-menu-edit.php:175
+msgid "- Select Widget Area -"
 msgstr ""
 
 #. Author URI of the plugin/theme
@@ -70,7 +90,7 @@ msgid "http://webdevstudios.com"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Make magnificently magical Mega Menus and more."
+msgid "Make Magnificently Magical Mega Menus and More"
 msgstr ""
 
 #. Author of the plugin/theme
