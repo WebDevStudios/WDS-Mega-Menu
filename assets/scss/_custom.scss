@@ -1,0 +1,18 @@
+//--------------------------------------------------------------
+// Custom Styles
+//--------------------------------------------------------------
+.btn-group {
+	ul.dropdown-menu {
+		overflow: scroll;
+		max-height: 250px;
+	}
+	svg.icon {
+		height: 14px;
+		width: 14px;
+		position: relative;
+		top: 2px;
+	}
+	li:hover {
+		background-color: $color-mercury;
+	}
+}
