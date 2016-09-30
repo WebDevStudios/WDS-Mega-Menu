@@ -59,6 +59,7 @@ _none yet_
 ## Changelog ##
 
 ### 0.3.0 ###
+* Default SVG icons now appear in admin dropdown if no SVG icons exist in theme.
 * Depths updated to checkboxes for allowed levels.
 * Code cleanup.
 
