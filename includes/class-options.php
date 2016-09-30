@@ -367,9 +367,9 @@ HTML;
 			// Set to 1 when the deepest menu is 0.
 			$checked_items = explode( ',', $value );
 			$html = '';
+			$html .= '<ul>';
 
 			for ( $i = 0; $i <= $this->deepest_menu; $i++ ) {
-				$html .= '<ul>';
 				$checked = '';
 
 				if ( in_array( $i, $checked_items ) ) {
