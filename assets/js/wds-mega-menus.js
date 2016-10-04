@@ -112,7 +112,6 @@
 		 * @param string element_id The ID of the mega menu target.
 		 */
 		this.resetUploadForm = function( element_id ) {
-			alert('hay!');
 			// First, we'll hide the image
 			$( '#menu-item-image-container-' + element_id )
 				.children( 'img' )
