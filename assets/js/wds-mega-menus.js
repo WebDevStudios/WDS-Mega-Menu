@@ -112,7 +112,6 @@
 		 * @param string element_id The ID of the mega menu target.
 		 */
 		this.resetUploadForm = function( element_id ) {
-			alert('hay!');
 			// First, we'll hide the image
 			$( '#menu-item-image-container-' + element_id )
 				.children( 'img' )
@@ -147,7 +146,7 @@
 			/* If a thumbnail URL has been associated with this image
 			 * Then we need to display the image and the reset link.
 			 */
-			if ( '' !== $.trim ( $( '#menu-item-image-' + element_id ).val() ) ) {
+			if ( 0 < $.trim( $( '#menu-item-image-' + element_id ).val() ).length ) {
 				$( '#menu-item-image-container-' + element_id ).removeClass( 'hidden' );
 
 				$( '#set-menu-item-image-' + element_id )
@@ -159,8 +158,97 @@
 					.removeClass( 'hidden' );
 			}
 		};
+
+		/**
+		 * Inits the edit menu buttons based on IDs from the localization.
+		 *
+		 * @since 0.3.1
+		 *
+		 * @author Zach Owen
+		 */
+		this.initEditMenu = function() {
+			if ( ! global.hasOwnProperty( 'WDS_MegaMenu_Loc' ) ) {
+				return;
+			}
+
+			for ( var key in global.WDS_MegaMenu_Loc.featured_ids ) {
+				if ( ! global.WDS_MegaMenu_Loc.featured_ids.hasOwnProperty( key ) ) {
+					continue;
+				}
+
+				registerMenuButton( parseInt( global.WDS_MegaMenu_Loc.featured_ids[ key ], 10 ) );
+			}
+		};
+
+		/**
+		 * Initialize the options page controls.
+		 */
+		this.initOptionsPage = function() {
+			registerOptionsControls();
+		};
 	}
 
 	global.WDS = global.WDS || {};
 	global.WDS.MegaMenu = new WDS_Mega_Menu();
+	$( document ).ready( global.WDS.MegaMenu.initEditMenu );
+	$( document ).ready( global.WDS.MegaMenu.initOptionsPage );
+
+	/**
+	 * Register the menu button listeners for the menu editor.
+	 *
+	 * @since 0.3.1
+	 *
+	 * @param int id The ID of the post object we're setting buttons for.
+	 *
+	 * @author Zach Owen
+	 */
+	function registerMenuButton( id ) {
+		WDS.MegaMenu.renderFeaturedImage( id );
+		$( '#set-menu-item-image-' + id ).on( 'click', function( e ) {
+			e.preventDefault();
+			WDS.MegaMenu.renderMediaUploader( id );
+		});
+
+		$( '#remove-menu-item-image-' + id ).on( 'click', function( evt ) {
+
+			// Stop the anchor's default behavior
+			evt.preventDefault();
+
+			// Remove the image, toggle the anchors
+			WDS.MegaMenu.resetUploadForm( id );
+		});
+	}
+
+	/**
+	 * Registers our handlers for the Options Page checkboxes.
+	 *
+	 * @since  0.3.1
+	 * @author Zach Owen
+	 */
+	function registerOptionsControls() {
+		var $all_depths       = $( '#all_depths' );
+		var $depth_input_last = $( ".depth_options li:not(:last-child) input" );
+		// Check all items if All depths checked and lock them
+		if ( $all_depths.length ) {
+			$all_depths.change( function() {
+				if(this.checked) {
+					/**
+					 * I don't think we need to disable these if the last is checked.
+					 * The mechanism of unchecking it once another option is changed works well.
+					 * -ZO
+					 */
+					$( ".depth_options" ).find( "li:not(:last-child) input" ).attr({
+						checked: "checked"
+					});
+				}
+			});
+		}
+
+		// Uncheck All depth checkbox if any other item was unchecked
+		if ( $depth_input_last.length ) {
+			$( $depth_input_last ).change( function() {
+				$all_depths.removeAttr( 'checked' );
+			});
+		}
+	}
 })(window);
