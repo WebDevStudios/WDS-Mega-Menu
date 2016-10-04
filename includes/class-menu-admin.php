@@ -32,17 +32,23 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * Enqueue scripts.
 		 *
 		 * @since  0.1.0
+		 *
+		 * @param  bool  $force Set true to skip screen checks.
+		 * @since  0.3.1
+		 *
 		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds, Jo Murgel
 		 * @todo   Add a way to determine whether to load minified js files.
 		 */
-		public function admin_enqueue_scripts() {
-			if ( 'nav-menus' !== get_current_screen()->id ) {
+		public function admin_enqueue_scripts( $force = false ) {
+			if ( ! $force && 'nav-menus' !== get_current_screen()->id ) {
 				return; // Only show on nav-menu's screen.
 			}
 
 			wp_enqueue_media();
 			wp_enqueue_style( 'wdsmm-admin', wds_mega_menus()->url . 'assets/css/admin.css', array(), wds_mega_menus()->version );
-			wp_enqueue_script( 'wds-mega-menus', wds_mega_menus()->url . 'assets/js/wds-mega-menus.min.js', array( 'jquery' ), wds_mega_menus()->version );
+			wp_register_script( 'wds-mega-menus', wds_mega_menus()->url . 'assets/js/wds-mega-menus.min.js', array( 'jquery' ), wds_mega_menus()->version, true );
+			wp_enqueue_script( 'wds-mega-menus' );
+
 			wp_enqueue_script( 'bootstrap-dropdown', wds_mega_menus()->url . 'assets/js/dropdowns-enhancement.js', array( 'jquery' ), wds_mega_menus()->version, true );
 		}
 
