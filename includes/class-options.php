@@ -114,7 +114,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		 * @author Zach Owen, Chris Reynolds
 		 */
 		public function handle_options_page() {
-			$this->deepest_menu = $this->get_deepest_menu() ?: 1;
+			// @TODO Filter which menu to use?
+			$this->deepest_menu = $this->get_deepest_menu( 'nav_menu' ) ?: 1;
 
 			/**
 			 * Some quick todos for later.
@@ -215,7 +216,7 @@ jQuery( document ).ready( function( $ ) {
 	// Check all items if All depths checked and lock them
 	$( '#all_depths' ).change( function() {
 		if(this.checked) {
-			$( ".depth_options" ).find( "li:not(:last-child) input" ).attr({
+			$( ".depth_options" ).find( "li:not(:last-child) input:not(:disabled)" ).attr({
 				//disabled: "true", @TODO CMB2 doesn't save checkboxes with disabled attr, need another way for locking these
 			    checked: "checked"
 			});
@@ -420,18 +421,45 @@ HTML;
 			$html .= '<ul class="depth_options">';
 
 			for ( $i = 0; $i <= $this->deepest_menu; $i++ ) {
-				$checked = '';
+				$attributes = array();
 
 				if ( in_array( $i, $checked_items ) ) {
-					$checked = 'checked="checked"';
+					$attributes[] = 'checked="checked"';
 				}
 
+				/**
+				 * Filter an array that can contain integers (refernced by constants on the main class).
+				 *
+				 * @since 0.3.0
+				 * @param array $overrides     The array of overrides to use.
+				 * @param int   $i             The current depth.
+				 * @param array $checked_items The items in the menu that are checked currently.
+				 * @param int   $deepest_menu  The deepest menu depth.
+				 */
+				$attribute_override = apply_filters( 'wdsmm_walker_nav_options_depth_override', array(), $i, $checked_items, $this->deepest_menu );
+
+				/**
+				 * Note: I considered allowing direct modification of the attributes, but this seems
+				 * safer since the user can't flub anything up in the admin with malformed/malicious HTML.
+				 */
+				switch ( $attribute_override ) {
+					case WDS_Mega_Menus::OVERRIDE_DEPTH_REQUIRED:
+						$attributes[] = 'checked="checked"';
+						$attributes[] = 'disabled="disabled"';
+						break;
+
+					case WDS_Mega_Menus::OVERRIDE_DEPTH_DISABLED:
+						$attributes[] = 'disabled="disabled"';
+						break;
+				}
+
+				$attributes = implode( ' ', $attributes );
+
 				$key   = esc_attr( $field['key'] );
-				$html .= sprintf( '<li><input type="checkbox" name="%1$s[]" value="%3$s" %2$s />', $key, $checked, $i );
+				$html .= sprintf( '<li><input type="checkbox" name="%1$s[]" value="%3$s" %2$s />', $key, $attributes, $i );
 				$html .= sprintf( __( '<label for="%1$s">Menu Depth: %2$s</label></li>', 'wds-mega-menus' ), $key, $i );
-
-
 			}
+
 			$html .= sprintf( '<li><input id="all_depths" type="checkbox" name="%1$s[]" value="all" %2$s />', $key, in_array( "all", $checked_items ) ? 'checked' : '');
 			$html .= sprintf( __( '<label for="%1$s">All Depths</label></li>', 'wds-mega-menus' ), $key );
 
@@ -453,9 +481,9 @@ HTML;
 		 *
 		 * @return int
 		 */
-		private function get_deepest_menu() {
+		private function get_deepest_menu( $menu ) {
 			$deepest = 0;
-			$menu_items = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+			$menu_items = get_terms( $menu, array( 'hide_empty' => true ) );
 
 			foreach ( $menu_items as $item ) {
 				$nav_menu_items = isset( $menus[ $item->slug ] ) ? $menus[ $item->slug ] : wp_get_nav_menu_items( $item->slug );

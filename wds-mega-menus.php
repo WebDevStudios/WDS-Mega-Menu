@@ -89,6 +89,22 @@ class WDS_Mega_Menus {
 	const VERSION = '0.3.0';
 
 	/**
+	 * Constant for overriding the option page depths.
+	 *
+	 * @var   int
+	 * @since 0.3.0
+	 */
+	const OVERRIDE_DEPTH_REQUIRED = 1;
+
+	/**
+	 * Constant for overriding the option page depths.
+	 *
+	 * @var   int
+	 * @since 0.3.0
+	 */
+	const OVERRIDE_DEPTH_DISABLED = 2;
+
+	/**
 	 * URL of plugin directory
 	 *
 	 * @var   string
