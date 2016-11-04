@@ -201,14 +201,14 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		 * @since  0.1.0
 		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds
 		 *
-		 * @todo   Need to provide a fallback to use SVGs in the plugin.
 		 * @return array An array of all the SVG names/slugs.
 		 */
 		public function get_svg_list() {
 			$svgs = array();
 
 			// Loop through all the svgs to build the SVG list.
-			foreach ( glob( wds_mega_menus()->svg . '*.svg' ) as $svg ) {
+			$svgs = glob( wds_mega_menus()->svg . '*.svg' );
+			foreach ( $svgs as $svg ) {
 				$slug = str_replace( array( wds_mega_menus()->svg, '.svg' ), '', $svg );
 				$svgs[ $slug ] = $this->get_svg( $slug ) . ' ' . ucfirst( str_replace( '-', ' ', $slug ) );
 			}
