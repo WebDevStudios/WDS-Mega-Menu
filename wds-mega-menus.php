@@ -3,7 +3,7 @@
  * Plugin Name: WDS Mega Menus
  * Plugin URI:  http://webdevstudios.com
  * Description: Make Magnificently Magical Mega Menus and More
- * Version:     0.3.0
+ * Version:     0.3.1
  * Author:      WebDevStudios
  * Author URI:  http://webdevstudios.com
  * Donate link: http://webdevstudios.com
@@ -14,7 +14,7 @@
  * @link http://webdevstudios.com
  *
  * @package WDS Mega Menus
- * @version 0.3.0
+ * @version 0.3.1
  */
 
 /*
@@ -86,7 +86,7 @@ class WDS_Mega_Menus {
 	 * @var   string
 	 * @since 0.1.0
 	 */
-	const VERSION = '0.3.0';
+	const VERSION = '0.3.1';
 
 	/**
 	 * Constant for overriding the option page depths.
