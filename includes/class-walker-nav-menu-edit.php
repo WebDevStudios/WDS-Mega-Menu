@@ -28,6 +28,23 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		public $featured_ids = array();
 
 		/**
+		 * Init the class.
+		 *
+		 * @since 0.3.1
+		 */
+		public function __construct() {
+			$this->hooks();
+		}
+
+		/**
+		 * Run hooks.
+		 */
+		public function hooks() {
+			add_filter( 'option_nav_menu_options', array( $this, 'add_edit_nonce' ) );
+			add_action( 'admin_footer-nav-menus.php', array( $this, 'enqueue_and_localize' ) );
+		}
+
+		/**
 		 * Override the start of elements in the walker.
 		 *
 		 * @param  string $output (Required) Passed by reference. Used to append additional content.
@@ -50,7 +67,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 			$item_output = preg_replace( '/(?=<p[^>]+class="[^"]*field-move)/', $new_fields, $item_output );
 			$output .= $item_output;
-
 		}
 
 		/**
@@ -64,7 +80,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		 * @return string      The markup for the custom field.
 		 */
 		public function field_display( $id, $args = array() ) {
-			static $has_nonce = false;
 			ob_start();
 
 			$args = wp_parse_args( $args, array(
@@ -73,11 +88,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 				'item'        => false,
 				'item_output' => false,
 			) );
-
-			if ( ! $has_nonce ) {
-				wp_nonce_field( 'wdsmm_walker_nav_post_edit' );
-				$has_nonce = true;
-			}
 
 			// Disable on mobile.
 			if ( isset( $args['depth'] ) && false == $args['depth'] ) :
@@ -110,6 +120,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			if ( has_filter( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths' ) ) {
 				_deprecated_hook( 'wds_mega_menus_walker_nav_menu_edit_allowed_depths', '0.3.0', 'wdsmm_walker_nav_allowed_depths' );
 			}
+
 			// Check for version 0.2.1+ option.
 			if ( empty( $allowed_depths ) ) {
 				$option_value = WDS_Mega_Menus::get_instance()->options->get_option( 'wds_mega_menus_depth', '' );
@@ -234,13 +245,30 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		public function end_lvl( &$output, $depth = 0, $args = array() ) {
 			// Only do this on depth = 0.
 			if ( ! $depth ) {
-				wds_mega_menus()->admin->admin_enqueue_scripts();
-				wp_localize_script( 'wds-mega-menus', 'WDS_MegaMenu_Loc', array(
-					'featured_ids' => $this->featured_ids,
-				) );
 			}
 
 			parent::end_lvl( $output, $depth, $args );
+		}
+
+		/**
+		 * Add a nonce for when we submit the form.
+		 *
+		 * @since 0.3.1
+		 */
+		public function add_edit_nonce() {
+			wp_nonce_field( 'wdsmm_walker_nav_post_edit' );
+		}
+
+		/**
+		 * Enqueue and localize some things.
+		 *
+		 * @since 0.3.1
+		 */
+		public function enqueue_and_localize() {
+			wds_mega_menus()->admin->admin_enqueue_scripts();
+			wp_localize_script( 'wds-mega-menus', 'WDS_MegaMenu_Loc', array(
+				'featured_ids' => $this->featured_ids,
+			) );
 		}
 	} // class WDS_Mega_Menus_Walker_Nav_Menu_Edit.
 
