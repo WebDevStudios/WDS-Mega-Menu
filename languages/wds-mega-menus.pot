@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: includes/class-menu-walker.php:189
+#: includes/class-menu-walker.php:201
 msgid "Keep Reading"
 msgstr ""
 
@@ -34,59 +34,59 @@ msgstr ""
 msgid "WDS Mega Menus"
 msgstr ""
 
-#: includes/class-options.php:460
+#: includes/class-options.php:440
 msgid "<label for=\"%1$s\">Menu Depth: %2$s</label></li>"
 msgstr ""
 
-#: includes/class-options.php:464
+#: includes/class-options.php:444
 msgid "<label for=\"%1$s\">All Depths</label></li>"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:78
+#: includes/class-walker-nav-menu-edit.php:83
 msgid "Hide this on mobile"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:119
+#: includes/class-walker-nav-menu-edit.php:124
 msgid "Menu Item Icon"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:124
+#: includes/class-walker-nav-menu-edit.php:129
 msgid "- Choose an icon -"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:129
+#: includes/class-walker-nav-menu-edit.php:134
 msgid "No Icon"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:142
+#: includes/class-walker-nav-menu-edit.php:147
 msgid "Menu Item Image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:143
+#: includes/class-walker-nav-menu-edit.php:148
 msgid "Images should be 130px wide by 250px high to prevent cropping."
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:146
+#: includes/class-walker-nav-menu-edit.php:151
 msgid "Set Menu Item Image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:146
+#: includes/class-walker-nav-menu-edit.php:151
 msgid "Set menu item image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:153
+#: includes/class-walker-nav-menu-edit.php:158
 msgid "Remove Menu Item Image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:153
+#: includes/class-walker-nav-menu-edit.php:158
 msgid "Remove menu item image"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:184
+#: includes/class-walker-nav-menu-edit.php:162
 msgid "Select Widget Area to Display"
 msgstr ""
 
-#: includes/class-walker-nav-menu-edit.php:188
+#: includes/class-walker-nav-menu-edit.php:166
 msgid "- Select Widget Area -"
 msgstr ""
 
@@ -113,6 +113,6 @@ msgid_plural "%s Stars"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wds-mega-menus.php:318
+#: wds-mega-menus.php:319
 msgid "WDS Mega Menus is missing requirements and has been <a href=\"%s\">deactivated</a>. Please make sure all requirements are available."
 msgstr ""
