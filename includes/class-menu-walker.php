@@ -35,6 +35,18 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
 
 		/**
+		 * Constructor
+		 *
+		 * @since  0.3.0
+		 * @author Pavel Korotenko
+		 */
+		public function __construct() {
+			if ( file_exists( wds_mega_menus()->svg_defs ) ) {
+				require_once( wds_mega_menus()->svg_defs );
+			}
+		}
+
+		/**
 		 * Starts the list before the elements are added.
 		 *
 		 * @see Walker::start_lvl()

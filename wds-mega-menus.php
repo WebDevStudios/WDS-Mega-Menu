@@ -220,6 +220,7 @@ class WDS_Mega_Menus {
 	 */
 	public function hooks() {
 		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_user_styles' ) );
 	}
 
 	/**
@@ -442,6 +443,16 @@ class WDS_Mega_Menus {
 		static $url;
 		$url = $url ? $url : trailingslashit( plugin_dir_url( __FILE__ ) );
 		return $url . $path;
+	}
+
+	/**
+	 * Enqueue front-end styles
+	 *
+	 * @since  0.3.0
+	 * @author Pavel Korotenko
+	 */
+	public function enqueue_user_styles() {
+		wp_enqueue_style( 'wdsmm-user', wds_mega_menus()->url . 'assets/css/user.css', array(), wds_mega_menus()->version );
 	}
 } // class WDS_Mega_Menus
 
