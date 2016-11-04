@@ -114,19 +114,20 @@ if ( ! class_exists( 'WDS_Mega_Menus_Options' ) ) {
 		 * @author Zach Owen, Chris Reynolds
 		 */
 		public function handle_options_page() {
-			// @TODO Filter which menu to use?
-			$this->deepest_menu = $this->get_deepest_menu( 'nav_menu' ) ?: 1;
-
 			/**
-			 * Some quick todos for later.
+			 * Filter the menu to use as the menu for the options page.
 			 *
-			 * @TODO this looks ugly with that long description :/
-			 * @TODO Also, I think I've just created a poor man's CMB. Butts.
+			 * @since  0.3.1
+			 * @param  string $deepest_from The menu to use.
+			 * @return string
 			 */
+			$deepest_from       = apply_filters( 'wdsmm_options_deepest_from_menu', 'nav_menu' );
+			$this->deepest_menu = $this->get_deepest_menu( $deepest_from ) ?: 1;
+
 			$this->add_field( array(
 				'key'   => 'wds_mega_menus_depth',
 				'title' => __( 'Applied Menu Depth(s)', 'wds-mega-menus' ),
-				'desc'  => __( '<em>Select menu levels to apply the Mega Menu to.</em>', 'wds-mega-menus' ), // Replaces wdsmm_walker_nav_allowed_depths filter).
+				'desc'  => __( '<em>Select menu levels to apply the Mega Menu to.</em>', 'wds-mega-menus' ),
 			) );
 
 			// Check to see if anything is saved.
@@ -203,7 +204,6 @@ HTML;
 		 * @author Zach Owen, Pavel Korotenko
 		 *
 		 * @return string
-		 * @todo   Properly enqueue the javascript here.
 		 */
 		private function close_options_page() {
 			wds_mega_menus()->admin->admin_enqueue_scripts( true );
