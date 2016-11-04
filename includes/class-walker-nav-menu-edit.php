@@ -20,10 +20,15 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	 */
 	class WDS_Mega_Menus_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit {
 		/**
-		 * Override the start of elements in the walker.
+		 * Array of featured IDs for the menu editor.
 		 *
-		 * @since  0.1.0
-		 * @author Dustin Filippini, Aubrey Portwood
+		 * @since 0.3.1
+		 * @var   array
+		 */
+		public $featured_ids = array();
+
+		/**
+		 * Override the start of elements in the walker.
 		 *
 		 * @param  string $output (Required) Passed by reference. Used to append additional content.
 		 * @param  object $item   (Required) Menu item data object.
@@ -109,9 +114,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			}
 
 			if ( ! empty( $allowed_depths ) && in_array( $args['depth'], $allowed_depths ) ) :
-
-				$img_id  = get_post_thumbnail_id( $id );
-				$img_url = wp_get_attachment_image_src( $img_id, 'large' );
+				$img_id               = get_post_thumbnail_id( $id );
+				$img_url              = wp_get_attachment_image_src( $img_id, 'large' );
+				$this->featured_ids[] = esc_attr( absint( $id ) );
 				?>
 
 					<div class="field-menu-item-icon description description-wide">
@@ -153,33 +158,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 								<button title="<?php esc_html_e( 'Remove Menu Item Image', 'wds-mega-menus' ); ?>" href="javascript:;" id="remove-menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>"><?php esc_html_e( 'Remove menu item image', 'wds-mega-menus' ); ?></button>
 						</p>
 					</div>
-					<script>
-						(function( $ ) {
-							// @TODO localize and enqueue!
-							WDS.MegaMenu.renderFeaturedImage( <?php echo esc_attr( absint( $id ) ); ?> );
-
-							'use strict';
-
-							$(function() {
-								$( '#set-menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>' ).on( 'click', function( e ) {
-									e.preventDefault();
-									WDS.MegaMenu.renderMediaUploader(<?php echo esc_attr( absint( $id ) ); ?>);
-								});
-
-								$( '#remove-menu-item-image-<?php echo esc_attr( absint( $id ) ); ?>' ).on( 'click', function( evt ) {
-
-									// Stop the anchor's default behavior
-									evt.preventDefault();
-
-									// Remove the image, toggle the anchors
-									WDS.MegaMenu.resetUploadForm( <?php echo esc_attr( absint( $id ) ); ?> );
-
-								});
-
-							});
-
-						})( jQuery );
-					</script>
 					<div class="field-menu-item-widget-area description description-wide">
 						<p class="description"><?php esc_html_e( 'Select Widget Area to Display', 'wds-mega-menus' ); ?></p>
 						<p>
@@ -237,6 +215,26 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			$svg .= '</svg>';
 
 			return $svg;
+		}
+
+		/**
+		 * Override to allow us to localize the featured IDs before we finish.
+		 *
+		 * @since 0.3.1
+		 * @param string $output Passed by reference.
+		 * @param int    $depth  Depth of menu item. Used for padding.
+		 * @param array  $args   Not used.
+		 */
+		public function end_lvl( &$output, $depth = 0, $args = array() ) {
+			// Only do this on depth = 0.
+			if ( ! $depth ) {
+				wds_mega_menus()->admin->admin_enqueue_scripts();
+				wp_localize_script( 'wds-mega-menus', 'WDS_MegaMenu_Loc', array(
+					'featured_ids' => $this->featured_ids,
+				) );
+			}
+
+			parent::end_lvl( $output, $depth, $args );
 		}
 	} // class WDS_Mega_Menus_Walker_Nav_Menu_Edit.
 
