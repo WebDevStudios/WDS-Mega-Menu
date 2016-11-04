@@ -25,16 +25,6 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
 
 		/**
-		 * Database fields to use.
-		 *
-		 * @see   Walker::$db_fields
-		 * @since 0.1.0
-		 * @todo  Decouple this.
-		 * @var   array
-		 */
-		public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
-
-		/**
 		 * Constructor
 		 *
 		 * @since  0.3.0
@@ -44,6 +34,18 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			if ( file_exists( wds_mega_menus()->svg_defs ) ) {
 				require_once( wds_mega_menus()->svg_defs );
 			}
+
+			/**
+			 * Filter the db fields passed to the walker.
+			 *
+			 * @since  0.3.1
+			 * @param  array $db_fields Array of fields for the DB. See Walker::$db_fields.
+			 * @return array
+			 */
+			$this->db_fields = apply_filters( 'wdsmm_db_fields', array(
+				'parent' => 'menu_item_parent',
+				'id'     => 'db_id',
+			) );
 		}
 
 		/**
