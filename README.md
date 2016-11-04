@@ -4,7 +4,7 @@
 **Tags:**  
 **Requires at least:** 3.6.0  
 **Tested up to:**      4.6.1  
-**Stable tag:**        0.3.0  
+**Stable tag:**        0.3.1  
 **License:**           GPLv2  
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -57,6 +57,11 @@ _none yet_
 _none yet_
 
 ## Changelog ##
+
+### 0.3.1 ###
+* Various bug fixes.
+* Better SVG support.
+* Javascript updates for better practices.
 
 ### 0.3.0 ###
 * Default SVG icons now appear in admin dropdown if no SVG icons exist in theme.
