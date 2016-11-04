@@ -64,6 +64,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		 * @return string      The markup for the custom field.
 		 */
 		public function field_display( $id, $args = array() ) {
+			static $has_nonce = false;
 			ob_start();
 
 			$args = wp_parse_args( $args, array(
@@ -72,6 +73,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 				'item'        => false,
 				'item_output' => false,
 			) );
+
+			if ( ! $has_nonce ) {
+				wp_nonce_field( 'wdsmm_walker_nav_post_edit' );
+				$has_nonce = true;
+			}
 
 			// Disable on mobile.
 			if ( isset( $args['depth'] ) && false == $args['depth'] ) :

@@ -94,9 +94,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * @param  int   $menu_id         Not used here.
 		 * @param  int   $menu_item_db_id The menu item post ID.
 		 * @param  array $args            Not used here.
-		 * @todo   Maybe add nonces when getting data from $_POST?
 		 */
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
+			if ( ! check_admin_referer( 'wdsmm_walker_nav_post_edit' ) ) {
+				wp_die( __( 'Invalid nonce used in form submission.', 'wds-mega-menus' ) );
+			}
 
 			// Hide on mobile.
 			if ( isset( $_POST['hide-menu-on-mobile'][ $menu_item_db_id ] ) ) {
