@@ -62,3 +62,5 @@ node_modules
 ### Sass ###
 .sass-cache
 
+# VIM swap
+*.swp
