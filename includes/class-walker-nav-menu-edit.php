@@ -39,6 +39,9 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 		function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 			$item_output = '';
 
+			// Do action hook here.
+			do_action( 'wds_mega_menus_start_el_hook', $item_output );
+
 			parent::start_el( $item_output, $item, $depth, $args );
 
 			$new_fields  = $this->field_display( $item->ID, array(
@@ -53,6 +56,23 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 
 		}
 
+		/**
+		 * Override the end of elements in the walker.
+		 *
+		 * @param  string $output (Required) Passed by reference. Used to append additional content.
+		 * @param  object $item   (Required) Menu item data object.
+		 * @param  int    $depth  (Required) Depth of menu item. Used for padding.
+		 * @param  array  $args   Not used.
+		 * @param  int    $id     Not used.
+		 */
+		function end_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+			$item_output = '';
+
+			// Do action hook here.
+			do_action( 'wds_mega_menus_end_el_hook', $item_output );
+
+			$output .= $item_output;
+		}
 		/**
 		 * Create the markup for our custom field
 		 *
