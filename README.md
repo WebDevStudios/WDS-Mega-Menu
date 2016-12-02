@@ -54,7 +54,7 @@ Previously, the filter was named `wds_mega_menus_walker_nav_menu_edit_allowed_de
 _none yet_
 
 ## Screenshots ##
-_none yet_
+![Menu Editor Item View](assets/screenshot-1.png?raw=true)
 
 ## Changelog ##
 
