@@ -20,34 +20,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 	 */
 	class WDS_Mega_Menus_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit {
 		/**
-		 * Override the start of level in the walker.
-		 *
-		 * @since  0.3.1
-		 * @author Pavel Korotenko
-		 *
-		 * @param  string $output (Required) Passed by reference. Used to append additional content.
-		 * @param  int    $depth  (Required) Depth of menu item. Used for padding.
-		 * @param  array  $args   Not used.
-		 */
-		public function start_lvl( &$output, $depth = 0, $args = array() ) {
-		    $output .= "<ul class='wds-mega-menus-depth-$depth'>\n";
-	    }
-
-	    /**
-		 * Override the end of level in the walker.
-		 *
-		 * @since  0.3.1
-		 * @author Pavel Korotenko
-		 *
-		 * @param  string $output (Required) Passed by reference. Used to append additional content.
-		 * @param  int    $depth  (Required) Depth of menu item. Used for padding.
-		 * @param  array  $args   Not used.
-		 */
-	    public function end_lvl( &$output, $depth = 0, $args = array() ) {
-	        $output .= "</ul>\n";
-	    }
-
-		/**
 		 * Override the start of elements in the walker.
 		 *
 		 * @since  0.1.0
@@ -72,8 +44,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			) );
 
 			$item_output = preg_replace( '/(?=<p[^>]+class="[^"]*field-move)/', $new_fields, $item_output );
+			$item_output = preg_replace( '/menu-item-depth/', "wds-mega-menus-depth-$depth menu-item-depth", $item_output, 1 );
 			$output .= $item_output;
-
 		}
 
 		/**
