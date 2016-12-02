@@ -49,8 +49,8 @@ if ( ! class_exists( 'WDS_Mega_Menus_Walker_Nav_Menu_Edit' ) ) {
 			) );
 
 			$item_output = preg_replace( '/(?=<p[^>]+class="[^"]*field-move)/', $new_fields, $item_output );
+			$item_output = preg_replace( '/menu-item-depth/', "wds-mega-menus-depth-$depth menu-item-depth", $item_output, 1 );
 			$output .= $item_output;
-
 		}
 
 		/**
