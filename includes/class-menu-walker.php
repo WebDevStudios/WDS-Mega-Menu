@@ -25,16 +25,6 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 		public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
 
 		/**
-		 * Database fields to use.
-		 *
-		 * @see   Walker::$db_fields
-		 * @since 0.1.0
-		 * @todo  Decouple this.
-		 * @var   array
-		 */
-		public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
-
-		/**
 		 * Constructor
 		 *
 		 * @since  0.3.0
@@ -44,6 +34,18 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			if ( file_exists( wds_mega_menus()->svg_defs ) ) {
 				require_once( wds_mega_menus()->svg_defs );
 			}
+
+			/**
+			 * Filter the db fields passed to the walker.
+			 *
+			 * @since  0.3.1
+			 * @param  array $db_fields Array of fields for the DB. See Walker::$db_fields.
+			 * @return array
+			 */
+			$this->db_fields = apply_filters( 'wdsmm_db_fields', array(
+				'parent' => 'menu_item_parent',
+				'id'     => 'db_id',
+			) );
 		}
 
 		/**
@@ -192,23 +194,43 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			$item_output .= '</a>';
 
 			// The item title.
-			$item_title = apply_filters( 'wds-mega-menu-title', '<a' . $attributes . ' class="menu-item-description-title"><h3>' . ( ! $icon ) ? '' : $this->get_svg( $icon ) . apply_filters( 'the_title', $item->title, $item->ID ) . '</h3></a>' );
+			if ( has_filter( 'wds-mega-menu-title' ) ) {
+				_deprecated_hook( 'wds-mega-menu-title', '0.3.1', 'wdsmm_title' );
+			}
+
+			$item_title = apply_filters( 'wdsmm_title', '<a' . $attributes . ' class="menu-item-description-title"><h3>' . ( ! $icon ) ? '' : $this->get_svg( $icon ) . apply_filters( 'the_title', $item->title, $item->ID ) . '</h3></a>' );
 
 			// The item content.
-			$item_content = apply_filters( 'wds-mega-menu-content', wpautop( $item->post_content ) );
+			if ( has_filter( 'wds-mega-menu-content' ) ) {
+				_deprecated_hook( 'wds-mega-menu-content', '0.3.1', 'wdsmm_content' );
+			}
+
+			$item_content = apply_filters( 'wdsmm_content', wpautop( $item->post_content ) );
 
 			// The item read more link.
-			$item_read_more = apply_filters( 'wds-mega-menu-read-more', '<p><a' . $attributes . ' class="keep-reading-more">' . __( 'Keep Reading', 'wds-mega-menus' ) . '</a></p>' );
+			if ( has_filter( 'wds-mega-menu-read-more' ) ) {
+				_deprecated_hook( 'wds-mega-menu-read-more', '0.3.1', 'wdsmm_read_more' );
+			}
+
+			$item_read_more = apply_filters( 'wdsmm_read_more', '<p><a' . $attributes . ' class="keep-reading-more">' . __( 'Keep Reading', 'wds-mega-menus' ) . '</a></p>' );
 
 			// Use an inline image, or CSS on a Div?
-			$item_use_real_image = apply_filters( 'wds-mega-menu-inline-image', true );
+			if ( has_filter( 'wds-mega-menu-inline-image' ) ) {
+				_deprecated_hook( 'wds-mega-menu-inline-image', '0.3.1', 'wdsmm_inline_image' );
+			}
+
+			$item_use_real_image = apply_filters( 'wdsmm_inline_image', true );
 
 			// Start the menu item wrap so it can contain a potential sidebar widget
 			$item_output .= '<div class="menu-item-container">';
 
 			// Add the content of the walker.
 			if ( has_post_thumbnail( $item->ID ) ) {
-				$image_size = apply_filters( 'wds-mega-menus-image-size', 'full' );
+				if ( has_filter( 'wds-mega-menus-image-size' ) ) {
+					_deprecated_hook( 'wds-mega-menus-image-size', '0.3.1', 'wdsmm_image_size' );
+				}
+
+				$image_size = apply_filters( 'wdsmm_image_size', 'full' );
 
 					$item_output .= '<div class="menu-item-image">';
 						$item_output .= '<a' . $attributes . '>';

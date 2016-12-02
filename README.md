@@ -38,6 +38,15 @@ function my_allowed_depths( $array ) {
 
 add_filter( 'wdsmm_walker_nav_allowed_depths', 'my_allowed_depths' );
 ```
+#### ❕0.3.1 Compatibility Notice
+
+We have changed several filter names to better match the style found throughout the plugin.
+
+* `wds-mega-menu-title` is now `wdsmm_title`
+* `wds-mega-menu-content` is now `wdsmm_content`
+* `wds-mega-menu-read-more` is now `wdsmm_read_more`
+* `wds-mega-menu-inline-image` is now `wdsmm_inline_image`
+* `wds-mega-menus-image-size` is now `wdsmm_image_size` (N.B.: The original filter has `menus`, plural, not `menu`.)
 
 #### ❕0.3.0 Compatibility Notice
 
@@ -62,6 +71,7 @@ _none yet_
 * Various bug fixes.
 * Better SVG support.
 * Javascript updates for better practices.
+* Rename several filters to be in line with our standards.
 
 ### 0.3.0 ###
 * Default SVG icons now appear in admin dropdown if no SVG icons exist in theme.

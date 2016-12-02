@@ -37,7 +37,6 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * @since  0.3.1
 		 *
 		 * @author Dustin Filippini, Aubrey Portwood, Chris Reynolds, Jo Murgel
-		 * @todo   Add a way to determine whether to load minified js files.
 		 */
 		public function admin_enqueue_scripts( $force = false ) {
 			if ( ! $force && 'nav-menus' !== get_current_screen()->id ) {
@@ -55,7 +54,7 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 
 			wp_register_script( 'wds-mega-menus', wds_mega_menus()->url . "assets/js/wds-mega-menus{$min}.js", array( 'jquery' ), wds_mega_menus()->version, true );
 			wp_enqueue_script( 'wds-mega-menus' );
-			wp_enqueue_script( 'bootstrap-dropdown', wds_mega_menus()->url . 'assets/js/dropdowns-enhancement.js', array( 'jquery' ), wds_mega_menus()->version, true );
+			wp_enqueue_script( 'bootstrap-dropdown', wds_mega_menus()->url . "assets/js/dropdowns-enhancement{$min}.js", array( 'jquery' ), wds_mega_menus()->version, true );
 		}
 
 		/**
@@ -95,9 +94,11 @@ if ( ! class_exists( 'WDS_Mega_Menus_Admin' ) ) {
 		 * @param  int   $menu_id         Not used here.
 		 * @param  int   $menu_item_db_id The menu item post ID.
 		 * @param  array $args            Not used here.
-		 * @todo   Maybe add nonces when getting data from $_POST?
 		 */
 		public function update_nav_fields( $menu_id, $menu_item_db_id, $args ) {
+			if ( ! check_admin_referer( 'wdsmm_walker_nav_post_edit' ) ) {
+				wp_die( __( 'Invalid nonce used in form submission.', 'wds-mega-menus' ) );
+			}
 
 			// Hide on mobile.
 			if ( isset( $_POST['hide-menu-on-mobile'][ $menu_item_db_id ] ) ) {
