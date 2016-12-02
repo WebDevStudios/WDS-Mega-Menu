@@ -192,7 +192,14 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 			$item_output .= '</a>';
 
 			// The item title.
-			$item_title = apply_filters( 'wds-mega-menu-title', '<a' . $attributes . ' class="menu-item-description-title"><h3>' . ( ! $icon ) ? '' : $this->get_svg( $icon ) . apply_filters( 'the_title', $item->title, $item->ID ) . '</h3></a>' );
+			$item_title = '<a' . $attributes . ' class="menu-item-description-title"><h3>';
+			$item_title .= ( ! $icon ) ? '' : $this->get_svg( $icon );
+			$item_title .= apply_filters( 'the_title', $item->title, $item->ID );
+			$item_title .= '</h3></a>';
+			$item_title = apply_filters( 'wds-mega-menu-title', $item_title );
+
+			// Use additional title below image?
+			$item_use_title_below_image = apply_filters( 'wds-mega-menu-title-below-image', false );
 
 			// The item content.
 			$item_content = apply_filters( 'wds-mega-menu-content', wpautop( $item->post_content ) );
@@ -223,7 +230,11 @@ if ( ! class_exists( 'WDS_Mega_Menu_Walker' ) ) {
 					$item_output .= '</div>';
 
 					$item_output .= '<div class="menu-item-description">';
-						$item_output .= $item_title;
+
+						if ( $item_use_title_below_image ) {
+							$item_output .= $item_title;
+						}
+
 						$item_output .= $item_content;
 						$item_output .= $item_read_more;
 					$item_output .= '</div>';
